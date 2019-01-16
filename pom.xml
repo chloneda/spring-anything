@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.7.RELEASE</version>
+    </parent>
+    <groupId>com.magic.springboot</groupId>
+    <artifactId>magic-spring-boot</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <!--pom 不执行任何代码，只是为了聚合工程或传递依赖用的 -->
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-boot-with-jpa</module>
+        <module>spring-boot-with-druid</module>
+        <module>spring-boot-with-dynamic-db</module>
+        <module>springboot</module>
+    </modules>
+
+</project>
