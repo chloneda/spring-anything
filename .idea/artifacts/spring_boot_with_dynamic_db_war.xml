@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="spring-boot-with-dynamic-db:war">
-    <output-path>$PROJECT_DIR$/spring-boot-with-dynamic-db/target</output-path>
-    <root id="archive" name="spring-boot-with-dynamic-db-0.0.1-SNAPSHOT.war">
-      <element id="artifact" artifact-name="spring-boot-with-dynamic-db:war exploded" />
-    </root>
-  </artifact>
-</component>
