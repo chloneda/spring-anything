@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by chl on 2019/01/03
+ * Created by chl
  * Description:
  */
 @Service("dataProcService")
-public class DataProcManager implements DataProcService {
+public class DataProcServiceImpl implements DataProcService {
     @Autowired
     private DataProcDAO dataProcDAO;
 

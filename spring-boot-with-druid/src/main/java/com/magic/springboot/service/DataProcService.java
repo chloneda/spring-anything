@@ -11,5 +11,4 @@ public interface DataProcService {
 
     public List<Map<String,Object>> doQuery(String sql);
 
-
 }

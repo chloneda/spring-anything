@@ -13,7 +13,7 @@ import java.util.Map;
  * Description:
  */
 @Service("dataProcService")
-public class DataProcManager implements DataProcService {
+public class DataProcServiceImpl implements DataProcService {
     
     @Autowired
     private DataProcDAO dataProcDAO;

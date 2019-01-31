@@ -22,13 +22,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by chl on 2019/01/11
+ * Created by chl
  * Description:数据源初始化
  */
 public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar, EnvironmentAware {
     private static final Logger LOGGER = LoggerFactory.getLogger(DynamicDataSourceRegister.class);
     // 如配置文件中未指定数据源类型，使用该默认值
     private static final String DATASOURCE_DEFAULT_TYPE = "org.apache.tomcat.jdbc.pool.DataSource";
+    private static final String DEFAULT_DB_PREFIX="master.datasource.";
+    private static final String SLAVES_DB_PREFIX="slave.datasource.";
 
     private DataSource defaultDataSource;
     private Map<String, DataSource> slavesDataSource = new HashMap<String, DataSource>();
@@ -53,38 +55,12 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
 
     @Override
     public void setEnvironment(Environment env) {
+        LOGGER.info("======> 初始化数据源");
         initDruidProperties(env);
         initDefaultDataSource(env);
         initSlavesDataSource(env);
     }
 
-    @Override
-    public void registerBeanDefinitions(AnnotationMetadata annotationMetadata, BeanDefinitionRegistry beanRegistry) {
-        Map<Object, Object> targetDataSources = new HashMap<Object, Object>();
-        // 将主数据源添加到更多数据源中
-        targetDataSources.put("dataSource", defaultDataSource);
-        DynamicDataSourceContextHolder.dataSourceIds.add("dataSource");
-        // 添加更多数据源
-        targetDataSources.putAll(slavesDataSource);
-        for (String key : slavesDataSource.keySet()) {
-            DynamicDataSourceContextHolder.dataSourceIds.add(key);
-        }
-
-        // 创建DynamicDataSource
-        GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
-        beanDefinition.setBeanClass(DynamicDataSource.class);
-        beanDefinition.setSynthetic(true);
-        MutablePropertyValues mpv = beanDefinition.getPropertyValues();
-        mpv.addPropertyValue("defaultTargetDataSource", defaultDataSource);
-        mpv.addPropertyValue("targetDataSources", targetDataSources);
-        beanRegistry.registerBeanDefinition("dataSource", beanDefinition);
-
-        LOGGER.info("Dynamic DataSource Registry");
-    }
-
-    /**
-     * @param env
-     */
     private void initDruidProperties(Environment env) {
         RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, "druid.");
         filters = propertyResolver.getProperty("filters");
@@ -104,7 +80,7 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
     }
 
     private void initDefaultDataSource(Environment env) {
-        RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, "master.datasource.");
+        RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, DEFAULT_DB_PREFIX);
         Map<String, Object> dsPropMap = new HashMap<String, Object>();
         dsPropMap.put("type", propertyResolver.getProperty("type"));
         dsPropMap.put("driverClassName", propertyResolver.getProperty("driverClassName"));
@@ -113,6 +89,17 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
         dsPropMap.put("password", propertyResolver.getProperty("password"));
         defaultDataSource = buildDataSource(dsPropMap);
         bindDataSource(defaultDataSource, env);
+    }
+
+    private void initSlavesDataSource(Environment env) {
+        RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, SLAVES_DB_PREFIX);
+        String dsPrefixs = propertyResolver.getProperty("names");
+        for (String dataSourcePrefix : dsPrefixs.split(",")) {
+            Map<String,Object> dsMap=propertyResolver.getSubProperties(dataSourcePrefix+".");
+            DataSource dataSource=buildDataSource(dsMap);
+            slavesDataSource.put(dataSourcePrefix,dataSource);
+            bindDataSource(dataSource,env);
+        }
     }
 
     private void bindDataSource(DataSource dataSource, Environment env) {
@@ -140,11 +127,6 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
         if (type == null) {
             type = DATASOURCE_DEFAULT_TYPE;
         }
-        try {
-            Class<? extends DataSource> dataSourceType = (Class<? extends DataSource>) Class.forName((String)type);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
 
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setDriverClassName(dsMap.get("driverClassName").toString());
@@ -156,12 +138,12 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
         druidDataSource.setMinIdle(minIdle);
         druidDataSource.setMaxActive(maxActive);
         druidDataSource.setMaxWait(maxWait);
-        druidDataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        druidDataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
-        druidDataSource.setValidationQuery(validationQuery);
         druidDataSource.setTestWhileIdle(testWhileIdle);
         druidDataSource.setTestOnBorrow(testOnBorrow);
         druidDataSource.setTestOnReturn(testOnReturn);
+        druidDataSource.setValidationQuery(validationQuery);
+        druidDataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
+        druidDataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
         druidDataSource.setPoolPreparedStatements(poolPreparedStatements);
         druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
         druidDataSource.setConnectionProperties(connectionProperties);
@@ -177,14 +159,28 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
         return druidDataSource;
     }
 
-    private void initSlavesDataSource(Environment env) {
-        RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, "slave.datasource.");
-        String dsPrefixs = propertyResolver.getProperty("sources");
-        for (String dataSourcePrefix : dsPrefixs.split(",")) {
-            Map<String,Object> dsMap=propertyResolver.getSubProperties(dataSourcePrefix+".");
-            DataSource dataSource=buildDataSource(dsMap);
-            slavesDataSource.put(dataSourcePrefix,dataSource);
-            bindDataSource(dataSource,env);
+    @Override
+    public void registerBeanDefinitions(AnnotationMetadata annotationMetadata, BeanDefinitionRegistry beanRegistry) {
+        Map<Object, Object> targetDataSources = new HashMap<Object, Object>();
+        // 将主数据源添加到更多数据源中
+        targetDataSources.put("dataSource", defaultDataSource);
+        DynamicDataSourceContextHolder.dataSourceIds.add("dataSource");
+        // 添加更多数据源
+        targetDataSources.putAll(slavesDataSource);
+        for (String key : slavesDataSource.keySet()) {
+            DynamicDataSourceContextHolder.dataSourceIds.add(key);
         }
+
+        // 创建DynamicDataSource
+        GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
+        beanDefinition.setBeanClass(DynamicDataSource.class);
+        beanDefinition.setSynthetic(true);
+        MutablePropertyValues mpv = beanDefinition.getPropertyValues();
+        mpv.addPropertyValue("defaultTargetDataSource", defaultDataSource);
+        mpv.addPropertyValue("targetDataSources", targetDataSources);
+        beanRegistry.registerBeanDefinition("dataSource", beanDefinition);
+
+        LOGGER.info("======> 动态数据源注册!");
     }
+
 }

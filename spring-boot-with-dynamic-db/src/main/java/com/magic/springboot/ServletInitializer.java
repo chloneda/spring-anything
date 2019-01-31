@@ -1,7 +1,7 @@
 package com.magic.springboot;
 
 /**
- * Created by chl on 2019/01/22
+ * Created by chl
  * Description:
  */
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -11,7 +11,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(DynamicDBSourceApplication.class);
+        return application.sources(DynamicDBApplication.class);
     }
 
 }
