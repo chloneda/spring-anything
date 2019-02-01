@@ -14,15 +14,14 @@
     <!--pom 不执行任何代码，只是为了聚合工程或传递依赖用的 -->
     <packaging>pom</packaging>
     <modules>
+        <module>springboot</module>
         <module>spring-boot-with-jpa</module>
         <module>spring-boot-with-druid</module>
         <module>spring-boot-with-dynamic-db</module>
-        <module>springboot</module>
         <module>spring-boot-with-schedule</module>
         <module>spring-boot-with-hibernate</module>
         <module>spring-boot-with-mybatis</module>
         <module>spring-boot-with-freemarker</module>
-        <module>spring-boot-with-dubbo</module>
     </modules>
 
 </project>

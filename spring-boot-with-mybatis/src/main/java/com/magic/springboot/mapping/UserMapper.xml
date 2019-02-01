@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.magic.springboot.mapper.TestXmlMapper">
+    <select id="findAccountsById" resultType="com.magic.springboot.model.Account">
+    <![CDATA[
+
+
+            select  id as id,
+			 name as name,
+			 money as money
+			 from account
+			 where
+			 id >= #{id}
+
+
+        ]]>
+  </select>
+    <select id="getAccountById" parameterType="int"
+            resultType="com.magic.springboot.model.Account">
+    <![CDATA[
+
+
+            select  id as id,name as name,money as money
+			 from account
+			 where
+            id = #{id}
+
+
+        ]]>
+  </select>
+    <insert id="insertAccount" parameterType="com.magic.springboot.model.Account"
+            keyColumn="`id`" keyProperty="`id`" useGeneratedKeys="true">
+        insert into account (name,money) values (#{name},#{money})
+    </insert>
+</mapper>
