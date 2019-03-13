@@ -15,10 +15,17 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.scheduling.support.CronTrigger;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
-
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by chl
@@ -60,17 +67,25 @@ import java.util.Properties;
 @EnableScheduling
 public class DynamicCronTask implements SchedulingConfigurer{
     private static final Logger LOGGER= LoggerFactory.getLogger(DynamicCronTask.class);
+    private static SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
     private DataProcService dataProcService;
 
+    /**
+     * 方式1: 注解实现，缺点是修改时需要重启服务器
+     */
     //@Scheduled(cron = "${scheduledTask.cron}")
     public void scheduled(){
         // 逻辑任务
-        dataProcService.doQuery("select * from m_druid_test");
-        LOGGER.info("DynamicCronTask is running...");
+        dataProcService.doQuery("select * from mag_user");
+        LOGGER.info("Scheduled is running...");
     }
 
+    /**
+     * 方式2: spring中实现,动态获取Cron表达式，修改时不需重启服务器
+     * @param taskRegister
+     */
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegister) {
         taskRegister.addTriggerTask(task,trigger);
@@ -80,7 +95,7 @@ public class DynamicCronTask implements SchedulingConfigurer{
         @Override
         public void run() {
             // 逻辑任务
-            dataProcService.doQuery("select * from m_druid_test");
+            dataProcService.doQuery("select * from mag_user");
             LOGGER.info("DynamicCronTask is running....");
         }
     };
@@ -106,5 +121,85 @@ public class DynamicCronTask implements SchedulingConfigurer{
             return nextExecTime;
         }
     };
+
+    /**
+     * 方式3: JDK原生定时任务方法，缺点因为Timer底层是使用一个单线来实现多个Timer任务处理的，所有任务都是由同一个线程来调度，
+     * 所有任务都是串行执行，意味着同一时间只能有一个任务得到执行，而前一个任务的延迟或者异常会影响到之后的任务。
+     */
+    @PostConstruct
+    public void scheduledWithTimer(){
+        long interval=1;
+        long now = System.currentTimeMillis();
+        long start = interval - now % interval;
+        Timer timer=new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                // 逻辑任务
+                dataProcService.doQuery("select * from mag_user");
+                LOGGER.info("ScheduledWithTimer is running....");
+
+            }
+        },start,3*1000);
+    }
+
+    /**
+     * 方式4: Timer的替代方法
+     */
+    @PostConstruct
+    public void scheduledWithScheduledExecutorService(){
+        //ScheduledExecutorService exec1= Executors.newScheduledThreadPool(1);
+        ScheduledExecutorService exec = new ScheduledThreadPoolExecutor(1);
+
+        //创建并执行一个在给定初始延迟后首次启用的定期操作，后续操作具有给定的周期
+        exec.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(format.format(new Date()));
+            }
+        }, 1000, 5000, TimeUnit.MILLISECONDS);
+
+        //开始执行后就触发异常,next周期将不会运行
+        exec.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("RuntimeException no catch,next time can't run");
+                throw new RuntimeException();
+            }
+        }, 1000, 5000, TimeUnit.MILLISECONDS);
+
+        //虽然抛出了运行异常,当被拦截了,next周期继续运行
+        exec.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    throw new RuntimeException();
+                }catch (Exception e){
+                    System.out.println("RuntimeException catched,can run next");
+                }
+            }
+        }, 1000, 5000, TimeUnit.MILLISECONDS);
+
+        // 在给定初始延迟后,每一次执行终止和下一次执行开始之间都存在给定的延迟。
+        exec.scheduleWithFixedDelay(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("scheduleWithFixedDelay:begin,"+format.format(new Date()));
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("scheduleWithFixedDelay:end,"+format.format(new Date()));
+            }
+        },1000,5000, TimeUnit.MILLISECONDS);
+
+        //创建并执行在给定延迟后启用的一次性操作。
+        exec.schedule(new Runnable() {
+            public void run() {
+                System.out.println("The thread can only run once!");
+            }
+        },5000,TimeUnit.MILLISECONDS);
+    }
 
 }
