@@ -17,7 +17,6 @@
         <module>springboot</module>
         <module>spring-boot-with-jpa</module>
         <module>spring-boot-with-druid</module>
-        <module>spring-boot-with-dynamic-db</module>
         <module>spring-boot-with-schedule</module>
         <module>spring-boot-with-hibernate</module>
         <module>spring-boot-with-mybatis</module>

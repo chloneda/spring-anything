@@ -1,9 +1,5 @@
 package com.magic.springboot;
 
-/**
- * Created by chl
- * Description:
- */
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
@@ -11,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(DynamicDBApplication.class);
+        return application.sources(DynamicDbApplication.class);
     }
 
 }
