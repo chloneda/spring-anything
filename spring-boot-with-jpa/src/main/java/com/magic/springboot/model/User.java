@@ -17,8 +17,8 @@ public class User {
     private String username;
     @Column(name="password",nullable = false)
     private String password;
-    @Column(name="sex",nullable = false)
-    private String sex;
+    @Column(name="money",nullable = false)
+    private double money;
 
     public int getId() {
         return id;
@@ -44,12 +44,12 @@ public class User {
         this.password = password;
     }
 
-    public String getSex() {
-        return sex;
+    public double getMoney() {
+        return money;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setSex(double money) {
+        this.money = money;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", sex='" + sex + '\'' +
+                ", money='" + money + '\'' +
                 '}';
     }
 

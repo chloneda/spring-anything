@@ -7,16 +7,16 @@ package com.magic.springboot.model;
 public class User {
     private int id;
     private String name;
-    private String account;
+    private double money;
     private String password;
 
     public User() {
     }
 
-    public User(int id, String name, String account, String password) {
+    public User(int id, String name, double money, String password) {
         this.id = id;
         this.name = name;
-        this.account = account;
+        this.money = money;
         this.password = password;
     }
 
@@ -36,12 +36,12 @@ public class User {
         this.name = name;
     }
 
-    public String getAccount() {
-        return account;
+    public double getMoney() {
+        return money;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setMoney(double money) {
+        this.money = money;
     }
 
     public String getPassword() {
@@ -51,4 +51,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

@@ -6,5 +6,4 @@ package com.magic.springboot.service;
  */
 public class UserServiceImpl implements UserService {
 
-
 }

@@ -17,16 +17,16 @@ public class User {
     private String username;
     @Column(name="password",nullable = false)
     private String password;
-    @Column(name="sex",nullable = false)
-    private String sex;
+    @Column(name="money",nullable = false)
+    private double money;
 
     public User(){}
 
-    public User(int id,String username,String password,String sex){
+    public User(int id,String username,String password,double money){
         this.id=id;
         this.username=username;
         this.password=password;
-        this.sex=sex;
+        this.money=money;
     }
 
     public int getId() {
@@ -53,12 +53,12 @@ public class User {
         this.password = password;
     }
 
-    public String getSex() {
-        return sex;
+    public double getMoney() {
+        return money;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setMoney(double money) {
+        this.money = money;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", sex='" + sex + '\'' +
+                ", money='" + money + '\'' +
                 '}';
     }
 

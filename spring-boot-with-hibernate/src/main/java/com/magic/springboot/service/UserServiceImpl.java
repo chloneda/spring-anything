@@ -27,6 +27,8 @@ public class UserServiceImpl implements UserService{
     public void transaction() throws Exception{
         User user = new User();
         user.setUsername("haili");
+        user.setPassword("123ss");
+        user.setMoney(1999.0);
         this.userDAO.save(user);
     }
 }

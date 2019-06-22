@@ -1,36 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.magic.springboot.mapper.TestXmlMapper">
-    <select id="findAccountsById" resultType="com.magic.springboot.model.Account">
-    <![CDATA[
-
-
+<mapper namespace="com.magic.springboot.mapper.UserMapper">
+    <select id="findAccountsById" resultType="com.magic.springboot.model.User">
+        <![CDATA[
             select  id as id,
-			 name as name,
-			 money as money
-			 from account
+			    username as username,
+			    password as password,
+			    money as money
+			 from mag_user
 			 where
-			 id >= #{id}
-
-
+			    id >= #{id}
         ]]>
-  </select>
+    </select>
     <select id="getAccountById" parameterType="int"
-            resultType="com.magic.springboot.model.Account">
-    <![CDATA[
-
-
-            select  id as id,name as name,money as money
-			 from account
+            resultType="com.magic.springboot.model.User">
+        <![CDATA[
+            select  id as id,username as username,password as password,money as money
+			 from mag_user
 			 where
-            id = #{id}
-
-
+                id = #{id}
         ]]>
-  </select>
-    <insert id="insertAccount" parameterType="com.magic.springboot.model.Account"
+    </select>
+    <insert id="insertAccount" parameterType="com.magic.springboot.model.User"
             keyColumn="`id`" keyProperty="`id`" useGeneratedKeys="true">
-        insert into account (name,money) values (#{name},#{money})
+        insert into mag_user (username,password,money) values (#{name},#{password},#{money})
     </insert>
 </mapper>

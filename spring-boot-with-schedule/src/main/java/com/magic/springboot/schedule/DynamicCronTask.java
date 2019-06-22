@@ -18,10 +18,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Properties;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -78,8 +75,8 @@ public class DynamicCronTask implements SchedulingConfigurer{
     //@Scheduled(cron = "${scheduledTask.cron}")
     public void scheduled(){
         // 逻辑任务
-        dataProcService.doQuery("select * from mag_user");
-        LOGGER.info("Scheduled is running...");
+        List<Map<String,Object>> userList = dataProcService.doQuery("select * from mag_user");
+        LOGGER.info("Scheduled is running...The userList data is : "+userList);
     }
 
     /**
@@ -95,8 +92,8 @@ public class DynamicCronTask implements SchedulingConfigurer{
         @Override
         public void run() {
             // 逻辑任务
-            dataProcService.doQuery("select * from mag_user");
-            LOGGER.info("DynamicCronTask is running....");
+            List<Map<String,Object>> userList=dataProcService.doQuery("select * from mag_user");
+            LOGGER.info("DynamicCronTask is running...The userList data is : "+userList);
         }
     };
 
@@ -136,8 +133,8 @@ public class DynamicCronTask implements SchedulingConfigurer{
             @Override
             public void run() {
                 // 逻辑任务
-                dataProcService.doQuery("select * from mag_user");
-                LOGGER.info("ScheduledWithTimer is running....");
+                List<Map<String,Object>> userList=dataProcService.doQuery("select * from mag_user");
+                LOGGER.info("ScheduledWithTimer is running...The userList data is : "+userList);
 
             }
         },start,3*1000);
@@ -155,18 +152,18 @@ public class DynamicCronTask implements SchedulingConfigurer{
         exec.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
-                System.out.println(format.format(new Date()));
+                LOGGER.info(format.format(new Date()));
             }
-        }, 1000, 5000, TimeUnit.MILLISECONDS);
+        }, 1000, 3000, TimeUnit.MILLISECONDS);
 
         //开始执行后就触发异常,next周期将不会运行
         exec.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
-                System.out.println("RuntimeException no catch,next time can't run");
+                LOGGER.info("RuntimeException no catch,next time can't run");
                 throw new RuntimeException();
             }
-        }, 1000, 5000, TimeUnit.MILLISECONDS);
+        }, 1000, 3000, TimeUnit.MILLISECONDS);
 
         //虽然抛出了运行异常,当被拦截了,next周期继续运行
         exec.scheduleAtFixedRate(new Runnable() {
@@ -175,31 +172,32 @@ public class DynamicCronTask implements SchedulingConfigurer{
                 try{
                     throw new RuntimeException();
                 }catch (Exception e){
-                    System.out.println("RuntimeException catched,can run next");
+                    LOGGER.info("RuntimeException catched,can run next");
                 }
             }
-        }, 1000, 5000, TimeUnit.MILLISECONDS);
+        }, 1000, 3000, TimeUnit.MILLISECONDS);
 
         // 在给定初始延迟后,每一次执行终止和下一次执行开始之间都存在给定的延迟。
         exec.scheduleWithFixedDelay(new Runnable() {
             @Override
             public void run() {
-                System.out.println("scheduleWithFixedDelay:begin,"+format.format(new Date()));
+                LOGGER.info("scheduleWithFixedDelay:begin,"+format.format(new Date()));
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("scheduleWithFixedDelay:end,"+format.format(new Date()));
+                LOGGER.info("scheduleWithFixedDelay:end,"+format.format(new Date()));
             }
-        },1000,5000, TimeUnit.MILLISECONDS);
+        },1000,3000, TimeUnit.MILLISECONDS);
 
         //创建并执行在给定延迟后启用的一次性操作。
         exec.schedule(new Runnable() {
             public void run() {
-                System.out.println("The thread can only run once!");
+                LOGGER.info("The thread can only run once!");
             }
-        },5000,TimeUnit.MILLISECONDS);
+        },3000,TimeUnit.MILLISECONDS);
+
     }
 
 }

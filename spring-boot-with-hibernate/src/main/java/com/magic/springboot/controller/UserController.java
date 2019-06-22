@@ -23,7 +23,7 @@ public class UserController {
     @RequestMapping(value = "/getUser",method = RequestMethod.GET)
     public User getUser(String username){
         User user=userService.getUser(username);
-        LOGGER.info("=====> User"+user);
+        LOGGER.info("=====> User: "+user);
         return user;
     }
 

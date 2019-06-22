@@ -16,5 +16,4 @@ public interface DataProcDAO {
      */
     List<Map<String,Object>> query(String sql);
 
-
 }

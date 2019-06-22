@@ -1,7 +1,7 @@
 package com.magic.springboot.controller;
 
-import com.magic.springboot.model.Account;
-import com.magic.springboot.service.ITestService;
+import com.magic.springboot.model.User;
+import com.magic.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,15 +18,15 @@ import java.util.List;
  */
 @RestController
 @Controller
-public class TestController {
-    private org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(TestController.class);
+public class UserController {
+    private org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(UserController.class);
     @Autowired
-    private ITestService testService;
+    private UserService testService;
 
     @ResponseBody
     @RequestMapping("/test")
-    public List<Account> test(HttpServletRequest request, HttpServletResponse response) {
-        List<Account> accountList = this.testService.findAccountsById(3);
+    public List<User> test(HttpServletRequest request, HttpServletResponse response) {
+        List<User> accountList = this.testService.findAccountsById(123);
         logger.info(accountList);
         return accountList;
     }

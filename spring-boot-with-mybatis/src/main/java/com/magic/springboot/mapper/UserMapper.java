@@ -1,6 +1,6 @@
 package com.magic.springboot.mapper;
 
-import com.magic.springboot.model.Account;
+import com.magic.springboot.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -11,27 +11,29 @@ import java.util.List;
  * Created by chl
  * Description:
  */
-public interface TestMapper {
+public interface UserMapper {
 
     String ADD_MONEY = "update account set money = money+#{1} where id = #{0}";
 
     String MINUS_MONEY = "update account set money = money-#{1} where id = #{0}";
 
-    String INSERT_ACCOUT = "insert into account (name,money) values (#{name},#{money})";
+    String INSERT_ACCOUT = "insert into mag_user (username,password,money) values (#{name},#{password},#{money})";
 
     String FIND_ACCOUNT_BY_ID = "select " +
             " id as id," +
-            " name as name," +
+            " username as username," +
+            " password as password," +
             " money as money" +
-            " from account " +
+            " from mag_user " +
             " where " +
             " id = #{id}";
 
     String FIND_ACCOUNTS_BY_ID = "select " +
             " id as id," +
-            " name as name," +
+            " username as username," +
+            " password as password," +
             " money as money" +
-            " from account " +
+            " from mag_user " +
             " where " +
             " id >= #{id}";
 
@@ -43,15 +45,15 @@ public interface TestMapper {
 
     @Insert(INSERT_ACCOUT)
     //@CacheEvict(value = {"indexCache"},allEntries = true,beforeInvocation = true)
-    public int insertAccount(Account account);
+    public int insertAccount(User account);
 
     @Select(FIND_ACCOUNT_BY_ID)
     //@Cacheable(value = "indexCache",key = "'getAccountById'+#id")
-    public Account getAccountById(int id);
+    public User getAccountById(int id);
 
     @Select(FIND_ACCOUNTS_BY_ID)
     //@Cacheable(value = "indexCache",key = "'findAccountsById'+#id")
-    public List<Account> findAccountsById(int id);
+    public List<User> findAccountsById(int id);
 
 
 }
