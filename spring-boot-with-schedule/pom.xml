@@ -2,18 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>magic-spring-boot</artifactId>
-        <groupId>com.magic.springboot</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.magic.springboot</groupId>
+        <artifactId>magic-spring-boot</artifactId>
+        <version>0.0.3-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
+    </parent>
 
     <groupId>com.magic.springboot</groupId>
     <artifactId>spring-boot-with-schedule</artifactId>
+    <version>${magic.springboot.version}</version>
+    <packaging>war</packaging>
+
+    <description>Schedule Project for Spring Boot</description>
+    <name>spring-boot-with-schedule</name>
 
     <properties>
-        <java.version>1.8</java.version>
+        <start-class>com.magic.springboot.ScheduleApplication</start-class>
     </properties>
 
     <dependencies>
@@ -39,36 +45,57 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j</artifactId>
-            <version>1.3.7.RELEASE</version>
-        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.38</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.1.10</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.6</version>
         </dependency>
-
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <maven.db.driver>com.mysql.jdbc.Driver</maven.db.driver>
+                <maven.db.url>jdbc:mysql://localhost:3306/magicboot?useSSL=false&amp;characterEncoding=UTF8</maven.db.url>
+                <maven.db.username>root</maven.db.username>
+                <maven.db.password>123456</maven.db.password>
+                <maven.db.hibernate.dialect>org.hibernate.dialect.MySQL5Dialect</maven.db.hibernate.dialect>
+                <maven.db.testquery>SELECT 1</maven.db.testquery>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <archive>
+                        <manifest>
+                            <mainClass>${start-class}</mainClass>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>

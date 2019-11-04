@@ -5,7 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+//import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
  * Created by chl
@@ -14,9 +15,9 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 @SpringBootApplication
 public class FreemarkerApplication extends SpringBootServletInitializer {
 
-    static Logger logger = LoggerFactory.getLogger(FreemarkerApplication.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(FreemarkerApplication.class);
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(FreemarkerApplication.class, args);
     }
     @Override
