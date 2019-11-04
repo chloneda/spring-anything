@@ -1,7 +1,7 @@
 # magic-spring-boot
 
 ## 简介
-本项目使用Spring boot，并结合一些实用的技术集成到当前项目，即Spring boot集成druid数据库连接池，Spring boot实现druid的动态数据源，Spring boot实现定时任务schedule，Spring boot集成mybatis等，如有错误欢迎大家指正。
+本项目使用Spring boot，并结合一些实用的技术集成到当前项目，即Spring boot集成druid数据库连接池，Spring boot实现druid的动态数据源，Spring boot实现定时任务schedule，Spring boot集成mybatis等，如有错误，欢迎大家指正！
 
 ## modules说明
 - [spring-boot-dubbo-plugin](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-dubbo-plugin)：Spring boot集成Dubbo。

@@ -11,8 +11,11 @@
     </parent>
 
     <groupId>com.magic.springboot</groupId>
-    <artifactId>dobbo-interface</artifactId>
+    <artifactId>dubbo-interface</artifactId>
     <version>${duboo.project.version}</version>
     <packaging>jar</packaging>
+
+    <description>Dubbo for Spring Boot</description>
+    <name>dubbo-interface</name>
 
 </project>

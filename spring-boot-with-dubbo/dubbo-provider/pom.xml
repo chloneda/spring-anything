@@ -11,11 +11,12 @@
     </parent>
 
     <groupId>com.magic.springboot</groupId>
-    <artifactId>dobbo-consumer</artifactId>
+    <artifactId>dubbo-provider</artifactId>
     <version>${duboo.project.version}</version>
+    <packaging>jar</packaging>
 
     <description>Dubbo for Spring Boot</description>
-    <name>spring-boot-with-dubbo</name>
+    <name>dubbo-provider</name>
 
     <dependencies>
         <dependency>
@@ -32,20 +33,28 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.magic.springboot</groupId>
-            <artifactId>dobbo-interface</artifactId>
-            <scope>compile</scope>
+            <artifactId>dubbo-interface</artifactId>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -65,4 +74,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
