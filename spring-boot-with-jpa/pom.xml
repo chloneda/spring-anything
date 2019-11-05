@@ -72,6 +72,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.magic.springboot</groupId>
+            <artifactId>spring-boot-with-common</artifactId>
+        </dependency>
     </dependencies>
 
     <profiles>

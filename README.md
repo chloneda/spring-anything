@@ -6,6 +6,8 @@
 ## modules说明
 - [spring-boot-dubbo-plugin](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-dubbo-plugin)：Spring boot集成Dubbo。
 
+- [spring-boot-with-common](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-common)：该项目的公共基础类，如实体类、DTO等。
+
 - [spring-boot-with-druid](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-druid)：Spring boot集成druid数据库连接池。
 
 - [spring-boot-with-dubbo](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-dubbo)：Spring boot集成Dubbo。
@@ -16,7 +18,7 @@
 
 - [spring-boot-with-hibernate](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-hibernate)：Spring boot集成Hibernate。
 
-- [spring-boot-with-jpa](https://github.com/chloneda/shell/magic-spring-boot/master/spring-boot-with-jpa)：Spring boot的JPA示例。
+- [spring-boot-with-jpa](https://github.com/chloneda/shell/magic-spring-boot/master/spring-boot-with-jpa)：Spring boot的JPA示例,并集成Swagger，便于调试。
 
 - [spring-boot-with-mybatis](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-mybatis)：Spring boot集成Mybatis。
 

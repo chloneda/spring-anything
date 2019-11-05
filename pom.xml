@@ -20,6 +20,7 @@
 
     <modules>
         <module>springboot</module>
+        <module>spring-boot-with-common</module>
         <module>spring-boot-with-jpa</module>
         <module>spring-boot-with-dubbo</module>
         <module>spring-boot-dubbo-plugin</module>
@@ -74,6 +75,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.magic.springboot</groupId>
+                <artifactId>spring-boot-with-common</artifactId>
+                <version>${magic.springboot.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
