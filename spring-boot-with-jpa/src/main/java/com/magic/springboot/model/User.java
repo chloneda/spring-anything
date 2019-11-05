@@ -1,30 +1,40 @@
 package com.magic.springboot.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @Entity
-@Table(name="mag_user")
-public class User {
-    @Id
-    @GeneratedValue
-    @Column(name="id",nullable = false)
-    private int id;
-    @Column(name="username",nullable = false)
-    private String username;
-    @Column(name="password",nullable = false)
-    private String password;
-    @Column(name="money",nullable = false)
-    private double money;
+@Table(name="MAG_USER")
+public class User implements Serializable {
 
-    public int getId() {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(generator="system_uuid")
+    @GenericGenerator(name="system_uuid",strategy="uuid")
+    @Column(name="USER_ID", unique = true, nullable = false,length = 128)
+    private String id;
+
+    @Column(name="USERNAME",nullable = false,length = 128)
+    private String username;
+
+    @Column(name="PASSWORD",nullable = false,length = 128)
+    private String password;
+
+    @Column(name="SEX",nullable = false,length = 128)
+    private String sex;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -44,12 +54,12 @@ public class User {
         this.password = password;
     }
 
-    public double getMoney() {
-        return money;
+    public String getSex() {
+        return sex;
     }
 
-    public void setSex(double money) {
-        this.money = money;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     @Override
@@ -58,7 +68,7 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", money='" + money + '\'' +
+                ", sex='" + sex + '\'' +
                 '}';
     }
 
