@@ -3,8 +3,8 @@ package com.magic.springboot.dao;
 import com.magic.springboot.model.User;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 public interface UserDAO {
 

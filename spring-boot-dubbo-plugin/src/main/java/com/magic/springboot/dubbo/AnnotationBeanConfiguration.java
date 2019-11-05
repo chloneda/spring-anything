@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 /**
- * Created by chloneda
+ * @Created by chloneda
  */
 @Configuration
 @ConditionalOnMissingClass

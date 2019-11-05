@@ -12,7 +12,7 @@
     <groupId>com.magic.springboot</groupId>
     <artifactId>spring-boot-with-jpa</artifactId>
     <version>${magic.springboot.version}</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <description>Jpa Project for Spring Boot</description>
     <name>spring-boot-with-jpa</name>

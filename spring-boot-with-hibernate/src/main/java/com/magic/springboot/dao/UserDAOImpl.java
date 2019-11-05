@@ -7,8 +7,8 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @Repository("userDAOImpl")
 public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {

@@ -25,9 +25,9 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by chl
- * Description:Cron表达式
- *
+ * @Created by chloneda
+ * @Description:Cron表达式
+ * <p>
  * 一个cron表达式有至少6个（也可能7个）有空格分隔的时间元素。按顺序依次为
  * 秒（0~59）
  * 分钟（0~59）
@@ -36,10 +36,10 @@ import java.util.concurrent.TimeUnit;
  * 月（0~11）
  * 天（星期）（1~7 1=SUN 或 SUN，MON，TUE，WED，THU，FRI，SAT）
  * 年份（1970－2099）
- *
+ * <p>
  * 其中每个元素可以是一个值(如6),一个连续区间(9-12),一个间隔时间(8-18/4)(/表示每隔4小时),
  * 一个列表(1,3,5),通配符。由于"月份中的日期"和"星期中的日期"这两个元素互斥的,必须要对其中一个设置?
- *
+ * <p>
  * 0 0 10,14,16 * * ? 每天上午10点，下午2点，4点
  * 0 0/30 9-17 * * ? 朝九晚五工作时间内每半小时
  * 0 0 12 ? * WED 表示每个星期三中午12点
@@ -62,9 +62,9 @@ import java.util.concurrent.TimeUnit;
  */
 @Component("scheduledTask")
 @EnableScheduling
-public class DynamicCronTask implements SchedulingConfigurer{
-    private static final Logger LOGGER= LoggerFactory.getLogger(DynamicCronTask.class);
-    private static SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+public class DynamicCronTask implements SchedulingConfigurer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DynamicCronTask.class);
+    private static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
     private DataProcService dataProcService;
@@ -73,48 +73,50 @@ public class DynamicCronTask implements SchedulingConfigurer{
      * 方式1: 注解实现，缺点是修改时需要重启服务器
      */
     //@Scheduled(cron = "${scheduledTask.cron}")
-    public void scheduled(){
+    public void scheduled() {
         // 逻辑任务
-        List<Map<String,Object>> userList = dataProcService.doQuery("select * from mag_user");
-        LOGGER.info("Scheduled is running...The userList data is : "+userList);
+        List<Map<String, Object>> userList = dataProcService.doQuery("select * from mag_user");
+        LOGGER.info("Scheduled is running...The userList data is : " + userList);
     }
 
     /**
      * 方式2: spring中实现,动态获取Cron表达式，修改时不需重启服务器
+     *
      * @param taskRegister
      */
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegister) {
-        taskRegister.addTriggerTask(task,trigger);
+        taskRegister.addTriggerTask(task, trigger);
     }
 
-    Runnable task=new Runnable() {
+    Runnable task = new Runnable() {
         @Override
         public void run() {
             // 逻辑任务
-            List<Map<String,Object>> userList=dataProcService.doQuery("select * from mag_user");
-            LOGGER.info("DynamicCronTask is running...The userList data is : "+userList);
+            List<Map<String, Object>> userList = dataProcService.doQuery("select * from mag_user");
+            LOGGER.info("DynamicCronTask is running...The userList data is : " + userList);
         }
     };
 
-    Trigger trigger=new Trigger() {
+    Trigger trigger = new Trigger() {
         @Override
         public Date nextExecutionTime(TriggerContext triggerContext) {
-            String cron=null;
+            String cron = null;
             try {
 //                String path=Thread.currentThread().getContextClassLoader().getResource("").getPath();
 //                InputStream in =new FileInputStream(path+"/application.properties");
 //                Properties properties=new Properties();
 //                properties.load(in);
 
-                ClassPathResource resource=new ClassPathResource("application.properties");
-                Properties properties=PropertiesLoaderUtils.loadProperties(resource);
-                cron=properties.getProperty("scheduledTask.cron");
-            } catch (IOException e) { }
-            if(StringUtils.isBlank(cron))return null;
+                ClassPathResource resource = new ClassPathResource("application.properties");
+                Properties properties = PropertiesLoaderUtils.loadProperties(resource);
+                cron = properties.getProperty("scheduledTask.cron");
+            } catch (IOException e) {
+            }
+            if (StringUtils.isBlank(cron)) return null;
             // 任务触发，可修改任务的执行周期
             CronTrigger cronTrigger = new CronTrigger(cron);
-            Date nextExecTime=cronTrigger.nextExecutionTime(triggerContext);
+            Date nextExecTime = cronTrigger.nextExecutionTime(triggerContext);
             return nextExecTime;
         }
     };
@@ -124,27 +126,27 @@ public class DynamicCronTask implements SchedulingConfigurer{
      * 所有任务都是串行执行，意味着同一时间只能有一个任务得到执行，而前一个任务的延迟或者异常会影响到之后的任务。
      */
     @PostConstruct
-    public void scheduledWithTimer(){
-        long interval=1;
+    public void scheduledWithTimer() {
+        long interval = 1;
         long now = System.currentTimeMillis();
         long start = interval - now % interval;
-        Timer timer=new Timer();
+        Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 // 逻辑任务
-                List<Map<String,Object>> userList=dataProcService.doQuery("select * from mag_user");
-                LOGGER.info("ScheduledWithTimer is running...The userList data is : "+userList);
+                List<Map<String, Object>> userList = dataProcService.doQuery("select * from mag_user");
+                LOGGER.info("ScheduledWithTimer is running...The userList data is : " + userList);
 
             }
-        },start,3*1000);
+        }, start, 3 * 1000);
     }
 
     /**
      * 方式4: Timer的替代方法
      */
     @PostConstruct
-    public void scheduledWithScheduledExecutorService(){
+    public void scheduledWithScheduledExecutorService() {
         //ScheduledExecutorService exec1= Executors.newScheduledThreadPool(1);
         ScheduledExecutorService exec = new ScheduledThreadPoolExecutor(1);
 
@@ -169,9 +171,9 @@ public class DynamicCronTask implements SchedulingConfigurer{
         exec.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
-                try{
+                try {
                     throw new RuntimeException();
-                }catch (Exception e){
+                } catch (Exception e) {
                     LOGGER.info("RuntimeException catched,can run next");
                 }
             }
@@ -181,22 +183,22 @@ public class DynamicCronTask implements SchedulingConfigurer{
         exec.scheduleWithFixedDelay(new Runnable() {
             @Override
             public void run() {
-                LOGGER.info("scheduleWithFixedDelay:begin,"+format.format(new Date()));
+                LOGGER.info("scheduleWithFixedDelay:begin," + format.format(new Date()));
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                LOGGER.info("scheduleWithFixedDelay:end,"+format.format(new Date()));
+                LOGGER.info("scheduleWithFixedDelay:end," + format.format(new Date()));
             }
-        },1000,3000, TimeUnit.MILLISECONDS);
+        }, 1000, 3000, TimeUnit.MILLISECONDS);
 
         //创建并执行在给定延迟后启用的一次性操作。
         exec.schedule(new Runnable() {
             public void run() {
                 LOGGER.info("The thread can only run once!");
             }
-        },3000,TimeUnit.MILLISECONDS);
+        }, 3000, TimeUnit.MILLISECONDS);
 
     }
 

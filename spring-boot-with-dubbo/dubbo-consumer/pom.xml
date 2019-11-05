@@ -13,6 +13,7 @@
     <groupId>com.magic.springboot</groupId>
     <artifactId>dubbo-consumer</artifactId>
     <version>${duboo.project.version}</version>
+    <packaging>jar</packaging>
 
     <description>Dubbo for Spring Boot</description>
     <name>dubbo-consumer</name>

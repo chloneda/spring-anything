@@ -3,13 +3,13 @@ package com.magic.springboot.service;
 import com.magic.springboot.model.User;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 public interface UserService {
 
     User getUser(String username);
 
-    public void transaction() throws Exception;
+    void transaction() throws Exception;
 
 }

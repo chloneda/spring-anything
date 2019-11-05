@@ -12,6 +12,7 @@
 
     <artifactId>spring-boot-dubbo-plugin</artifactId>
     <version>${magic.springboot.version}</version>
+    <packaging>jar</packaging>
 
     <description>Dubbo plugin for Spring Boot</description>
     <name>spring-boot-dubbo-plugin</name>

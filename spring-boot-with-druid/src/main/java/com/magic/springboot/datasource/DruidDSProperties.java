@@ -3,8 +3,8 @@ package com.magic.springboot.datasource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Created by chl on 2019/01/03
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @ConfigurationProperties(prefix = "spring.datasource.druid")
 public class DruidDSProperties {

@@ -3,8 +3,8 @@ package com.magic.springboot.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @ConfigurationProperties(
         prefix = "spring.hibernate"

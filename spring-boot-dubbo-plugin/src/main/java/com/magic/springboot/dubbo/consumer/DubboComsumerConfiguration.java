@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Created by chloneda
+ * @Created by chloneda
  */
 @Configuration
 @EnableConfigurationProperties({DubboProperties.class})
@@ -22,8 +22,6 @@ public class DubboComsumerConfiguration {
 
     /**
      * 注入dubbo上下文
-     *
-     * @return
      */
     @Bean
     @ConditionalOnMissingBean
@@ -105,4 +103,5 @@ public class DubboComsumerConfiguration {
         consumerConfig.setVersion(dubboProperties.getConsumer().getVersion());
         return consumerConfig;
     }
+
 }

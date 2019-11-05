@@ -13,7 +13,7 @@
     <groupId>com.magic.springboot</groupId>
     <artifactId>spring-boot-with-freemarker</artifactId>
     <version>${magic.springboot.version}</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <description>Freemarker project for Spring Boot</description>
     <name>spring-boot-with-freemarker</name>
@@ -58,6 +58,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
             <version>${springboot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.magic.springboot</groupId>
+            <artifactId>spring-boot-with-common</artifactId>
         </dependency>
     </dependencies>
 

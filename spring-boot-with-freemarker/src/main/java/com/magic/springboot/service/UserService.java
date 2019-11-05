@@ -1,8 +1,8 @@
 package com.magic.springboot.service;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 public interface UserService {
 

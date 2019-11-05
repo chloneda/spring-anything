@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 
 /**
- * Created by chloneda
+ * @Created by chloneda
  */
 @Configuration
 @EnableConfigurationProperties({DubboProperties.class})
@@ -77,11 +77,8 @@ public class DubboProviderConfiguration {
         return applicationConfig;
     }
 
-    /*   *
+    /**
      * 默认基于dubbo协议提供服务
-     *
-     * @return
-
      */
     @Bean
     @ConditionalOnMissingBean
@@ -121,14 +118,13 @@ public class DubboProviderConfiguration {
         return protocolConfig;
     }
 
-    /*   *
+    /**
      * dubbo服务提供
      *
      * @param applicationConfig
      * @param registryConfig
      * @param protocolConfig
      * @return
-
      */
     @Bean
     @ConditionalOnMissingBean
@@ -156,4 +152,5 @@ public class DubboProviderConfiguration {
         monitorConfig.setDefault(dubboProperties.getMonitor().getDefault());
         return monitorConfig;
     }
+
 }

@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @Service("dataProcService")
 public class DataProcServiceImpl implements DataProcService {
@@ -23,9 +23,9 @@ public class DataProcServiceImpl implements DataProcService {
         return dataProcDAO.query(sql);
     }
 
-    private void validateQuerySql(String sql){
+    private void validateQuerySql(String sql) {
         Assert.notNull(sql, "SQL must not be null!");
-        String targetSql=sql.toLowerCase();
+        String targetSql = sql.toLowerCase();
         if (targetSql.startsWith("update")
                 || targetSql.startsWith("delete")
                 || targetSql.startsWith("alert")
@@ -34,7 +34,6 @@ public class DataProcServiceImpl implements DataProcService {
             throw new RuntimeException("SQL合规校验失败，不能是alert|update|drop|delete|insert操作");
         }
     }
-
 
 
 }

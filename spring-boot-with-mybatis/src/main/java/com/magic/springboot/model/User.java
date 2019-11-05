@@ -2,52 +2,52 @@ package com.magic.springboot.model;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
-	
-	private int id;
-	private String username;
-	private String password;
-	private double money;
-	
-	public User() {
-		super();
-	}
+public class User implements Serializable {
 
-	public int getId() {
-		return id;
-	}
+    private int id;
+    private String username;
+    private String password;
+    private double money;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public User() {
+        super();
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public double getMoney() {
-		return money;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setMoney(double money) {
-		this.money = money;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	@Override
-	public String toString() {
-		return "User Account [id=" + id + ", username=" + username + ", password=" + password + ", money=" + money
-				+ "]";
-	}
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return "User Account [id=" + id + ", username=" + username + ", password=" + password + ", money=" + money
+                + "]";
+    }
 }

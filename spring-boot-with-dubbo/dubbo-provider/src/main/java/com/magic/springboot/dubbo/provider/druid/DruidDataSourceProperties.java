@@ -3,7 +3,7 @@ package com.magic.springboot.dubbo.provider.druid;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Created by chloneda
+ * @Created by chloneda
  */
 @ConfigurationProperties(prefix = "spring.datasource.druid")
 public class DruidDataSourceProperties {

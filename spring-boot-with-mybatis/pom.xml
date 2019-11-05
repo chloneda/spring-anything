@@ -13,7 +13,7 @@
     <groupId>com.magic.springboot</groupId>
     <artifactId>spring-boot-with-mybatis</artifactId>
     <version>${magic.springboot.version}</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <description>Mybatis Project for Spring Boot</description>
     <name>spring-boot-with-mybatis</name>

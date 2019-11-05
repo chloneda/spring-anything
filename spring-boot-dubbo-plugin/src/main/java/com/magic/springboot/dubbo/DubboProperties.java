@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by chloneda
+ * @Created by chloneda
  */
 @ConfigurationProperties(prefix = "dubbo")
 public class DubboProperties {

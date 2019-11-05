@@ -12,8 +12,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by chloneda
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @Aspect
 @Component
@@ -36,7 +36,7 @@ public class ControllerAop {
         String user = (String) request.getSession().getAttribute("user");
         String method = request.getMethod();
         String params = "";
-        System.out.println("sessionId: "+sessionId);
+        System.out.println("sessionId: " + sessionId);
     }
 
     @AfterReturning(returning = "result", pointcut = "webAspect()")
@@ -55,6 +55,7 @@ public class ControllerAop {
 
     /**
      * 获取登录用户远程主机ip地址
+     *
      * @param request
      * @return
      */

@@ -12,7 +12,7 @@
     <groupId>com.magic.springboot</groupId>
     <artifactId>spring-boot-with-druid</artifactId>
     <version>${magic.springboot.version}</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <description>Druid project for Spring Boot</description>
     <name>spring-boot-with-druid</name>

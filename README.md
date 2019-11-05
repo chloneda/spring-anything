@@ -14,11 +14,13 @@
 
 - [spring-boot-with-dynamic-db](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-dynamic-db)：Spring boot实现druid的动态数据源。
 
+- [spring-boot-with-elasticsearch](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-elasticsearch)：Spring boot集成Elasticsearch，并分别以Spring Data、Spring Data Elasticsearch Repositories的方式进行查询。
+
 - [spring-boot-with-freemarker](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-freemarker)：Spring boot集成Freemarker。
 
 - [spring-boot-with-hibernate](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-hibernate)：Spring boot集成Hibernate。
 
-- [spring-boot-with-jpa](https://github.com/chloneda/shell/magic-spring-boot/master/spring-boot-with-jpa)：Spring boot的JPA示例,并集成Swagger，便于调试。
+- [spring-boot-with-jpa](https://github.com/chloneda/shell/magic-spring-boot/master/spring-boot-with-jpa)：Spring boot的JPA示例，并集成Swagger，便于调试。
 
 - [spring-boot-with-mybatis](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-mybatis)：Spring boot集成Mybatis。
 

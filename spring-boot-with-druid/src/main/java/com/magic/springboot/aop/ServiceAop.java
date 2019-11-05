@@ -12,21 +12,17 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by chl on 2019/01/03
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @Aspect
 @Component
 public class ServiceAop {
     private static final Logger logger = LoggerFactory.getLogger(ServiceAop.class);
 
-   /* private ThreadLocal<OperatorLog> tlocal = new ThreadLocal<OperatorLog>();
-
-    @Autowired
-    private OptLogService optLogService;*/
-
     @Pointcut("execution(public * com.magic.springboot.service.*.*(..))")
-    public void webRequestLog() {}
+    public void webRequestLog() {
+    }
 
     @Before("webRequestLog()")
     public void doBefore(JoinPoint joinPoint) {
@@ -41,66 +37,11 @@ public class ServiceAop {
         String user = (String) request.getSession().getAttribute("user");
         String method = request.getMethod();
         String params = "";
-        /*try {
-
-            long beginTime = System.currentTimeMillis();
-
-            // 接收到请求，记录请求内容
-            ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-            HttpServletRequest request = attributes.getRequest();
-            String beanName = joinPoint.getSignature().getDeclaringTypeName();
-            String methodName = joinPoint.getSignature().getName();
-            String uri = request.getRequestURI();
-            String remoteAddr = getIpAddr(request);
-            String sessionId = request.getSession().getId();
-            String user = (String) request.getSession().getAttribute("user");
-            String method = request.getMethod();
-            String params = "";
-            if ("POST".equals(method)) {
-                Object[] paramsArray = joinPoint.getArgs();
-                params = argsArrayToString(paramsArray);
-            } else {
-                Map<?, ?> paramsMap = (Map<?, ?>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
-                params = paramsMap.toString();
-            }
-
-            logger.debug("uri=" + uri + "; beanName=" + beanName + "; remoteAddr=" + remoteAddr + "; user=" + user
-                    + "; methodName=" + methodName + "; params=" + params);
-
-            OperatorLog optLog = new OperatorLog();
-            optLog.setBeanName(beanName);
-            optLog.setCurUser(user);
-            optLog.setMethodName(methodName);
-            optLog.setParams(params != null ? params.toString() : "");
-            optLog.setRemoteAddr(remoteAddr);
-            optLog.setSessionId(sessionId);
-            optLog.setUri(uri);
-            optLog.setRequestTime(beginTime);
-            tlocal.set(optLog);
-
-        } catch (Exception e) {
-            logger.error("***操作请求日志记录失败doBefore()***", e);
-        }*/
     }
 
     @AfterReturning(returning = "result", pointcut = "webRequestLog()")
     public void doAfterReturning(Object result) {
-        /*try {
-            // 处理完请求，返回内容
-            OperatorLog optLog = tlocal.get();
-            optLog.setResult(result.toString());
-            long beginTime = optLog.getRequestTime();
-            long requestTime = (System.currentTimeMillis() - beginTime) / 1000;
-            optLog.setRequestTime(requestTime);
 
-            System.out.println("请求耗时：" + requestTime + optLog.getUri() + "   **  " + optLog.getParams() + " ** "
-                    + optLog.getMethodName());
-            System.out.println("RESPONSE : " + result);
-
-            optLogService.saveLog(optLog);
-        } catch (Exception e) {
-            logger.error("***操作请求日志记录失败doAfterReturning()***", e);
-        }*/
     }
 
     @Around("webRequestLog()")

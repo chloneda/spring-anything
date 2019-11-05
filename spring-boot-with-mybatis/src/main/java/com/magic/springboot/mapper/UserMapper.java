@@ -8,8 +8,8 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 public interface UserMapper {
 

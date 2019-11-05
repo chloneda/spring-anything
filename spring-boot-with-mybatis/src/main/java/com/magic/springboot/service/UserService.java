@@ -5,8 +5,8 @@ import com.magic.springboot.model.User;
 import java.util.List;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 public interface UserService {
 

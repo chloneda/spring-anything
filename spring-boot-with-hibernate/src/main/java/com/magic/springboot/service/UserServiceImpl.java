@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @Service
 public class UserServiceImpl implements UserService{
@@ -26,9 +26,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public void transaction() throws Exception{
         User user = new User();
-        user.setUsername("haili");
-        user.setPassword("123ss");
-        user.setMoney(1999.0);
+        user.setId("1502992309");
+        user.setName("haili");
+        user.setPhone("12382948123");
+        user.setAge("19");
+        user.setEmail("haili@163.com");
+        user.setAddress("Guangzhou");
         this.userDAO.save(user);
     }
 }

@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 public interface DataProcService {
 
-    public List<Map<String,Object>> doQuery(String sql);
+    List<Map<String,Object>> doQuery(String sql);
 
 }

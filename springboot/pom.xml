@@ -12,7 +12,7 @@
     <groupId>com.magic.springboot</groupId>
     <artifactId>springboot</artifactId>
     <version>${magic.springboot.version}</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <description>springboot project for Spring Boot</description>
     <name>springboot</name>

@@ -7,9 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Created by chloneda
+ * @Created by chloneda
  */
-@ComponentScan(basePackages = {"com.magic.springboot.dubbo.provider","com.magic.springboot.dubbo"})
+@ComponentScan(basePackages = {"com.magic.springboot.dubbo.provider", "com.magic.springboot.dubbo"})
 @EnableConfigurationProperties
 @SpringBootApplication
 @Configuration

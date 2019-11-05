@@ -12,8 +12,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @Service("testService")
 public class UserServiceImpl implements UserService {

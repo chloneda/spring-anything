@@ -22,8 +22,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by chl
- * Description:数据源初始化
+ * @Created by chloneda
+ * @Description:数据源初始化
  */
 public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar, EnvironmentAware {
     private static final Logger LOGGER = LoggerFactory.getLogger(DynamicDataSourceRegister.class);

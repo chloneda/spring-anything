@@ -13,8 +13,8 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @Configuration
 public class DruidConfig {

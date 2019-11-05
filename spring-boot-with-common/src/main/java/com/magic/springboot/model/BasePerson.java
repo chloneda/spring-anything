@@ -6,20 +6,20 @@ package com.magic.springboot.model;
  */
 public interface BasePerson {
 
-    public String getId();
+    String getId();
 
-    public void setId(String id);
+    void setId(String id);
 
-    public String getName();
+    String getName();
 
-    public void setName(String name);
+    void setName(String name);
 
-    public String getAge();
+    String getAge();
 
-    public void setAge(String age);
+    void setAge(String age);
 
-    public String getSex();
+    String getSex();
 
-    public void setSex(String sex);
+    void setSex(String sex);
 
 }

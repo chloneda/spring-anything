@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
- * Created by chloneda
+ * @Created by chloneda
  */
 @Configuration
 @EnableConfigurationProperties({DruidDataSourceProperties.class})

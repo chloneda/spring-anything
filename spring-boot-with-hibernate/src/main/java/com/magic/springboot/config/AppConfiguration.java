@@ -18,8 +18,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @Configuration
 @EnableConfigurationProperties({DruidProperties.class, HibernateProperties.class})

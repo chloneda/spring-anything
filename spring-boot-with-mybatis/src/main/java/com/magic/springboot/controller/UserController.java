@@ -13,13 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @RestController
 @Controller
 public class UserController {
+
     private org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(UserController.class);
+
     @Autowired
     private UserService testService;
 
