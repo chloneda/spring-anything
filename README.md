@@ -35,6 +35,7 @@
 
 ## 相关书籍
 [Java Persistence with MyBatis 3](https://github.com/chloneda/magic-spring-boot/blob/master/doc/Java%20Persistence%20with%20MyBatis%203.pdf)
-[阿里巴巴JAVA开发手册](https://github.com/chloneda/magic-spring-boot/blob/master/doc/Java%20Persistence%20with%20MyBatis%203.pdf)
+
+[阿里巴巴JAVA开发手册](https://github.com/chloneda/magic-spring-boot/blob/master/doc/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4JAVA%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C.pdf)
 
 
