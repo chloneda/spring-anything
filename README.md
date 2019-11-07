@@ -34,4 +34,7 @@
 [Personal Blog](https://chloneda.github.io/)
 
 ## 相关书籍
-[Java Persistence with MyBatis 3.pdf](https://github.com/chloneda/magic-spring-boot/blob/master/doc/Java%20Persistence%20with%20MyBatis%203.pdf)
+[Java Persistence with MyBatis 3](https://github.com/chloneda/magic-spring-boot/blob/master/doc/Java%20Persistence%20with%20MyBatis%203.pdf)
+[阿里巴巴JAVA开发手册](https://github.com/chloneda/magic-spring-boot/blob/master/doc/Java%20Persistence%20with%20MyBatis%203.pdf)
+
+
