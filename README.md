@@ -1,12 +1,12 @@
-# magic-spring-boot
+# spring-anything
 
 ## 简介
-本项目使用Spring boot，并结合一些实用的技术集成到当前项目，即Spring boot集成druid数据库连接池，Spring boot实现druid的动态数据源，Spring boot实现定时任务schedule，Spring boot集成mybatis等，如有错误，欢迎大家指正！
+本项目志在打造Spring全系列教程，并结合一些实用的技术集成到当前项目，即Spring boot集成druid数据库连接池，Spring boot实现druid的动态数据源，Spring boot实现定时任务schedule，Spring boot集成mybatis等，如有错误，欢迎大家指正！
 
-## modules说明
-- [spring-boot-dubbo-plugin](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-dubbo-plugin)：Spring boot集成Dubbo。
+## 分支说明
+- [spring-boot](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-dubbo-plugin)：Spring boot集成Dubbo。
 
-- [spring-boot-with-common](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-common)：该项目的公共基础类，如实体类、DTO等。
+- [spring-cloud](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-common)：该项目的公共基础类，如实体类、DTO等。
 
 - [spring-boot-with-druid](https://github.com/chloneda/magic-spring-boot/tree/master/spring-boot-with-druid)：Spring boot集成druid数据库连接池。
 
