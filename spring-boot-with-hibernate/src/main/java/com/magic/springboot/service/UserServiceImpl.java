@@ -1,6 +1,6 @@
 package com.magic.springboot.service;
 
-import com.magic.springboot.dao.UserDAO;
+import com.magic.springboot.dao.UserDao;
 import com.magic.springboot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    UserDAO userDAO;
+    UserDao userDao;
 
     @Override
     public User getUser(String username) {
-        return this.userDAO.getUserByName(username);
+        return this.userDao.getUserByName(username);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
@@ -32,6 +32,6 @@ public class UserServiceImpl implements UserService{
         user.setAge("19");
         user.setEmail("haili@163.com");
         user.setAddress("Guangzhou");
-        this.userDAO.save(user);
+        this.userDao.save(user);
     }
 }

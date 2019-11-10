@@ -19,7 +19,7 @@
     <url>https://github.com/chloneda/magic-spring-boot</url>
 
     <modules>
-        <module>springboot</module>
+        <module>spring-boot</module>
         <module>spring-boot-with-common</module>
         <module>spring-boot-with-jpa</module>
         <module>spring-boot-with-dubbo</module>
@@ -31,6 +31,11 @@
         <module>spring-boot-with-mybatis</module>
         <module>spring-boot-with-freemarker</module>
         <module>spring-boot-with-elasticsearch</module>
+        <module>spring-boot-with-hello</module>
+        <module>spring-boot-with-jdbcTemplate</module>
+        <module>spring-boot-with-banner</module>
+        <module>spring-boot-with-docker</module>
+        <module>spring-boot-with-mongodb</module>
     </modules>
 
     <properties>
@@ -42,7 +47,6 @@
         <java.version>1.8</java.version>
         <mysql.version>5.1.48</mysql.version>
         <druid.version>1.1.20</druid.version>
-        <magic.springboot.version>0.0.3-SNAPSHOT</magic.springboot.version>
     </properties>
 
     <!-- 项目开发者的信息 -->
@@ -80,7 +84,7 @@
             <dependency>
                 <groupId>com.magic.springboot</groupId>
                 <artifactId>spring-boot-with-common</artifactId>
-                <version>${magic.springboot.version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -100,6 +104,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -160,5 +169,13 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
 
 </project>

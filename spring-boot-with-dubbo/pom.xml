@@ -12,12 +12,10 @@
 
     <groupId>com.magic.springboot</groupId>
     <artifactId>spring-boot-with-dubbo</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>spring-boot-with-dubbo</name>
 
     <properties>
-        <duboo.project.version>0.0.3-SNAPSHOT</duboo.project.version>
     </properties>
 
     <modules>
@@ -31,17 +29,17 @@
             <dependency>
                 <groupId>com.magic.springboot</groupId>
                 <artifactId>dubbo-provider</artifactId>
-                <version>${duboo.project.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.magic.springboot</groupId>
                 <artifactId>dubbo-interface</artifactId>
-                <version>${duboo.project.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.magic.springboot</groupId>
                 <artifactId>dubbo-consumer</artifactId>
-                <version>${duboo.project.version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -24,7 +24,7 @@ public class HibernateApplication extends SpringBootServletInitializer {
         return application.sources(HibernateApplication.class);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args)  {
         SpringApplication.run(HibernateApplication.class, args);
     }
 

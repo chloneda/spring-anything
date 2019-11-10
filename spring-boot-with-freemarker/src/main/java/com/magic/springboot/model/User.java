@@ -1,8 +1,8 @@
 package com.magic.springboot.model;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 public class User {
     private int id;

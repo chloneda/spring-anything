@@ -1,6 +1,6 @@
 package com.magic.springboot.schedule;
 
-import com.magic.springboot.service.DataProcService;
+import com.magic.springboot.service.QueryService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Created by chloneda
- * @Description:Cron表达式
- * <p>
+ * @Description:Cron表达式 <p>
  * 一个cron表达式有至少6个（也可能7个）有空格分隔的时间元素。按顺序依次为
  * 秒（0~59）
  * 分钟（0~59）
@@ -67,7 +66,7 @@ public class DynamicCronTask implements SchedulingConfigurer {
     private static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
-    private DataProcService dataProcService;
+    private QueryService queryService;
 
     /**
      * 方式1: 注解实现，缺点是修改时需要重启服务器
@@ -75,7 +74,7 @@ public class DynamicCronTask implements SchedulingConfigurer {
     //@Scheduled(cron = "${scheduledTask.cron}")
     public void scheduled() {
         // 逻辑任务
-        List<Map<String, Object>> userList = dataProcService.doQuery("select * from mag_user");
+        List<Map<String, Object>> userList = queryService.doQuery("select * from mag_user");
         LOGGER.info("Scheduled is running...The userList data is : " + userList);
     }
 
@@ -93,7 +92,7 @@ public class DynamicCronTask implements SchedulingConfigurer {
         @Override
         public void run() {
             // 逻辑任务
-            List<Map<String, Object>> userList = dataProcService.doQuery("select * from mag_user");
+            List<Map<String, Object>> userList = queryService.doQuery("select * from mag_user");
             LOGGER.info("DynamicCronTask is running...The userList data is : " + userList);
         }
     };
@@ -135,7 +134,7 @@ public class DynamicCronTask implements SchedulingConfigurer {
             @Override
             public void run() {
                 // 逻辑任务
-                List<Map<String, Object>> userList = dataProcService.doQuery("select * from mag_user");
+                List<Map<String, Object>> userList = queryService.doQuery("select * from mag_user");
                 LOGGER.info("ScheduledWithTimer is running...The userList data is : " + userList);
 
             }

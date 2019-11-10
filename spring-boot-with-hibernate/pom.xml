@@ -12,7 +12,6 @@
 
     <groupId>com.magic.springboot</groupId>
     <artifactId>spring-boot-with-hibernate</artifactId>
-    <version>${magic.springboot.version}</version>
     <packaging>jar</packaging>
 
     <description>Hibernate project for Spring Boot</description>

@@ -9,7 +9,6 @@
     </parent>
     <groupId>com.magic.springboot</groupId>
     <artifactId>spring-boot-with-dynamic-db</artifactId>
-    <version>${magic.springboot.version}</version>
     <packaging>jar</packaging>
 
     <name>spring-boot-with-dynamic-db</name>

@@ -12,7 +12,7 @@
 
     <groupId>com.magic.springboot</groupId>
     <artifactId>spring-boot-with-schedule</artifactId>
-    <version>${magic.springboot.version}</version>
+    <!-- 版本继承自父pom -->
     <packaging>jar</packaging>
 
     <description>Schedule Project for Spring Boot</description>
@@ -31,11 +31,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

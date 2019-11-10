@@ -6,9 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @Created by chloneda
  * @Description:
  */
-@ConfigurationProperties(
-        prefix = "spring.hibernate"
-)
+@ConfigurationProperties(prefix = "spring.hibernate")
 public class HibernateProperties {
 
     private boolean showSql;
@@ -24,24 +22,27 @@ public class HibernateProperties {
 
     private String[] PackagesToScan;
 
-    enum Hbm2ddl{
-        UPDATE("update"),CREATE("create"),CREATEDROP("create-drop"),VALIDATE("validate");
+    enum Hbm2ddl {
+        UPDATE("update"), CREATE("create"), CREATEDROP("create-drop"), VALIDATE("validate");
         private String value;
+
         Hbm2ddl(String value) {
             this.value = value;
         }
+
         @Override
         public String toString() {
             return value;
         }
     }
+
     public HibernateProperties() {
         this.jdbc = new HibernateProperties.JDBC();
         this.query = new HibernateProperties.Query();
         this.cache = new HibernateProperties.Cache();
     }
 
-    public static class JDBC{
+    public static class JDBC {
 
         private int fetchSize;
         private int batchSize;
@@ -127,7 +128,7 @@ public class HibernateProperties {
         }
     }
 
-    public static class Cache{
+    public static class Cache {
         private boolean jndi;
         private String providerClass;
         private String providerConfigurationFileResourcePath;
@@ -211,7 +212,7 @@ public class HibernateProperties {
         }
     }
 
-    public static class Query{
+    public static class Query {
         private String factoryClass;
         private String String;
         private boolean jpaqlStrictCompliance;
