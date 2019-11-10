@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>magic-spring-boot</artifactId>
-        <groupId>com.magic.springboot</groupId>
+        <groupId>com.chloneda</groupId>
+        <artifactId>spring-boot-anything</artifactId>
         <version>0.0.3-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.magic.springboot</groupId>
+    <groupId>com.chloneda</groupId>
     <artifactId>spring-boot-with-banner</artifactId>
 
-    <description>Banner Project for Spring Boot</description>
+    <description>Banner for Spring Boot</description>
     <name>spring-boot-with-banner</name>
 
     <dependencies>

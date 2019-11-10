@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.magic.springboot</groupId>
-        <artifactId>magic-spring-boot</artifactId>
+        <groupId>com.chloneda</groupId>
+        <artifactId>spring-boot-anything</artifactId>
         <version>0.0.3-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.magic.springboot</groupId>
+    <groupId>com.chloneda</groupId>
     <artifactId>spring-boot-with-freemarker</artifactId>
     <packaging>jar</packaging>
 
@@ -18,7 +18,7 @@
     <name>spring-boot-with-freemarker</name>
 
     <properties>
-        <start-class>com.magic.springboot.FreemarkerApplication</start-class>
+        <start-class>com.chloneda.FreemarkerApplication</start-class>
     </properties>
 
     <dependencies>
@@ -60,7 +60,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.magic.springboot</groupId>
+            <groupId>com.chloneda</groupId>
             <artifactId>spring-boot-with-common</artifactId>
         </dependency>
     </dependencies>

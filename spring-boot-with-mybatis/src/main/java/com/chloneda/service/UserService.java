@@ -1,0 +1,23 @@
+package com.chloneda.service;
+
+import com.chloneda.model.User;
+
+import java.util.List;
+
+/**
+ * @Created by chloneda
+ * @Description:
+ */
+public interface UserService {
+
+    public void test();
+
+    public boolean transfer(float money, int from, int to) throws Exception;
+
+    public int insertAccount(User account) throws Exception;
+
+    public User findAccountById(int i);
+
+    public List<User> findAccountsById(int i);
+
+}

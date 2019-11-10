@@ -4,21 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.magic.springboot</groupId>
-        <artifactId>magic-spring-boot</artifactId>
+        <groupId>com.chloneda</groupId>
+        <artifactId>spring-boot-anything</artifactId>
         <version>0.0.3-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.magic.springboot</groupId>
+    <groupId>com.chloneda</groupId>
     <artifactId>spring-boot-with-mybatis</artifactId>
     <packaging>jar</packaging>
 
-    <description>Mybatis Project for Spring Boot</description>
+    <description>Mybatis for Spring Boot</description>
     <name>spring-boot-with-mybatis</name>
 
     <properties>
-        <start-class>com.magic.springboot.MybatisApplication</start-class>
+        <start-class>com.chloneda.MybatisApplication</start-class>
     </properties>
 
     <dependencies>

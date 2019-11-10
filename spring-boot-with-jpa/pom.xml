@@ -3,22 +3,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.magic.springboot</groupId>
-        <artifactId>magic-spring-boot</artifactId>
+        <groupId>com.chloneda</groupId>
+        <artifactId>spring-boot-anything</artifactId>
         <version>0.0.3-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.magic.springboot</groupId>
+    <groupId>com.chloneda</groupId>
     <artifactId>spring-boot-with-jpa</artifactId>
     <!-- 版本继承自父pom -->
     <packaging>jar</packaging>
 
-    <description>Jpa Project for Spring Boot</description>
+    <description>Jpa for Spring Boot</description>
     <name>spring-boot-with-jpa</name>
 
     <properties>
-        <start-class>com.magic.springboot.JpaApplication</start-class>
+        <start-class>com.chloneda.JpaApplication</start-class>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
     </properties>
 
@@ -69,7 +69,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.magic.springboot</groupId>
+            <groupId>com.chloneda</groupId>
             <artifactId>spring-boot-with-common</artifactId>
         </dependency>
     </dependencies>
@@ -79,7 +79,7 @@
             <id>local</id>
             <properties>
                 <maven.db.driver>com.mysql.jdbc.Driver</maven.db.driver>
-                <maven.db.url>jdbc:mysql://localhost:3306/magicboot?useSSL=false&amp;characterEncoding=UTF8</maven.db.url>
+                <maven.db.url>jdbc:mysql://localhost:3306/springboot?useSSL=false&amp;characterEncoding=UTF8</maven.db.url>
                 <maven.db.username>root</maven.db.username>
                 <maven.db.password>123456</maven.db.password>
                 <maven.db.hibernate.dialect>org.hibernate.dialect.MySQL5Dialect</maven.db.hibernate.dialect>

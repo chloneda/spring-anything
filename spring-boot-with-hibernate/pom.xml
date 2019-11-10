@@ -4,21 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.magic.springboot</groupId>
-        <artifactId>magic-spring-boot</artifactId>
+        <groupId>com.chloneda</groupId>
+        <artifactId>spring-boot-anything</artifactId>
         <version>0.0.3-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.magic.springboot</groupId>
+    <groupId>com.chloneda</groupId>
     <artifactId>spring-boot-with-hibernate</artifactId>
     <packaging>jar</packaging>
 
-    <description>Hibernate project for Spring Boot</description>
+    <description>Hibernate for Spring Boot</description>
     <name>spring-boot-with-hibernate</name>
 
     <properties>
-        <start-class>com.magic.springboot.HibernateApplication</start-class>
+        <start-class>com.chloneda.HibernateApplication</start-class>
     </properties>
 
     <dependencies>
@@ -85,7 +85,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.magic.springboot</groupId>
+            <groupId>com.chloneda</groupId>
             <artifactId>spring-boot-with-common</artifactId>
         </dependency>
     </dependencies>
@@ -95,7 +95,7 @@
             <id>local</id>
             <properties>
                 <maven.db.driver>com.mysql.jdbc.Driver</maven.db.driver>
-                <maven.db.url>jdbc:mysql://localhost:3306/magicboot?useSSL=false&amp;characterEncoding=UTF8</maven.db.url>
+                <maven.db.url>jdbc:mysql://localhost:3306/springboot?useSSL=false&amp;characterEncoding=UTF8</maven.db.url>
                 <maven.db.username>root</maven.db.username>
                 <maven.db.password>123456</maven.db.password>
                 <maven.db.hibernate.dialect>org.hibernate.dialect.MySQL5Dialect</maven.db.hibernate.dialect>
