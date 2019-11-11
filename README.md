@@ -9,6 +9,8 @@
 
 [spring-anything](https://github.com/chloneda/spring-anything)项目当前有以下分支，具体说明如下：
 
+- [master](https://github.com/chloneda/spring-anything/tree/master)：该分支是[spring-anything](https://github.com/chloneda/spring-anything)项目用于存放所有分支资料、资源和文档教程的，详情请看各自分支及资料！
+
 - [spring-boot](https://github.com/chloneda/spring-anything/tree/spring-boot)：Spring Boot集成热门、实用技术系列。
 
 - [spring-cloud](https://github.com/chloneda/spring-anything/tree/spring-cloud)：Spring Cloud集成热门、实用技术系列。
