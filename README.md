@@ -40,6 +40,10 @@
 
 - [spring-boot-with-schedule](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-schedule)：Spring Boot实现定时任务schedule。
 
+- [spring-boot-with-swagger](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-swagger)：Spring Boot集成Swagger，Swagger 可以为我们提供了一套通过代码和注解自动生成文档的方法，保证 API 文档的及时性将有很大的帮助。
+
+- [spring-boot-with-websocket](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-websocket)：Spring Boot集成WebSocket，它是 HTML5 开始提供的一种浏览器与服务器间进行全双工通讯的网络技术。
+
 
 ## 维护者
 [Chloneda](https://github.com/chloneda/)

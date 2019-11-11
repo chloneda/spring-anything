@@ -1,6 +1,6 @@
 package com.chloneda.service;
 
-import com.chloneda.dto.DtoUser;
+import com.chloneda.model.User;
 
 import java.util.List;
 
@@ -10,14 +10,14 @@ import java.util.List;
  */
 public interface UserService {
 
-    DtoUser findUser(String username);
+    User findUser(String username);
 
-    DtoUser createUser(DtoUser user);
+    User createUser(User user);
 
     void deleteUser(String userId);
 
-    DtoUser updateUser(DtoUser user);
+    User updateUser(User user);
 
-    List<DtoUser> findAll();
+    List<User> findAll();
 
 }

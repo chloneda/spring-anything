@@ -50,7 +50,31 @@ public class DruidConfig {
             e.printStackTrace();
         }
 
+//        DruidDataSource druidDataSource = new DruidDataSource();
+//        druidDataSource.setDriverClassName(driverName);
+//        druidDataSource.setUrl(url);
+//        druidDataSource.setUsername(username);
+//        druidDataSource.setPassword(password);
+//
+//        try {
+//            druidDataSource.init();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return druidDataSource;
+
+
+//        DataSourceBuilder factory = DataSourceBuilder.create()
+//                .driverClassName(driverName)
+//                .url(url)
+//                .username(username)
+//                .password(password);
+//
+//        return factory.build();
+
         return null;
     }
+
 
 }

@@ -1,6 +1,6 @@
 package com.chloneda.service;
 
-import com.chloneda.dto.DtoUser;
+import com.chloneda.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +18,14 @@ import java.util.List;
 public class UserServiceTest {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Test
     public void testFindAll() {
-        //List<DtoUser> userList = userService.findAll();
+        List<User> userList = userService.findAll();
 
-        DtoUser userList = userService.findUser("lili");
-        System.out.println(userList.getSex());
         /** forEach + Lambda表达式遍历List */
-        //userList.forEach(var -> System.out.println("用户名称{}: " + var.getAddress()));
+        userList.forEach(var -> System.out.println("用户名称{}: " + var.getName()));
     }
 
 }

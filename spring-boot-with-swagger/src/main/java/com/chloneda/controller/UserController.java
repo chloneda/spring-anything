@@ -1,6 +1,6 @@
 package com.chloneda.controller;
 
-import com.chloneda.dto.DtoUser;
+import com.chloneda.model.User;
 import com.chloneda.service.UserService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
@@ -29,14 +29,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ApiOperation(value = "新增用户", notes = "新建用户", response = DtoUser.class)
+    @ApiOperation(value = "新增用户", notes = "新建用户", response = User.class)
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "创建成功"),
             @ApiResponse(code = 406, message = "添加失败")})
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus
-    public ResponseEntity<DtoUser> createUser(@ApiParam(value = "用户实体") @RequestBody DtoUser dtoUser) {
-        DtoUser obj = userService.createUser(dtoUser);
+    public ResponseEntity<User> createUser(@ApiParam(value = "用户实体") @RequestBody User user) {
+        User obj = userService.createUser(user);
         return new ResponseEntity(obj,HttpStatus.OK);
     }
 
@@ -51,13 +51,13 @@ public class UserController {
         return new ResponseEntity(new HttpHeaders(), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "修改用户", notes = "更新用户", response = DtoUser.class)
+    @ApiOperation(value = "修改用户", notes = "更新用户", response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 406, message = "用户不存在"),
             @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
     @ResponseStatus
-    public ResponseEntity<DtoUser> updateUser(@ApiParam(value = "用户实体") @RequestBody DtoUser dtoUser){
-        DtoUser obj=userService.updateUser(dtoUser);
+    public ResponseEntity<User> updateUser(@ApiParam(value = "用户实体") @RequestBody User user){
+        User obj=userService.updateUser(user);
         return new ResponseEntity(obj,HttpStatus.OK);
     }
 
@@ -66,18 +66,18 @@ public class UserController {
             @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseStatus
-    public ResponseEntity<List<DtoUser>> getAllUser() {
-        List<DtoUser> userList = userService.findAll();
+    public ResponseEntity<List<User>> getAllUser() {
+        List<User> userList = userService.findAll();
         return new ResponseEntity(userList,HttpStatus.OK);
     }
 
-    @ApiOperation(value = "根据用户名获取用户", notes = "根据用户名获取用户", response = DtoUser.class)
+    @ApiOperation(value = "根据用户名获取用户", notes = "根据用户名获取用户", response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 406, message = "获取用户错误"),
             @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     @ResponseStatus
-    public ResponseEntity<DtoUser> getUser(String username) {
-        DtoUser user = userService.findUser(username);
+    public ResponseEntity<User> getUser(String username) {
+        User user = userService.findUser(username);
         LOGGER.info("=====> User: " + user);
         return new ResponseEntity<>(user,HttpStatus.OK);
     }

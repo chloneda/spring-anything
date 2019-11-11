@@ -43,9 +43,7 @@ public class SwaggerConfig {
 
     private Predicate<String> paths() {
         return or(
-                /**
-                 * 接口可见
-                 */
+                /** 接口可见 */
                 regex("/user.*")
         );
     }

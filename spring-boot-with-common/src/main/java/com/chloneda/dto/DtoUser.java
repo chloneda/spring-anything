@@ -4,13 +4,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
+
 /**
  * @author chloneda
  * @description:
  */
 @ApiModel
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DtoUser {
+public class DtoUser implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(
             value = "实体Id",
