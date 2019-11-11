@@ -21,8 +21,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/getUser",method = RequestMethod.GET)
-    public User getUser(String username){
-        User user=userService.getUser(username);
+    public User getUser(String userId){
+        User user=userService.getUser(userId);
         LOGGER.info("=====> User: "+user);
         return user;
     }

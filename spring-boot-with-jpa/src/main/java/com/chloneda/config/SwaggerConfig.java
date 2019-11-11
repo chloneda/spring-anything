@@ -23,7 +23,7 @@ import java.util.ArrayList;
  */
 @EnableSwagger2
 @Configuration
-@ComponentScan(basePackages = {"com.magic.springboot"})
+@ComponentScan(basePackages = {"com.chloneda"})
 public class SwaggerConfig {
 
     @Bean
@@ -50,11 +50,11 @@ public class SwaggerConfig {
 
     private ApiInfo magicSpringBootApiInfo() {
         ApiInfo apiInfo = new ApiInfo(
-                "Magic-Spring-Boot API",//大标题
-                "Magic-Spring-Boot API doc.",//小标题
+                "Spring-Anything API",//大标题
+                "Spring-Anything API doc.",//小标题
                 "V0.0.3",//版本
                 "NO terms of service",
-                new Contact("Chlonea", "", ""),//作者
+                new Contact("Chloneda", "", ""),//作者
                 "The Apache License, Version 2.0",//链接显示文字
                 "http://www.apache.org/licenses/LICENSE-2.0.html"//网站链接
                 , new ArrayList<>());

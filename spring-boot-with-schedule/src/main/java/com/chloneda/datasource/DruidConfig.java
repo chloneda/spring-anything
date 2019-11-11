@@ -21,6 +21,7 @@ import java.sql.SQLException;
 @Configuration
 @EnableConfigurationProperties(DruidDSProperties.class)
 public class DruidConfig {
+
     @Autowired
     private DruidDSProperties properties;
 

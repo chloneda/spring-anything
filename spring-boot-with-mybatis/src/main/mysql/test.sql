@@ -1,4 +1,4 @@
-SELECT * FROM spring.test;
+SELECT * FROM springboot.test;
 CREATE TABLE `test` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `test_name` varchar(45) DEFAULT NULL,

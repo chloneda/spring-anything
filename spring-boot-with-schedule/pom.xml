@@ -19,7 +19,7 @@
     <name>spring-boot-with-schedule</name>
 
     <properties>
-        <start-class>com.chloneda.ScheduleApplication</start-class>
+        <start-class>com.com.chloneda.ScheduleApplication</start-class>
     </properties>
 
     <dependencies>

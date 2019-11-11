@@ -26,9 +26,11 @@ import java.util.Properties;
 @ConditionalOnMissingClass
 public class AppConfiguration {
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final Logger logger = LoggerFactory.getLogger(AppConfiguration.class);
+
     @Autowired
     private DruidProperties druidProperties;
+
     @Autowired
     private HibernateProperties hibernateProperties;
 
@@ -48,12 +50,12 @@ public class AppConfiguration {
         return dataSource;
     }
 
-
     @Bean(name = "sessionFactory")
     @ConditionalOnMissingBean
     public LocalSessionFactoryBean setSessionFactory(DataSource dataSource) {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         Properties properties = new Properties();
+        properties.setProperty("hibernate.hbm2ddl.auto", String.valueOf("update"));
         properties.setProperty("hibernate.show_sql", String.valueOf(hibernateProperties.isShowSql()));
         properties.setProperty("hibernate.use_sql_comments", String.valueOf(hibernateProperties.getUseSqlComments()));
         properties.setProperty("hibernate.dialect", String.valueOf(hibernateProperties.getDialect()));

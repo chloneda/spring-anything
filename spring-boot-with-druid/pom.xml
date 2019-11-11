@@ -17,7 +17,7 @@
     <name>spring-boot-with-druid</name>
 
     <properties>
-        <start-class>com.chloneda.DruidApplication</start-class>
+        <start-class>com.com.chloneda.DruidApplication</start-class>
     </properties>
 
     <dependencies>

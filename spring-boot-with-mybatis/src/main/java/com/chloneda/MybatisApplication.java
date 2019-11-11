@@ -10,12 +10,14 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description: Mybatis没有自动建表功能，可以结合Hibernate实现自动创建表，
+ * 引入Hibernate，仅仅使用Hibernate自动创建表的属性。
  */
-@EnableTransactionManagement//启动事务
+//启动事务
+@EnableTransactionManagement
 @SpringBootApplication
-@MapperScan("com.magic.springboot.mapper")
+@MapperScan("com.chloneda.mapper")
 public class MybatisApplication extends SpringBootServletInitializer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MybatisApplication.class);
@@ -25,7 +27,8 @@ public class MybatisApplication extends SpringBootServletInitializer {
         return application.sources(MybatisApplication.class);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(MybatisApplication.class, args);
     }
+
 }

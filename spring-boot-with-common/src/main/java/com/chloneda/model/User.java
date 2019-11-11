@@ -63,6 +63,4 @@ public class User extends Person {
         return Objects.hash(address, email, phone);
     }
 
-
-
 }

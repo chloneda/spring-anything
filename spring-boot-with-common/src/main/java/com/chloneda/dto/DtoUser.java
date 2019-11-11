@@ -22,7 +22,7 @@ public class DtoUser {
             value = "用户名称",
             example = "lili"
     )
-    private String username;
+    private String name;
 
     @ApiModelProperty(
             value = "用户年龄",
@@ -62,12 +62,12 @@ public class DtoUser {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAge() {

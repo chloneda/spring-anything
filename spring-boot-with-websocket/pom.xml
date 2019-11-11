@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.chloneda</groupId>
+        <artifactId>spring-boot-anything</artifactId>
+        <version>0.0.3-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.chloneda</groupId>
+    <artifactId>spring-boot-with-websocket</artifactId>
+    <packaging>jar</packaging>
+
+    <description>WebSocket for Spring Boot</description>
+    <name>spring-boot-with-websocket</name>
+
+    <properties>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--springBoot其它依赖省略-->
+        <!-- webSocket -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+        <!-- thymeleaf模板引擎 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!-- spring security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <maven.db.driver>com.mysql.jdbc.Driver</maven.db.driver>
+                <maven.db.url>jdbc:mysql://localhost:3306/springboot?useSSL=false&amp;characterEncoding=UTF8</maven.db.url>
+                <maven.db.username>root</maven.db.username>
+                <maven.db.password>123456</maven.db.password>
+                <maven.db.hibernate.dialect>org.hibernate.dialect.MySQL5Dialect</maven.db.hibernate.dialect>
+                <maven.db.testquery>SELECT 1</maven.db.testquery>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

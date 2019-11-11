@@ -11,15 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
  * @Created by chloneda
  * @Description:
  */
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService{
 
     @Autowired
     UserDao userDao;
 
     @Override
-    public User getUser(String username) {
-        return this.userDao.getUserByName(username);
+    public User getUser(String userId) {
+        return this.userDao.getUserById(userId);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
@@ -34,4 +34,5 @@ public class UserServiceImpl implements UserService{
         user.setAddress("Guangzhou");
         this.userDao.save(user);
     }
+
 }

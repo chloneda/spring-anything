@@ -18,8 +18,9 @@ public class ServiceAop {
 
     private ThreadLocal<Long> timeLocal = new ThreadLocal<Long>();
 
-    @Pointcut("execution(public * com.magic.springboot.service.*.*(..))")
-    public void webRequestLog() {}
+    @Pointcut("execution(public * com.chloneda.service.*.*(..))")
+    public void webRequestLog() {
+    }
 
     @Before("webRequestLog()")
     public void doBefore(JoinPoint joinPoint) {
@@ -29,15 +30,13 @@ public class ServiceAop {
     @AfterReturning(returning = "result", pointcut = "webRequestLog()")
     public void doAfterReturning(Object result) {
         long startTime = timeLocal.get();
-        logger.info("花费的时间为:"+(System.currentTimeMillis()-startTime)+"毫秒");
+        logger.info("花费的时间为: " + (System.currentTimeMillis() - startTime) + "毫秒");
     }
 
     @Around("webRequestLog()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
-        Object o = null;
-
-        o = pjp.proceed();
-
+        Object o = pjp.proceed();
         return o;
     }
+
 }

@@ -8,7 +8,7 @@ import com.chloneda.model.User;
  */
 public interface UserService {
 
-    User getUser(String username);
+    User getUser(String userId);
 
     void transaction() throws Exception;
 

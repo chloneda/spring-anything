@@ -18,7 +18,7 @@
     <name>spring-boot-with-mybatis</name>
 
     <properties>
-        <start-class>com.chloneda.MybatisApplication</start-class>
+        <start-class>com.com.chloneda.MybatisApplication</start-class>
     </properties>
 
     <dependencies>
@@ -29,11 +29,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

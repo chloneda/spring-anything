@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @Created by chloneda
  * @Description:
  */
-@Repository("userDaoImpl")
+@Repository("userDao")
 public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
     @Autowired
@@ -19,8 +19,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     }
 
     @Override
-    public User getUserByName(String username) {
-        User user = this.getHibernateTemplate().get(User.class,username);
+    public User getUserById(String userId) {
+        User user = this.getHibernateTemplate().get(User.class,userId);
         return user;
     }
 

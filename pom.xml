@@ -36,6 +36,8 @@
         <module>spring-boot-with-banner</module>
         <module>spring-boot-with-docker</module>
         <module>spring-boot-with-mongodb</module>
+        <module>spring-boot-with-websocket</module>
+        <module>spring-boot-with-swagger</module>
     </modules>
 
     <properties>
@@ -55,7 +57,7 @@
             <id>chloneda</id>
             <name>chloneda</name>
             <email>chloneda@gmail.com</email>
-            <url>https://github.com/chloneda/magic-spring-boot</url>
+            <url>https://github.com/chloneda/spring-anything</url>
             <roles>
                 <role>Project Manager</role>
                 <role>Developer</role>
@@ -75,12 +77,15 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+                <scope>runtime</scope>
             </dependency>
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>com.chloneda</groupId>
                 <artifactId>spring-boot-with-common</artifactId>
@@ -95,17 +100,20 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.28</version>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.28</version>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

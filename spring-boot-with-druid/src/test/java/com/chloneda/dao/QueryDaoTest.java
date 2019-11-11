@@ -18,7 +18,8 @@ public class QueryDaoTest {
     QueryDao queryDao;
 
     @Test
-    public void oo(){
-        System.out.println(queryDao.query("select * from mag_user"));
+    public void testQuery() {
+        System.out.println(queryDao.query("select * from user"));
     }
+
 }

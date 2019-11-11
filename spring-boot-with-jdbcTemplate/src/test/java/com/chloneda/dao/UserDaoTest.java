@@ -21,4 +21,5 @@ public class UserDaoTest {
     public void testQueryUsersListMap() {
         System.out.println(userDao.queryUsersListMap());
     }
+
 }

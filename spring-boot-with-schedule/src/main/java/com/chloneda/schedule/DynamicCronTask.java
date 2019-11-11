@@ -73,7 +73,7 @@ public class DynamicCronTask implements SchedulingConfigurer {
     //@Scheduled(cron = "${scheduledTask.cron}")
     public void scheduled() {
         // 逻辑任务
-        List<Map<String, Object>> userList = queryService.doQuery("select * from mag_user");
+        List<Map<String, Object>> userList = queryService.doQuery("select * from user");
         LOGGER.info("Scheduled is running...The userList data is : " + userList);
     }
 
@@ -91,7 +91,7 @@ public class DynamicCronTask implements SchedulingConfigurer {
         @Override
         public void run() {
             // 逻辑任务
-            List<Map<String, Object>> userList = queryService.doQuery("select * from mag_user");
+            List<Map<String, Object>> userList = queryService.doQuery("select * from user");
             LOGGER.info("DynamicCronTask is running...The userList data is : " + userList);
         }
     };
@@ -133,7 +133,7 @@ public class DynamicCronTask implements SchedulingConfigurer {
             @Override
             public void run() {
                 // 逻辑任务
-                List<Map<String, Object>> userList = queryService.doQuery("select * from mag_user");
+                List<Map<String, Object>> userList = queryService.doQuery("select * from user");
                 LOGGER.info("ScheduledWithTimer is running...The userList data is : " + userList);
 
             }

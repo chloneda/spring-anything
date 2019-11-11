@@ -15,7 +15,7 @@
     <name>spring-boot-with-dynamic-db</name>
 
     <properties>
-        <start-class>com.chloneda.DynamicDbApplication</start-class>
+        <start-class>com.com.chloneda.DynamicDbApplication</start-class>
     </properties>
 
     <dependencies>

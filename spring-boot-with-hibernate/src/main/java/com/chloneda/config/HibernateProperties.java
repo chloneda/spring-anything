@@ -23,7 +23,11 @@ public class HibernateProperties {
     private String[] PackagesToScan;
 
     enum Hbm2ddl {
-        UPDATE("update"), CREATE("create"), CREATEDROP("create-drop"), VALIDATE("validate");
+        UPDATE("update"),
+        CREATE("create"),
+        CREATEDROP("create-drop"),
+        VALIDATE("validate");
+
         private String value;
 
         Hbm2ddl(String value) {
@@ -34,6 +38,7 @@ public class HibernateProperties {
         public String toString() {
             return value;
         }
+
     }
 
     public HibernateProperties() {
@@ -43,7 +48,6 @@ public class HibernateProperties {
     }
 
     public static class JDBC {
-
         private int fetchSize;
         private int batchSize;
         private boolean batchVersionedData;
@@ -53,7 +57,6 @@ public class HibernateProperties {
         private boolean useScrollableResultset;
         private boolean useStreamsForBinary;
         private boolean wrapResultSets;
-
 
         public int getFetchSize() {
             return fetchSize;
