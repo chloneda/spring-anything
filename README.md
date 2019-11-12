@@ -6,6 +6,8 @@
 
 ## modules说明
 
+**注意：所有module均依赖[spring-boot-with-common](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-common)，是该[spring boot](https://github.com/chloneda/spring-anything/tree/spring-boot)分支的公共基础类，包含实体类、DTO等，请先看该module**。
+
 - [spring-boot](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot)：使用Spring Boot技术的实现的简单示例。
 
 - [spring-boot-with-common](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-common)：spring-anything项目的公共基础类，如实体类、DTO等。
@@ -52,7 +54,7 @@
 
 - [spring-boot-with-mybatis](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mybatis)：Spring Boot集成Mybatis(全注解整合集成)示例。
 
-- -[spring-boot-with-mybatis-annotation](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mybatis-annotation)：Spring Boot集成Mybatis示例。
+- [spring-boot-with-mybatis-annotation](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mybatis-annotation)：Spring Boot集成Mybatis示例。
 
 - [spring-boot-with-quickstart](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-quickstart)：快速搭建Spring Boot的示例。
 
@@ -60,7 +62,7 @@
 
 - -[spring-boot-with-redis](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-redis)：Spring Boot集成Redis示例。
 
-- -[spring-boot-with-restful](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-restful)：Spring Boot实现Restful接口。
+- [spring-boot-with-restful](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-restful)：Spring Boot实现Restful接口，实现CRUD基本功能。
 
 - -[spring-boot-with-shiro](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-shiro)：Spring Boot集成Shiro权限管理。
 

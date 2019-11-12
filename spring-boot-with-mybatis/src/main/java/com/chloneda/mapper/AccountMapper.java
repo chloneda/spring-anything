@@ -55,5 +55,4 @@ public interface AccountMapper {
     //@Cacheable(value = "indexCache",key = "'findAccountsById'+#id")
     public List<Account> findAccountsById(int id);
 
-
 }

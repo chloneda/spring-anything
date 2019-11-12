@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * @Created by chloneda
- * @Description:
+ * @Description: 访问路径：http://localhost:8056/resources/
  */
 @Api(value = "UserController", tags = "用户管理接口",
         consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
@@ -33,7 +33,7 @@ public class UserController {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "创建成功"),
             @ApiResponse(code = 406, message = "添加失败")})
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus
     public ResponseEntity<User> createUser(@ApiParam(value = "用户实体") @RequestBody User user) {
         User obj = userService.createUser(user);
@@ -54,7 +54,7 @@ public class UserController {
     @ApiOperation(value = "修改用户", notes = "更新用户", response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 406, message = "用户不存在"),
             @ApiResponse(code = 404, message = "其他错误")})
-    @RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/", method = RequestMethod.PUT)
     @ResponseStatus
     public ResponseEntity<User> updateUser(@ApiParam(value = "用户实体") @RequestBody User user){
         User obj=userService.updateUser(user);
@@ -74,9 +74,9 @@ public class UserController {
     @ApiOperation(value = "根据用户名获取用户", notes = "根据用户名获取用户", response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 406, message = "获取用户错误"),
             @ApiResponse(code = 404, message = "其他错误")})
-    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/getUser/{username}", method = RequestMethod.GET)
     @ResponseStatus
-    public ResponseEntity<User> getUser(String username) {
+    public ResponseEntity<User> getUser(@PathVariable String username) {
         User user = userService.findUser(username);
         LOGGER.info("=====> User: " + user);
         return new ResponseEntity<>(user,HttpStatus.OK);

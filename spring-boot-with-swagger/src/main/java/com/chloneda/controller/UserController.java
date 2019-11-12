@@ -74,7 +74,7 @@ public class UserController {
     @ApiOperation(value = "根据用户名获取用户", notes = "根据用户名获取用户", response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 406, message = "获取用户错误"),
             @ApiResponse(code = 404, message = "其他错误")})
-    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/getUser/{username}", method = RequestMethod.GET)
     @ResponseStatus
     public ResponseEntity<User> getUser(String username) {
         User user = userService.findUser(username);

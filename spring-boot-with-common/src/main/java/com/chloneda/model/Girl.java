@@ -5,22 +5,40 @@ import java.util.Objects;
 
 /**
  * @author chloneda
- * @description:
+ * @description: Girl实体类
  */
 public class Girl implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * Girl的编号
+     */
     private String id;
 
+    /**
+     * Girl的名称
+     */
     private String name;
 
+    /**
+     * Girl的年龄
+     */
     private String age;
 
+    /**
+     * Girl的家庭住址
+     */
     private String address;
 
+    /**
+     * Girl的邮箱
+     */
     private String email;
 
+    /**
+     * Girl的电话号码
+     */
     private String phone;
 
     public String getAddress() {
