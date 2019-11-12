@@ -38,6 +38,22 @@
         <module>spring-boot-with-mongodb</module>
         <module>spring-boot-with-websocket</module>
         <module>spring-boot-with-swagger</module>
+        <module>spring-boot-with-cache</module>
+        <module>spring-boot-with-kafka</module>
+        <module>spring-boot-with-redis</module>
+        <module>spring-boot-with-shiro</module>
+        <module>spring-boot-with-restful</module>
+        <module>spring-boot-with-mybatis-annotation</module>
+        <module>spring-boot-with-rabbitmq</module>
+        <module>spring-boot-with-quickstart</module>
+        <module>spring-boot-with-thymeleaf</module>
+        <module>spring-boot-with-socketio</module>
+        <module>spring-boot-with-async</module>
+        <module>spring-boot-with-aop</module>
+        <module>spring-boot-with-transaction</module>
+        <module>spring-boot-with-batch</module>
+        <module>spring-boot-with-jwt</module>
+        <module>spring-boot-with-echarts</module>
     </modules>
 
     <properties>
