@@ -17,14 +17,26 @@
 
 - [spring-framework](https://github.com/chloneda/spring-anything/tree/spring-framework)：Spring框架集成热门、实用技术系列。
 
-如要下载[spring-anything](https://github.com/chloneda/spring-anything)项目的指定分支，请使用Git下载指定分支命令：
 
+## 下载说明
+
+下载[spring-anything](https://github.com/chloneda/spring-anything)项目。
+```
+git clone git@github.com:chloneda/spring-anything.git
+```
+
+下载指定分支。
 ```
 git clone -b 分支名 仓库地址
 
 比如下载 spring-boot 分支，使用如下命令。
 git clone -b spring-boot git@github.com:chloneda/spring-anything.git
 ```
+
+# 专题文章
+
+相关专题文章持续更新中...
+
 
 ## 维护者
 [Chloneda](https://github.com/chloneda/)
