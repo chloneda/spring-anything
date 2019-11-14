@@ -46,7 +46,7 @@
 
 - [spring-boot-with-jpa](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-jpa)：Spring Boot的JPA示例，并集成Swagger，便于调试。
 
-- -[spring-boot-with-jwt](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-jwt)：Spring Boot集成JWT实现接口权限认证。
+- [spring-boot-with-jwt](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-jwt)：Spring Boot集成JWT实现接口权限认证。
 
 - [spring-boot-with-kafka](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-kafka)：Spring Boot集成Kafka示例。
 
@@ -72,11 +72,13 @@
 
 - [spring-boot-with-swagger](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-swagger)：Spring Boot集成Swagger自动生成API文档，为我们提供了一套通过代码和注解自动生成文档的方法。
 
-- -[spring-boot-with-thymeleaf](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-thymeleaf)：Spring Boot集成Thymeleaf构建web应用。
+- [spring-boot-with-thymeleaf](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-thymeleaf)：Spring Boot集成Thymeleaf构建web应用。
 
 - [spring-boot-with-transaction](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-transaction)：Spring Boot使用Transaction事务。
 
 - [spring-boot-with-websocket](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-websocket)：Spring Boot集成WebSocket进行实时通讯，它是 HTML5 开始提供的一种浏览器与服务器间进行全双工通讯的网络技术。
+
+- [spring-boot-with-others](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-others)：Spring Boot集成的其他技术专题，待商榷。
 
 
 # 下载地址
@@ -90,12 +92,12 @@ Gitee: [https://gitee.com/chloneda/spring-anything](https://gitee.com/chloneda/s
 
 ## 下载说明
 
-下载[spring-anything](https://github.com/chloneda/spring-anything)项目
+下载[spring-anything](https://github.com/chloneda/spring-anything)项目。
 ```
 git clone git@github.com:chloneda/spring-anything.git
 ```
 
-下载指定分支
+下载指定分支。
 ```
 git clone -b 分支名 仓库地址
 

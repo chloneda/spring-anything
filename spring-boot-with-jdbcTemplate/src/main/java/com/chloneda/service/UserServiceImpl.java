@@ -29,18 +29,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int deleteUserById(String userId) {
-        return this.userDao.deleteUserById(userId);
+    public int delete(String userId) {
+        return this.userDao.delete(userId);
     }
 
     @Override
-    public List<Map<String, Object>> queryUsersListMap() {
-        return this.userDao.queryUsersListMap();
+    public List<Map<String, Object>> getUsersList() {
+        return this.userDao.getUsersList();
     }
 
     @Override
-    public User queryUserById(String userId) {
-        return this.userDao.queryUserById(userId);
+    public User getUserById(String userId) {
+        return this.userDao.getUserById(userId);
     }
 
 }

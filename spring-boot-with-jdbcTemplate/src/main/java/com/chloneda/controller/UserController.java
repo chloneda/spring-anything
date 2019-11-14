@@ -3,6 +3,7 @@ package com.chloneda.controller;
 import com.chloneda.service.UserService;
 import com.chloneda.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,31 +16,31 @@ import java.util.Map;
  * @description:
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/query", method = RequestMethod.GET)
-    public User queryUserById(String userId) {
-        return this.userService.queryUserById(userId);
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public User getUserById(@PathVariable("userId") String userId) {
+        return this.userService.getUserById(userId);
     }
 
-    @RequestMapping(value = "/queryAll")
-    public List<Map<String, Object>> queryUsersListMap() {
-        System.out.println(this.userService.queryUsersListMap());
-        return this.userService.queryUsersListMap();
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public List<Map<String, Object>> getUsersList() {
+        System.out.println(this.userService.getUsersList());
+        return this.userService.getUsersList();
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.POST)
     public int create(User user) {
         return this.userService.create(user);
     }
 
-    @RequestMapping(value = "delete", method = RequestMethod.DELETE)
-    public int deleteUserById(String userId) {
-        return this.userService.deleteUserById(userId);
+    @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
+    public int delete(@PathVariable("userId") String userId) {
+        return this.userService.delete(userId);
     }
 
 }

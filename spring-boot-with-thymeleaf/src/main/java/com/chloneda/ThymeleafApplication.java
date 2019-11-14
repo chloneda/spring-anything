@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author chloneda
- * @description:
+ * @description: 静态资源访问路径：http://localhost:8056/userList.html
  */
 @SpringBootApplication
 public class ThymeleafApplication {

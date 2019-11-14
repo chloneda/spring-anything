@@ -19,7 +19,7 @@ import java.util.List;
  * @Description:
  */
 @RestController
-@Controller
+@RequestMapping(value = "/accounts")
 public class AccountController {
 
     private static final Logger logger = LoggerFactory.getLogger(AccountController.class);

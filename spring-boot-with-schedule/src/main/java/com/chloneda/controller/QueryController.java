@@ -13,14 +13,14 @@ import java.util.List;
  * @Created by chloneda
  * @Description:
  */
-@Controller
 @RestController
+@RequestMapping(value = "/doQuery")
 public class QueryController {
 
     @Autowired
     private QueryService queryService;
 
-    @RequestMapping(value = "/doQuery", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List doQuery(String sql) {
         return queryService.doQuery(sql);
     }

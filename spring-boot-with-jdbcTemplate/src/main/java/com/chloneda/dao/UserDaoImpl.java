@@ -38,7 +38,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int deleteUserById(String userId) {
+    public int delete(String userId) {
         String sql = "delete from mag_user where p_id = ?";
         Object[] args = {userId};
         int[] argTypes = {Types.VARCHAR};
@@ -46,13 +46,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<Map<String, Object>> queryUsersListMap() {
+    public List<Map<String, Object>> getUsersList() {
         String sql = "select * from mag_user";
         return this.jdbcTemplate.queryForList(sql);
     }
 
     @Override
-    public User queryUserById(String userId) {
+    public User getUserById(String userId) {
         String sql = "select * from mag_user where p_id = ?";
         Object[] args = {userId};
         int[] argTypes = {Types.VARCHAR};

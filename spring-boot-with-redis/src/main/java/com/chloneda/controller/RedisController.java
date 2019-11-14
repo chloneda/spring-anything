@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author chloneda
- * @description: 访问路径: http://localhost:8056/api/..
+ * @description: 访问路径: http://localhost:8056/redis/..
  */
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/redis")
 public class RedisController {
 
     @Autowired

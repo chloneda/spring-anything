@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public User getUserByName(String username) {
+    public User findUserByName(String username) {
         return userRepository.findUserByName(username);
     }
 
@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService {
         if (userOptional.isPresent()) {
             User userObj = userOptional.get();
             userObj.setName(user.getName());
-            userObj.setPassword(user.getPassword());
             userObj.setAge(user.getAge());
             userObj.setSex(user.getSex());
             userObj.setAddress(user.getAddress());

@@ -10,13 +10,13 @@ import java.util.List;
  */
 public interface UserService {
 
-    User findUser(String username);
+    User getUserByName(String username);
 
-    User createUser(User user);
+    User create(User user);
 
-    void deleteUser(String userId);
+    void delete(String userId);
 
-    User updateUser(User user);
+    User update(User user);
 
     List<User> findAll();
 

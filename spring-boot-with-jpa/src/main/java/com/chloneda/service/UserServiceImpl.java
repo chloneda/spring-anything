@@ -19,23 +19,23 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public User findUser(String username) {
-        return userRepository.findByUsername(username);
+    public User getUserByName(String username) {
+        return userRepository.findUserByNname(username);
     }
 
     @Override
-    public User createUser(User user) {
+    public User create(User user) {
         User u = userRepository.saveAndFlush(user);
         return u;
     }
 
     @Override
-    public void deleteUser(String userId) {
+    public void delete(String userId) {
         userRepository.deleteById(userId);
     }
 
     @Override
-    public User updateUser(User user) {
+    public User update(User user) {
         Optional<User> userOptional = userRepository.findById(user.getId());
         if (userOptional.isPresent()) {
             User userObj = userOptional.get();

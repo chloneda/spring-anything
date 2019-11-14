@@ -17,6 +17,6 @@ public class GirlServiceImpl implements GirlService{
 
     @Override
     public Girl findGirlByName(String cityName) {
-        return girlDao.findByName(cityName);
+        return girlDao.findGirlByName(cityName);
     }
 }

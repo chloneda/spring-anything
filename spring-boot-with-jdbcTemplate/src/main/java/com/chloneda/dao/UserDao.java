@@ -15,10 +15,10 @@ public interface UserDao {
 
     int update(User user);
 
-    int deleteUserById(String userId);
+    int delete(String userId);
 
-    List<Map<String, Object>> queryUsersListMap();
+    List<Map<String, Object>> getUsersList();
 
-    User queryUserById(String userId);
+    User getUserById(String userId);
 
 }

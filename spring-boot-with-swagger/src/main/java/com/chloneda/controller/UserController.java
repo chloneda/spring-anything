@@ -22,7 +22,7 @@ import java.util.List;
         consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
         produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
@@ -35,8 +35,8 @@ public class UserController {
             @ApiResponse(code = 406, message = "添加失败")})
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus
-    public ResponseEntity<User> createUser(@ApiParam(value = "用户实体") @RequestBody User user) {
-        User obj = userService.createUser(user);
+    public ResponseEntity<User> create(@ApiParam(value = "用户实体") @RequestBody User user) {
+        User obj = userService.create(user);
         return new ResponseEntity(obj,HttpStatus.OK);
     }
 
@@ -46,8 +46,8 @@ public class UserController {
             @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
     @ResponseStatus
-    public ResponseEntity<Void> deleteUser(@ApiParam(value = "用户ID") @PathVariable String userId){
-        userService.deleteUser(userId);
+    public ResponseEntity<Void> delete(@ApiParam(value = "用户ID") @PathVariable("userId") String userId){
+        userService.delete(userId);
         return new ResponseEntity(new HttpHeaders(), HttpStatus.OK);
     }
 
@@ -56,8 +56,8 @@ public class UserController {
             @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
     @ResponseStatus
-    public ResponseEntity<User> updateUser(@ApiParam(value = "用户实体") @RequestBody User user){
-        User obj=userService.updateUser(user);
+    public ResponseEntity<User> update(@ApiParam(value = "用户实体") @RequestBody User user){
+        User obj=userService.update(user);
         return new ResponseEntity(obj,HttpStatus.OK);
     }
 
@@ -66,7 +66,7 @@ public class UserController {
             @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseStatus
-    public ResponseEntity<List<User>> getAllUser() {
+    public ResponseEntity<List<User>> getUsersList() {
         List<User> userList = userService.findAll();
         return new ResponseEntity(userList,HttpStatus.OK);
     }
@@ -74,10 +74,10 @@ public class UserController {
     @ApiOperation(value = "根据用户名获取用户", notes = "根据用户名获取用户", response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 406, message = "获取用户错误"),
             @ApiResponse(code = 404, message = "其他错误")})
-    @RequestMapping(value = "/getUser/{username}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     @ResponseStatus
-    public ResponseEntity<User> getUser(String username) {
-        User user = userService.findUser(username);
+    public ResponseEntity<User> getUserByName(@PathVariable("username") String username) {
+        User user = userService.getUserByName(username);
         LOGGER.info("=====> User: " + user);
         return new ResponseEntity<>(user,HttpStatus.OK);
     }

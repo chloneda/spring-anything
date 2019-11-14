@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * @Created by chloneda
- * @Description: 访问路径：http://localhost:8056/api/getUser
+ * @Description: 访问路径：http://localhost:8056/cache/users
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/cache")
 public class CacheController {
 
     @Autowired
     private CacheService cacheService;
 
-    @RequestMapping(value = "/getUser/{username}", method = RequestMethod.GET)
-    public User getUser(@PathVariable String username) {
+    @RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
+    public User getUser(@PathVariable("username") String username) {
         User user = cacheService.findUserByName(username);
         return user;
     }

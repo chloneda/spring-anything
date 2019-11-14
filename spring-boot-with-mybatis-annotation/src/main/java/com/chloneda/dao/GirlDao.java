@@ -25,6 +25,6 @@ public interface GirlDao {
             @Result(property = "email", column = "email"),
             @Result(property = "phone", column = "phone")
     })
-    Girl findByName(@Param("name") String girlName);
+    Girl findGirlByName(@Param("name") String girlName);
 
 }

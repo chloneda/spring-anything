@@ -15,6 +15,9 @@ public class User extends Person {
 
     private static final long serialVersionUID = 1L;
 
+    @Column(name = "PASSWORD", length = 128)
+    private String password;
+
     @Column(name = "ADDRESS", length = 128)
     private String address;
 
@@ -47,20 +50,28 @@ public class User extends Person {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return Objects.equals(address, user.address) &&
+        return Objects.equals(password, user.password) &&
+                Objects.equals(address, user.address) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(phone, user.phone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(address, email, phone);
+        return Objects.hash(password,address, email, phone);
     }
 
 }
