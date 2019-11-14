@@ -15,7 +15,7 @@ CREATE TABLE `girl` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `girl` WRITE;
-INSERT INTO `girl` VALUES ('ff8080816e3a6e7a016e3a6fd08f0000','18','lili','BeiJing','lili@163.com','131-xxxx-8139');
-INSERT INTO `girl` VALUES ('ff8080816e3a6e7a016e3a6fd08f0001','23','jingjing','ShangHai','jingjing@163.com','131-xxxx-8133');
-INSERT INTO `girl` VALUES ('ff8080816e3a6e7a016e3a6fd08f0002','35','liuwen','GuangZhou','liuwen@163.com','131-xxxx-8131');
+INSERT INTO `girl` VALUES ('111','18','lili','BeiJing','lili@163.com','131-xxxx-8139');
+INSERT INTO `girl` VALUES ('222','23','jingjing','ShangHai','jingjing@163.com','131-xxxx-8133');
+INSERT INTO `girl` VALUES ('333','35','liuwen','GuangZhou','liuwen@163.com','131-xxxx-8131');
 UNLOCK TABLES;

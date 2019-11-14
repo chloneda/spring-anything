@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Created by chloneda
- * @Description:
+ * @author chloneda
+ * @description:
  */
 @RestController
+@RequestMapping(value = "/api")
 public class UserController {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
-    public User getUser(String userId) {
-        User user = userService.getUser(userId);
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void create(User user) {
+        boolean isCreate = userService.create(user);
         LOGGER.info("=====> User: " + user);
-        return user;
     }
 
 }

@@ -13,8 +13,8 @@ import java.util.List;
  * @Created by chloneda
  * @Description:
  */
-@Controller
 @RestController
+@RequestMapping(value = "/api")
 public class QueryController {
 
     @Autowired

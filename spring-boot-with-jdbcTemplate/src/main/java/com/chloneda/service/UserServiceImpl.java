@@ -42,4 +42,5 @@ public class UserServiceImpl implements UserService {
     public User queryUserById(String userId) {
         return this.userDao.queryUserById(userId);
     }
+
 }
