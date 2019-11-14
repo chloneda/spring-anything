@@ -12,7 +12,7 @@
 
 - [spring-boot-with-common](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-common)：spring-anything项目的公共基础类，如实体类、DTO等。
 
-- -[spring-boot-with-aop](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-aop)：Spring Boot使用AOP。
+- [spring-boot-with-aop](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-aop)：Spring Boot使用AOP。
 
 - -[spring-boot-with-async](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-async)：Spring Boot使用异步线程池。
 
