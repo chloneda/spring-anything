@@ -1,14 +1,14 @@
 # spring-boot分支
 
 # 分支简介
-[spring-anything](https://github.com/chloneda/spring-anything)项目的[spring boot](https://github.com/chloneda/spring-anything/tree/spring-boot)分支，使用Spring Boot框架，并结合当前热门、实用的技术进行集成，即Spring Boot集成druid数据库连接池，Spring Boot实现druid的动态数据源，实现定时任务schedule，并集成mybatis、hibernate等，如有错误，欢迎大家指正！
+[spring-anything](https://github.com/chloneda/spring-anything)项目的[spring boot](https://github.com/chloneda/spring-anything/tree/spring-boot)分支，使用Spring Boot框架，追求简单快捷、开箱即用的原则，并结合当前热门、实用的技术进行集成，即Spring Boot集成Druid数据库连接池，Spring Boot实现Druid的动态数据源切换，实现定时任务Schedule，并集成Mybatis、Hibernate等，如有错误，欢迎大家指正！
 
 
 # modules说明
 
 **注意：大部分module均依赖[spring-boot-with-common](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-common)，是该[spring boot](https://github.com/chloneda/spring-anything/tree/spring-boot)分支的公共基础类，包含实体类、DTO等，请先看该module**。
 
-- [spring-boot](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot)：使用Spring Boot技术的实现的简单示例。
+- [spring-boot](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot)：使用当前项目的大部分Spring Boot技术实现的的简单程序，以项目为导向，真正地实现技术的融会贯通！
 
 - [spring-boot-with-common](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-common)：spring-anything项目的公共基础类，如实体类、DTO等。
 
@@ -48,7 +48,7 @@
 
 - -[spring-boot-with-jwt](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-jwt)：Spring Boot集成JWT实现接口权限认证。
 
-- -[spring-boot-with-kafka](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-kafka)：Spring Boot集成Kafka示例。
+- [spring-boot-with-kafka](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-kafka)：Spring Boot集成Kafka示例。
 
 - [spring-boot-with-mongodb](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mongodb)：Spring Boot集成MongodDB示例。
 
@@ -60,7 +60,7 @@
 
 - -[spring-boot-with-rabbitmq](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-rabbitmq)：Spring Boot集成Rabbitmq示例。
 
-- -[spring-boot-with-redis](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-redis)：Spring Boot集成Redis示例。
+- [spring-boot-with-redis](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-redis)：Spring Boot集成Redis示例。
 
 - [spring-boot-with-restful](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-restful)：Spring Boot实现Restful接口，实现CRUD基本功能。
 
@@ -88,9 +88,7 @@ GitHub: [https://github.com/chloneda/spring-anything](https://github.com/chloned
 Gitee: [https://gitee.com/chloneda/spring-anything](https://gitee.com/chloneda/spring-anything)
 
 
-# 使用说明
-
-## 下载
+## 下载说明
 
 下载[spring-anything](https://github.com/chloneda/spring-anything)项目
 ```
@@ -105,12 +103,10 @@ git clone -b 分支名 仓库地址
 git clone -b spring-boot git@github.com:chloneda/spring-anything.git
 ```
 
-## 使用
-
-[spring-anything](https://github.com/chloneda/spring-anything)项目追求简单快捷、开箱即用的原则，下载工程之后，只需更改相应的配置如MySQL等，启动Spring Boot的main方法，即可运行！同时也会结合Spring Boot相关知识帮助大家快速吸收，快速上手！
-
 
 # 专题文章
+
+Spring Boot专题文章持续更新中...
 
 
 # 维护者
