@@ -1,11 +1,11 @@
 # spring-anything
 
-## 简介
+# 简介
 
-[spring-anything](https://github.com/chloneda/spring-anything)项目志在打造Spring全系列教程，并结合当前热门、实用的技术进行集成。如有错误，欢迎大家指正！
+[spring-anything](https://github.com/chloneda/spring-anything)项目追求简单快捷、开箱即用的原则，致力于打造Spring全系列教程，并结合当前热门、实用的技术进行集成。如有错误，欢迎大家指正！
 
 
-## 分支说明
+# 分支说明
 
 [spring-anything](https://github.com/chloneda/spring-anything)项目当前有以下分支，具体说明如下：
 
@@ -17,6 +17,11 @@
 
 - [spring-framework](https://github.com/chloneda/spring-anything/tree/spring-framework)：Spring框架集成热门、实用技术系列。
 
+
+# 下载地址
+spring-anything项目下载地址:
+
+[GitHub](https://github.com/chloneda/spring-anything)|[Gitee](https://gitee.com/chloneda/spring-anything)
 
 ## 下载说明
 
@@ -38,13 +43,13 @@ git clone -b spring-boot git@github.com:chloneda/spring-anything.git
 相关专题文章持续更新中...
 
 
-## 维护者
+# 维护者
 [Chloneda](https://github.com/chloneda/)
 
 [Personal Blog](https://chloneda.github.io/)
 
 
-## 相关书籍
+# 相关书籍
 
 [Java Persistence with MyBatis 3](https://github.com/chloneda/magic-spring-boot/blob/master/resources/Java%20Persistence%20with%20MyBatis%203.pdf)
 
