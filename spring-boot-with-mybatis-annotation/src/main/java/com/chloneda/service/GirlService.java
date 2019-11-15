@@ -11,8 +11,8 @@ public interface GirlService {
     /**
      * 根据美女名称，查询Girl信息
      *
-     * @param girlName
+     * @param girlId
      */
-    Girl findGirlByName(String girlName);
+    Girl findGirlById(String girlId);
 
 }

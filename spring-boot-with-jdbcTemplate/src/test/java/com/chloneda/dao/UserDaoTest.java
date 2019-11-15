@@ -18,8 +18,8 @@ public class UserDaoTest {
     UserDao userDao;
 
     @Test
-    public void testQueryUsersListMap() {
-        System.out.println(userDao.queryUsersListMap());
+    public void testGetUsersList() {
+        System.out.println("查询用户列表: " + userDao.getUsersList());
     }
 
 }

@@ -63,6 +63,7 @@ public class BaseController {
             this.message = message;
             this.date = date;
         }
+
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)

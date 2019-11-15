@@ -19,7 +19,7 @@ public class GirlServiceTest {
 
     @Test
     public void testFindGirlByName(){
-        System.out.println("======> " + girlService.findGirlByName("lili").getAddress());
+        System.out.println("======> " + girlService.findGirlById("001").getAddress());
     }
 
 }

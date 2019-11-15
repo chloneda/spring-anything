@@ -24,22 +24,22 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int create(User user) {
-        String sql = "insert into mag_user(p_id,p_name,p_sex,p_age,address,email,phone) values(:p_id,:p_name,:p_sex,:p_age,:address,:email,:phone)";
+        String sql = "insert into user(p_id,p_name,p_sex,p_age,password,address,email,phone) values(:p_id,:p_name,:p_sex,:p_age,:password,:address,:email,:phone)";
         NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(this.jdbcTemplate.getDataSource());
         return npjt.update(sql, new BeanPropertySqlParameterSource(user));
     }
 
     @Override
     public int update(User user) {
-        String sql = "update mag_user set p_name = ?,p_sex = ? where p_id = ?";
-        Object[] args = {user.getName(), user.getSex(), user.getId()};
+        String sql = "update user set p_name = ?,p_sex = ?,p_age = ?,password = ?,address = ?,email = ?,phone = ? where p_id = ?";
+        Object[] args = {user.getName(), user.getSex(), user.getAge(), user.getPassword(), user.getAddress(), user.getEmail(), user.getPhone(), user.getId()};
         int[] argTypes = {Types.VARCHAR, Types.VARCHAR, Types.VARCHAR};
         return this.jdbcTemplate.update(sql, args, argTypes);
     }
 
     @Override
     public int delete(String userId) {
-        String sql = "delete from mag_user where p_id = ?";
+        String sql = "delete from user where p_id = ?";
         Object[] args = {userId};
         int[] argTypes = {Types.VARCHAR};
         return this.jdbcTemplate.update(sql, args, argTypes);
@@ -47,13 +47,13 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<Map<String, Object>> getUsersList() {
-        String sql = "select * from mag_user";
+        String sql = "select * from user";
         return this.jdbcTemplate.queryForList(sql);
     }
 
     @Override
     public User getUserById(String userId) {
-        String sql = "select * from mag_user where p_id = ?";
+        String sql = "select * from user where p_id = ?";
         Object[] args = {userId};
         int[] argTypes = {Types.VARCHAR};
         List<User> userList = this.jdbcTemplate.query(sql, args, argTypes, new UserMapper());

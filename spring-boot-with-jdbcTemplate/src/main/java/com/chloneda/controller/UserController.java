@@ -3,10 +3,7 @@ package com.chloneda.controller;
 import com.chloneda.service.UserService;
 import com.chloneda.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -22,6 +19,22 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(method = RequestMethod.POST)
+    public int create(@RequestBody User user) {
+        return this.userService.create(user);
+    }
+
+    @RequestMapping(value = "/{userId}",method = RequestMethod.POST)
+    public int update(@PathVariable("userId") String usreId,@RequestBody User user) {
+        user.setId(usreId);
+        return this.userService.create(user);
+    }
+
+    @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
+    public int delete(@PathVariable("userId") String userId) {
+        return this.userService.delete(userId);
+    }
+
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public User getUserById(@PathVariable("userId") String userId) {
         return this.userService.getUserById(userId);
@@ -31,16 +44,6 @@ public class UserController {
     public List<Map<String, Object>> getUsersList() {
         System.out.println(this.userService.getUsersList());
         return this.userService.getUsersList();
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
-    public int create(User user) {
-        return this.userService.create(user);
-    }
-
-    @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
-    public int delete(@PathVariable("userId") String userId) {
-        return this.userService.delete(userId);
     }
 
 }

@@ -14,7 +14,7 @@ CREATE TABLE `user` (
   `email` varchar(128) DEFAULT NULL,
   `phone` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`p_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `user` WRITE;
 INSERT INTO `user` VALUES ('001','18','lili','woamn','BeiJing','123456','lili@163.com','131-xxxx-8139');

@@ -16,9 +16,9 @@ public class GirlController {
     @Autowired
     private GirlService girlService;
 
-    @RequestMapping(value = "/{girlName}", method = RequestMethod.GET)
-    public Girl getGirlByName(@PathVariable(value = "girlName") String girlName) {
-        return girlService.findGirlByName(girlName);
+    @RequestMapping(value = "/{girlId}", method = RequestMethod.GET)
+    public Girl getGirlById(@PathVariable(value = "girlId") String girlId) {
+        return girlService.findGirlById(girlId);
     }
 
 }
