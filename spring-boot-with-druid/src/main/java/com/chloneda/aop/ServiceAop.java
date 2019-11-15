@@ -20,11 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 public class ServiceAop {
     private static final Logger logger = LoggerFactory.getLogger(ServiceAop.class);
 
-    @Pointcut("execution(public * com.magic.springboot.service.*.*(..))")
-    public void webRequestLog() {
+    @Pointcut("execution(public * com.chloneda.service.*.*(..))")
+    public void webLog() {
     }
 
-    @Before("webRequestLog()")
+    @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) {
         ThreadLocal threadLocal;
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -39,12 +39,12 @@ public class ServiceAop {
         String params = "";
     }
 
-    @AfterReturning(returning = "result", pointcut = "webRequestLog()")
+    @AfterReturning(returning = "result", pointcut = "webLog()")
     public void doAfterReturning(Object result) {
 
     }
 
-    @Around("webRequestLog()")
+    @Around("webLog()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("ServiceAop------方法环绕start------");
         Object o = null;
@@ -90,4 +90,5 @@ public class ServiceAop {
         }
         return params.trim();
     }
+
 }

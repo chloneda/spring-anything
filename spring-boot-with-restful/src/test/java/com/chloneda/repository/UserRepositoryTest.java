@@ -1,4 +1,4 @@
-package com.chloneda.service;
+package com.chloneda.repository;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,14 +12,13 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserServiceTest {
+public class UserRepositoryTest {
 
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
     @Test
-    public void testGetUserById(){
-        System.out.println("用户名称: " + userService.getUserById("001").getName());
+    public void tt(){
+        System.out.println(userRepository.findUserByName("lili").getAddress());
     }
-
 }

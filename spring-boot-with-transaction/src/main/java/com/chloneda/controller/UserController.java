@@ -14,14 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @description:
  */
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/users")
 public class UserController {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public void create(User user) {
         boolean isCreate = userService.create(user);
         LOGGER.info("=====> User: " + user);

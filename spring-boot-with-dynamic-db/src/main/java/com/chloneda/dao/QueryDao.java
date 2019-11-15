@@ -11,9 +11,10 @@ public interface QueryDao {
 
     /**
      * 执行SQL并返回查询结果
+     *
      * @param sql 执行SQL
      * @return
      */
-    List<Map<String,Object>> query(String sql);
+    List<Map<String, Object>> query(String sql);
 
 }

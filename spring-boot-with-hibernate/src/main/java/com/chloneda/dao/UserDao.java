@@ -8,7 +8,7 @@ import com.chloneda.model.User;
  */
 public interface UserDao {
 
-    User getUserById(String username);
+    User getUserById(String userId);
 
     void save(Object o);
 

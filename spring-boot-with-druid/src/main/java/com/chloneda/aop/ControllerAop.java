@@ -18,9 +18,10 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 @Component
 public class ControllerAop {
+
     private static final Logger logger = LoggerFactory.getLogger(ControllerAop.class);
 
-    @Pointcut("execution(public * com.magic.springboot.controller.*.*(..))")
+    @Pointcut("execution(public * com.chloneda.controller.*.*(..))")
     public void webAspect() {
     }
 
@@ -72,4 +73,5 @@ public class ControllerAop {
         }
         return ip;
     }
+
 }

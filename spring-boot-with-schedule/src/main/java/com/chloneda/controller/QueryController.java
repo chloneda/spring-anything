@@ -14,7 +14,7 @@ import java.util.List;
  * @Description:
  */
 @RestController
-@RequestMapping(value = "/doQuery")
+@RequestMapping(value = "/query")
 public class QueryController {
 
     @Autowired

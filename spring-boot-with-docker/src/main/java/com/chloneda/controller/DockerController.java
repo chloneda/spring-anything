@@ -1,6 +1,7 @@
 package com.chloneda.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -8,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @description:
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/docker")
 public class DockerController {
 
-    @RequestMapping("/")
+    @RequestMapping(method = RequestMethod.GET)
     public String index() {
         return "My Docker!";
     }

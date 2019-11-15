@@ -17,14 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
 
     @RequestMapping(value = "/{userId}",method = RequestMethod.GET)
-    public User getUser(@PathVariable("userId") String userId) {
-        User user = userService.getUser(userId);
+    public User getUserById(@PathVariable("userId") String userId) {
+        User user = userService.getUserById(userId);
         LOGGER.info("=====> User: " + user);
         return user;
     }

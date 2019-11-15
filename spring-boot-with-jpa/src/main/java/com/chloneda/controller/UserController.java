@@ -16,54 +16,38 @@ import java.util.List;
 
 /**
  * @Created by chloneda
- * @Description: 访问路径：http://localhost:8056/resources/users
+ * @Description: 访问路径：http://localhost:8056/users
  */
-@Api(value = "UserController", tags = "用户管理接口",
-        consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-        produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
 
-    @ApiOperation(value = "新增用户", notes = "新建用户", response = User.class)
-    @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "创建成功"),
-            @ApiResponse(code = 406, message = "添加失败")})
-    @RequestMapping(value = "/",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/",method = RequestMethod.POST)
     @ResponseStatus
-    public ResponseEntity<User> create(@ApiParam(value = "用户实体") @RequestBody User user) {
+    public ResponseEntity<User> create( @RequestBody User user) {
         User obj = userService.create(user);
         return new ResponseEntity(obj,HttpStatus.OK);
     }
 
-    @ApiOperation(value = "删除用户", notes = "通过ID删除用户", response = Void.class)
-    @ApiResponses(value = {@ApiResponse(code = 200, message = "删除成功"),
-            @ApiResponse(code = 406, message = "用户不存在"),
-            @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
     @ResponseStatus
-    public ResponseEntity<Void> delete(@ApiParam(value = "用户ID") @PathVariable("userId") String userId){
+    public ResponseEntity<Void> delete( @PathVariable("userId") String userId){
         userService.delete(userId);
         return new ResponseEntity(new HttpHeaders(), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "修改用户", notes = "更新用户", response = User.class)
-    @ApiResponses(value = {@ApiResponse(code = 406, message = "用户不存在"),
-            @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     @ResponseStatus
-    public ResponseEntity<User> update(@ApiParam(value = "用户实体") @RequestBody User user){
+    public ResponseEntity<User> update(@RequestBody User user){
         User obj=userService.update(user);
         return new ResponseEntity(obj,HttpStatus.OK);
     }
 
-    @ApiOperation(value = "获取所有用户", notes = "获取所有用户", response = List.class)
-    @ApiResponses(value = {@ApiResponse(code = 406, message = "获取用户错误"),
-            @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseStatus
     public ResponseEntity<List<User>> getUsersList() {
@@ -71,9 +55,6 @@ public class UserController {
         return new ResponseEntity(userList,HttpStatus.OK);
     }
 
-    @ApiOperation(value = "根据用户名获取用户", notes = "根据用户名获取用户", response = User.class)
-    @ApiResponses(value = {@ApiResponse(code = 406, message = "获取用户错误"),
-            @ApiResponse(code = 404, message = "其他错误")})
     @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     @ResponseStatus
     public ResponseEntity<User> getUserByName(@PathVariable("username") String username) {

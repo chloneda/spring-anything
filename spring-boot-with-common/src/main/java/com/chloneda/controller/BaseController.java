@@ -17,26 +17,11 @@ import java.util.Date;
 
 /**
  * @author chloneda
- * @description: API接口的基础返回类
+ * @description: Controller接口的基础类
  */
 public class BaseController {
 
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    protected HttpServletRequest request;
-    protected HttpServletResponse response;
-    protected HttpSession session;
-
-    /**
-     * spring ModelAttribute
-     * 放置在方法上面：表示请求该类的每个Action前都会首先执行它，也可以将一些准备数据的操作放置在该方法里面
-     */
-    @ModelAttribute
-    public void setBaseController(HttpServletRequest request,HttpServletResponse response){
-        this.request=request;
-        this.response=response;
-        this.session=request.getSession();
-    }
 
     protected final <T> ResponseEntity<T> ok(T object) {
         return new ResponseEntity<>(object, HttpStatus.MULTI_STATUS.OK);
@@ -83,10 +68,9 @@ public class BaseController {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Throwable.class)
     @ResponseBody
-    protected final BaseErrorInfo baseExceptionHander(HttpServletRequest req, Throwable throwable) {
-        logger.error("Controller error...", throwable);
+    protected final BaseErrorInfo baseExceptionHander(HttpServletRequest request, Throwable throwable) {
+        logger.error("Controller error{}: ", throwable);
         return new BaseErrorInfo(HttpStatus.INTERNAL_SERVER_ERROR.value(), throwable.getClass().getName(), throwable.getMessage(), new Date());
     }
 
 }
-

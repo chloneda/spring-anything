@@ -24,9 +24,9 @@ public class QueryServiceImpl implements QueryService {
         return queryDao.query(sql);
     }
 
-    private void validateQuerySql(String sql){
+    private void validateQuerySql(String sql) {
         Assert.notNull(sql, "SQL must not be null!");
-        String targetSql=sql.toLowerCase();
+        String targetSql = sql.toLowerCase();
         if (targetSql.startsWith("update")
                 || targetSql.startsWith("delete")
                 || targetSql.startsWith("alert")
@@ -35,7 +35,6 @@ public class QueryServiceImpl implements QueryService {
             throw new RuntimeException("SQL合规校验失败，不能是alert|update|drop|delete|insert操作");
         }
     }
-
 
 
 }

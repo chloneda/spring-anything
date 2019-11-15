@@ -1,7 +1,7 @@
 package com.chloneda.dubbo.provider.service;
 
 import com.chloneda.dubbo.api.IUser;
-import com.chloneda.dubbo.provider.dao.IUserDAO;
+import com.chloneda.dubbo.provider.dao.IUserDao;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,15 +14,16 @@ import org.springframework.stereotype.Component;
 public class IUserServiceImpl implements IUser {
 
     @Autowired
-    IUserDAO iUserDAO;
+    IUserDao iUserDao;
 
     @Override
     public String getFullName(String name) {
-        return "getFullName:" + this.iUserDAO.test().toString();
+        return "getFullName:" + this.iUserDao.test().toString();
     }
 
     @Override
     public String getNickName(int id) {
-        return "getNickName:" + this.iUserDAO.test().toString();
+        return "getNickName:" + this.iUserDao.test().toString();
     }
+
 }

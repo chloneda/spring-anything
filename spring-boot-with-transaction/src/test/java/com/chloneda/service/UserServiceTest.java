@@ -21,10 +21,11 @@ public class UserServiceTest {
     @Test
     public void testCreate(){
         User user=new User();
-        user.setId("001");
+        user.setId("005");
         user.setName("lili");
         user.setAge("18");
         user.setSex("woamn");
+        user.setPassword("123456");
         user.setAddress("BeiJing");
         user.setEmail("lili@163.com");
         user.setPhone("131-xxxx-8139");

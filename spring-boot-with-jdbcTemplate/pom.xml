@@ -28,6 +28,7 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <!-- Spring Boot集成Druid依赖 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>

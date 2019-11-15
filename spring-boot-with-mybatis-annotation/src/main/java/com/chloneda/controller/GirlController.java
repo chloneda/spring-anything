@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * @description:
  */
 @RestController
-@RequestMapping(value = "girls")
+@RequestMapping(value = "/girls")
 public class GirlController {
 
     @Autowired

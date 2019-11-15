@@ -19,13 +19,13 @@ public class RedisController {
     private RedisService redisService;
 
     @GetMapping(value = "saveGirl")
-    public String saveCity(Girl girl){
+    public String saveGirl(Girl girl){
         redisService.set(girl.getId()+"",girl);
         return "success";
     }
 
     @GetMapping(value = "getGirlById")
-    public Girl getCity(int girlId){
+    public Girl getGirl(int girlId){
         Girl girl = (Girl) redisService.get(girlId+"");
         return girl;
     }

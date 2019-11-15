@@ -18,7 +18,7 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CustomerServiceImplTest {
-    
+
     @Autowired
     private CustomerService customerService;
 
@@ -62,7 +62,7 @@ public class CustomerServiceImplTest {
     @Test
     public void testGetAll() {
         Iterable<Customer> iterable = customerService.getAll();
-        iterable.forEach(e->System.out.println(e.toString()));
+        iterable.forEach(e -> System.out.println(e.toString()));
     }
 
     @Test

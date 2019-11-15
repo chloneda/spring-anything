@@ -9,14 +9,15 @@ import org.springframework.stereotype.Service;
  * @author chloneda
  * @description: Girl业务逻辑实现类
  */
-@Service
-public class GirlServiceImpl implements GirlService{
+@Service("girlService")
+public class GirlServiceImpl implements GirlService {
 
     @Autowired
     private GirlDao girlDao;
 
     @Override
-    public Girl findGirlByName(String cityName) {
-        return girlDao.findGirlByName(cityName);
+    public Girl findGirlByName(String girlName) {
+        return girlDao.findGirlByName(girlName);
     }
+
 }

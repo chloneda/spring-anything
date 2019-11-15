@@ -21,6 +21,8 @@ public interface GirlDao {
             @Result(property = "id", column = "id"),
             @Result(property = "name", column = "name"),
             @Result(property = "age", column = "age"),
+            @Result(property = "sex", column = "sex"),
+            @Result(property = "password", column = "password"),
             @Result(property = "address", column = "address"),
             @Result(property = "email", column = "email"),
             @Result(property = "phone", column = "phone")

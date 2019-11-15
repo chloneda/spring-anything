@@ -3,7 +3,7 @@ package com.chloneda.dubbo.provider.dao;
 /**
  * @Created by chloneda.
  */
-public interface IUserDAO {
+public interface IUserDao {
 
     Object test();
 

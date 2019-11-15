@@ -44,7 +44,7 @@
 
 - [spring-boot-with-jdbcTemplate](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-jdbcTemplate)：Spring Boot使用原生的JdbcTemplate进行常见的增删改查操作。
 
-- [spring-boot-with-jpa](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-jpa)：Spring Boot的JPA示例，并集成Swagger，便于调试。
+- [spring-boot-with-jpa](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-jpa)：Spring Boot集成JPA示例。
 
 - [spring-boot-with-jwt](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-jwt)：Spring Boot集成JWT实现接口权限认证。
 

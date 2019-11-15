@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * @Created by chloneda
  */
 @Repository(value = "testDAO")
-public class IUserDAOImpl implements IUserDAO {
+public class IUserDaoImpl implements IUserDao {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

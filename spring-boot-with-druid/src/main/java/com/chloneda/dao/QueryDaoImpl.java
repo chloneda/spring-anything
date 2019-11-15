@@ -18,7 +18,7 @@ public class QueryDaoImpl implements QueryDao {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<Map<String,Object>> query(String sql) {
+    public List<Map<String, Object>> query(String sql) {
         return jdbcTemplate.queryForList(sql);
     }
 

@@ -8,8 +8,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
- * Created by chl
- * Description:
+ * @Created by chloneda
+ * @Description:
  */
 @SpringBootApplication
 public class FreemarkerApplication extends SpringBootServletInitializer {

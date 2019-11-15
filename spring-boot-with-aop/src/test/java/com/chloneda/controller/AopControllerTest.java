@@ -27,6 +27,10 @@ import java.util.Map;
 @SpringBootTest
 public class AopControllerTest {
 
+    /**
+     * 使用http请求aop接口
+     * @throws IOException
+     */
     @Test
     public void restClientGet() throws IOException {
         URL url = new URL("http://localhost:8056/aop/sayHello");

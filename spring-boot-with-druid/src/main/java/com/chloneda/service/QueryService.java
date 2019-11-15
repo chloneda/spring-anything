@@ -9,6 +9,6 @@ import java.util.Map;
  */
 public interface QueryService {
 
-    List<Map<String,Object>> doQuery(String sql);
+    List<Map<String, Object>> doQuery(String sql);
 
 }

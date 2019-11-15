@@ -20,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
@@ -37,19 +38,22 @@ public class UserController {
         return new ResponseEntity(new HttpHeaders(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public ResponseEntity<User> update(@RequestBody User user){
+    @RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
+    public ResponseEntity<User> update(@PathVariable("userId") String userId,@RequestBody User user){
+        user.setId(userId);
         User obj=userService.update(user);
         return new ResponseEntity(obj,HttpStatus.OK);
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseStatus
     public ResponseEntity<List<User>> getUsersList() {
         List<User> userList = userService.findAll();
         return new ResponseEntity(userList,HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{username}", method = RequestMethod.GET)
+    @ResponseStatus
     public ResponseEntity<User> getUserByName(@PathVariable("username") String username) {
         User user = userService.getUserByName(username);
         LOGGER.info("=====> User: " + user);

@@ -3,6 +3,7 @@ package com.chloneda.controller;
 import com.chloneda.job.AsyncJob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.Future;
@@ -37,7 +38,7 @@ public class AsyncJobController {
     @Autowired
     private AsyncJob asyncJob;
 
-    @RequestMapping("/runJob")
+    @RequestMapping(value = "/runJob",method = RequestMethod.GET)
     public String runJob() throws InterruptedException {
         long startTime = System.currentTimeMillis();
         Future job1 = asyncJob.runJob1();

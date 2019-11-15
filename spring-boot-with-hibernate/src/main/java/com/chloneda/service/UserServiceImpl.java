@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService{
     UserDao userDao;
 
     @Override
-    public User getUser(String userId) {
+    public User getUserById(String userId) {
         return this.userDao.getUserById(userId);
     }
 
@@ -28,8 +28,10 @@ public class UserServiceImpl implements UserService{
         User user = new User();
         user.setId("1502992309");
         user.setName("haili");
+        user.setPassword("123456");
         user.setPhone("12382948123");
         user.setAge("19");
+        user.setSex("man");
         user.setEmail("haili@163.com");
         user.setAddress("Guangzhou");
         this.userDao.save(user);

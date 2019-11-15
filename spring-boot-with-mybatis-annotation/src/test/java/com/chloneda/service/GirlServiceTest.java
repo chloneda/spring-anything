@@ -12,14 +12,14 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserServiceTest {
+public class GirlServiceTest {
 
     @Autowired
-    private UserService userService;
+    private GirlService girlService;
 
     @Test
-    public void testGetUserById(){
-        System.out.println("用户名称: " + userService.getUserById("001").getName());
+    public void testFindGirlByName(){
+        System.out.println("======> " + girlService.findGirlByName("lili").getAddress());
     }
 
 }

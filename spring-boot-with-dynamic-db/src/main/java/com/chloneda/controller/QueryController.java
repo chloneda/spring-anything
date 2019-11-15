@@ -10,18 +10,18 @@ import java.util.List;
 
 /**
  * @Created by chloneda
- * @Description:
+ * @Description: 访问路径：http://127.0.0.1:8056/query
  */
 @RestController
-@RequestMapping(value = "query")
+@RequestMapping(value = "/query")
 public class QueryController {
-    
+
     @Autowired
     private QueryService queryService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List doQuery(String sql){
-        return  queryService.doQuery(sql);
+    public List doQuery(String sql) {
+        return queryService.doQuery(sql);
     }
-    
+
 }

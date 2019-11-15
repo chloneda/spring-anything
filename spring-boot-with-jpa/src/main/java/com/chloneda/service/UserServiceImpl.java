@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
             userObj.setName(user.getName());
             userObj.setAge(user.getAge());
             userObj.setSex(user.getSex());
+            userObj.setPassword(user.getPassword());
             userObj.setAddress(user.getAddress());
             userObj.setEmail(user.getEmail());
             userObj.setPhone(user.getPhone());
