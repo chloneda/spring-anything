@@ -20,40 +20,41 @@ import java.util.List;
  * @Description:
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user",method = RequestMethod.POST)
-    public User create(@ApiParam(value = "用户实体") @RequestBody User user) {
+    @RequestMapping(method = RequestMethod.POST)
+    public User create(@RequestBody User user) {
         User obj = userService.create(user);
         return obj;
     }
 
-    @RequestMapping(value = "/user/{userId}", method = RequestMethod.DELETE)
-    public void delete(@ApiParam(value = "用户ID") @PathVariable String userId){
+    @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable String userId) {
         userService.delete(userId);
     }
 
-    @RequestMapping(value = "/user/{userId}", method = RequestMethod.PUT)
-    public User update(@ApiParam(value = "用户实体") @RequestBody User user){
-        User obj=userService.update(user);
+    @RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
+    public User update(@PathVariable("userId") String userId,@RequestBody User user) {
+        user.setId(userId);
+        User obj = userService.update(user);
         return obj;
     }
 
     private static final String USER_LIST_PATH_NAME = "userList";
 
-    @RequestMapping(value = "/user/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String getAllUser(final Model model) {
         List<User> userList = userService.findAll();
-        model.addAttribute("userList",userList);
+        model.addAttribute("userList", userList);
         return USER_LIST_PATH_NAME;
     }
 
-    @RequestMapping(value = "/user/getUser/{username}", method = RequestMethod.GET)
-    public User getUserByName(String username) {
+    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
+    public User getUserByName(@PathVariable("username") String username) {
         User user = userService.findUserByName(username);
         return user;
     }
