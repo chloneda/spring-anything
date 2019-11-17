@@ -12,4 +12,8 @@ public interface CacheService {
 
     User findUserByName(String username);
 
+    void remove(String userId);
+
+    User findOne(User user);
+
 }
