@@ -5,7 +5,7 @@
 DROP TABLE IF EXISTS `girl`;
 
 CREATE TABLE `girl` (
-  `id` varchar(64) NOT NULL,
+  `id` varchar(64) NOT NULL AUTO_INCREMENT,
   `age` varchar(54) DEFAULT NULL,
   `name` varchar(128) NOT NULL,
   `address` varchar(128) DEFAULT NULL,

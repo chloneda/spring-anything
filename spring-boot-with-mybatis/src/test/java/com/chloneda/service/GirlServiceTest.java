@@ -20,7 +20,7 @@ public class GirlServiceTest {
 
     @Test
     public void testFindGirlByName(){
-        System.out.println("======> " + girlService.findGirlById("001").getAddress());
+        System.out.println("======> " + girlService.getGirlById("001").getAddress());
     }
 
     @Test

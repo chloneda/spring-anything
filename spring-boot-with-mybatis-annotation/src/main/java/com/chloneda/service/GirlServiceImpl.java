@@ -20,4 +20,24 @@ public class GirlServiceImpl implements GirlService {
         return girlDao.findGirlById(girlId);
     }
 
+    @Override
+    public int delete(String girlId) {
+        return girlDao.delete(girlId);
+    }
+
+    @Override
+    public int update(String girlId, String girlName) {
+        return girlDao.update(girlId,girlName);
+    }
+
+    @Override
+    public int create(Girl girl) {
+        return girlDao.create(girl);
+    }
+
+    @Override
+    public Girl getGirlById(String girlId) {
+        return girlDao.getGirlById(girlId);
+    }
+
 }

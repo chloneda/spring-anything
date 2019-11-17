@@ -15,4 +15,18 @@ public interface GirlService {
      */
     Girl findGirlById(String girlId);
 
+    /**
+     * 根据美女ID删除
+     *
+     * @param girlId
+     * @return
+     */
+    int delete(String girlId);
+
+    int update(String girlId, String girlName);
+
+    int create(Girl girl);
+
+    Girl getGirlById(String girlId);
+
 }
