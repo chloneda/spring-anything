@@ -27,7 +27,7 @@ public class GirlServiceImpl implements GirlService {
 
     @Override
     public int update(String girlId, String girlName) {
-        return girlDao.update(girlId,girlName);
+        return girlDao.update(girlId, girlName);
     }
 
     @Override

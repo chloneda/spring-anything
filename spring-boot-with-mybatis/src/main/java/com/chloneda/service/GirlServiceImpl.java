@@ -27,7 +27,7 @@ public class GirlServiceImpl implements GirlService {
 
     @Override
     public int update(String girlId, String girlName) {
-        return girlMapper.update(girlId,girlName);
+        return girlMapper.update(girlId, girlName);
     }
 
     @Override
@@ -39,4 +39,5 @@ public class GirlServiceImpl implements GirlService {
     public Girl getGirlById(String girlId) {
         return girlMapper.getGirlById(girlId);
     }
+
 }

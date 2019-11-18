@@ -2,9 +2,9 @@
 
 [spring-anything](https://github.com/chloneda/spring-anything)项目的[spring boot](https://github.com/chloneda/spring-anything/tree/spring-boot)分支，使用Spring Boot框架，追求简单快捷、开箱即用的原则，并结合当前热门、实用的技术进行集成，即Spring Boot集成Druid数据库连接池，Spring Boot实现Druid的动态数据源切换，实现定时任务Schedule，并集成Mybatis、Hibernate等，如有错误，欢迎大家指正！
 
-[Spring Boot示例代码](https://github.com/chloneda/spring-anything/tree/spring-boot)  |  [Spring Cloud示例代码](https://github.com/chloneda/spring-anything/tree/spring-cloud)  |  [Spring Framework示例代码](https://github.com/chloneda/spring-anything/tree/spring-framework)  |  [项目资料](https://github.com/chloneda/spring-anything/tree/master)
+[Spring Boot示例代码](https://github.com/chloneda/spring-anything/tree/spring-boot) | [Spring Cloud示例代码](https://github.com/chloneda/spring-anything/tree/spring-cloud) | [Spring Framework示例代码](https://github.com/chloneda/spring-anything/tree/spring-framework)  |  [项目资料](https://github.com/chloneda/spring-anything/tree/master)
 
-[GitHub地址](https://github.com/chloneda/spring-anything)  |  [Gitee地址](https://gitee.com/chloneda/spring-anything)  |  [个人博客](https://chloneda.github.io/)  |  [维护者](https://github.com/chloneda/) 
+[GitHub地址](https://github.com/chloneda/spring-anything) | [Gitee地址](https://gitee.com/chloneda/spring-anything) | [个人博客](https://chloneda.github.io/) | [维护者](https://github.com/chloneda/) 
 
 
 # modules说明
@@ -21,7 +21,7 @@
 
 - [spring-boot-with-banner](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-banner)：修改Spring Boot项目启动图标示例。
 
-- -[spring-boot-with-batch](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-batch)：Spring Boot使用批处理。
+- [spring-boot-with-batch](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-batch)：Spring Boot使用批处理。
 
 - [spring-boot-with-cache](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-cache)：Spring Boot项目使用cache缓存技术，提高查询效率。
 
@@ -55,9 +55,9 @@
 
 - [spring-boot-with-mongodb](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mongodb)：Spring Boot集成MongodDB示例。
 
-- [spring-boot-with-mybatis](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mybatis)：Spring Boot集成Mybatis(全注解整合集成)示例。
+- [spring-boot-with-mybatis](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mybatis)：Spring Boot集成Mybatis(配置文件的方式集成)示例。
 
-- [spring-boot-with-mybatis-annotation](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mybatis-annotation)：Spring Boot集成Mybatis示例。
+- [spring-boot-with-mybatis-annotation](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mybatis-annotation)：Spring Boot集成Mybatis(全注解整合集成)示例。
 
 - [spring-boot-with-quickstart](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-quickstart)：快速搭建Spring Boot的示例。
 

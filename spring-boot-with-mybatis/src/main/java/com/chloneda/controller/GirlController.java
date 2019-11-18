@@ -23,7 +23,7 @@ public class GirlController {
     @Autowired
     private GirlService girlService;
 
-    @RequestMapping(value = "/{girlId}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{girlId}", method = RequestMethod.GET)
     public Girl getGirlById(@PathVariable("girlId") String girlId) {
         Girl girl = this.girlService.getGirlById(girlId);
         return girl;
@@ -40,8 +40,8 @@ public class GirlController {
     }
 
     @RequestMapping(value = "/{girlId}", method = RequestMethod.PUT)
-    public int update(@PathVariable(value = "girlId") String girlId,@RequestParam String girlName) {
-        return girlService.update(girlId,girlName);
+    public int update(@PathVariable(value = "girlId") String girlId, @RequestParam String girlName) {
+        return girlService.update(girlId, girlName);
     }
 
 }

@@ -38,11 +38,11 @@ public interface GirlDao {
     int update(String girlId, String girlName);
 
     @Insert("insert into girl (id,name,age,address,email,phone) values (#{id},#{name},#{age},#{address},#{email},#{phone})")
-    //@CacheEvict(value = {"indexCache"},allEntries = true,beforeInvocation = true)
+        //@CacheEvict(value = {"indexCache"},allEntries = true,beforeInvocation = true)
     int create(Girl girl);
 
-    @Select( "select  * from girl where  id = #{id}")
-    //@Cacheable(value = "indexCache",key = "'getGirlById'+#id")
+    @Select("select * from girl where id = #{id}")
+        //@Cacheable(value = "indexCache",key = "'getGirlById'+#id")
     Girl getGirlById(String girlId);
 
 }

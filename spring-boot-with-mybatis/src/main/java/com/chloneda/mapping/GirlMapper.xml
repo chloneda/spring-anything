@@ -15,10 +15,11 @@
 			    id = #{id}
         ]]>
     </select>
-    
+
     <update id="update" parameterType="String" keyColumn="`id`">
         <![CDATA[
             update girl set name = #{girlName} where id = #{girlId}
+
         ]]>
     </update>
 
@@ -28,8 +29,8 @@
         ]]>
     </delete>
 
-    <insert id="create" parameterType="com.chloneda.model.Girl"
-            keyColumn="`id`" keyProperty="`id`" useGeneratedKeys="true">
+    <insert id="create" parameterType="com.chloneda.model.Girl" keyColumn="`id`" keyProperty="`id`"
+            useGeneratedKeys="true">
         insert into girl (id,name,age,address,email,phone) values (#{id},#{name},#{age},#{address},#{email},#{phone})
     </insert>
 

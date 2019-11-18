@@ -32,8 +32,8 @@ public class GirlController {
     }
 
     @RequestMapping(value = "/{girlId}", method = RequestMethod.PUT)
-    public int update(@PathVariable(value = "girlId") String girlId,@RequestParam String girlName) {
-        return girlService.update(girlId,girlName);
+    public int update(@PathVariable(value = "girlId") String girlId, @RequestParam String girlName) {
+        return girlService.update(girlId, girlName);
     }
 
 }
