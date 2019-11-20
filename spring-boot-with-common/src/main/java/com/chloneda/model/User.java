@@ -1,5 +1,7 @@
 package com.chloneda.model;
 
+import com.chloneda.persistence.Person;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;

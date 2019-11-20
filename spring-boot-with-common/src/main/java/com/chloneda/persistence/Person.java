@@ -1,5 +1,6 @@
-package com.chloneda.model;
+package com.chloneda.persistence;
 
+import com.chloneda.persistence.BasePerson;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;

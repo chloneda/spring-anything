@@ -1,4 +1,4 @@
-package com.chloneda.model;
+package com.chloneda.persistence;
 
 /**
  * @author chloneda
