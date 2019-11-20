@@ -50,6 +50,7 @@ public class User extends Person {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
     public String getPassword() {
         return password;
     }
@@ -71,7 +72,17 @@ public class User extends Person {
 
     @Override
     public int hashCode() {
-        return Objects.hash(password,address, email, phone);
+        return Objects.hash(password, address, email, phone);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", User{" +
+                "password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 
 }
