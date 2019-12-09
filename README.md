@@ -2,7 +2,7 @@
 
 [spring-anything](https://github.com/chloneda/spring-anything)项目追求简单快捷、开箱即用的原则，致力于打造Spring全系列教程，并结合当前热门、实用的技术进行集成。如有错误，欢迎大家指正！
 
-[Spring Boot示例代码](https://github.com/chloneda/spring-anything/tree/spring-boot) | [Spring Cloud示例代码](https://github.com/chloneda/spring-anything/tree/spring-cloud) | [Spring Framework示例代码](https://github.com/chloneda/spring-anything/tree/spring-framework) | [项目资料](https://github.com/chloneda/spring-anything/tree/master)
+[Spring Boot示例代码](https://github.com/chloneda/spring-anything/tree/spring-boot) | [Spring Cloud示例代码](https://github.com/chloneda/spring-anything/tree/spring-cloud) | [Spring Security示例代码](https://github.com/chloneda/spring-anything/tree/spring-security) | [Spring Framework示例代码](https://github.com/chloneda/spring-anything/tree/spring-framework) | [项目资料](https://github.com/chloneda/spring-anything/tree/master)
 
 [GitHub地址](https://github.com/chloneda/spring-anything) | [Gitee地址](https://gitee.com/chloneda/spring-anything) | [个人博客](https://chloneda.github.io/) | [维护者](https://github.com/chloneda/) 
 
@@ -16,6 +16,8 @@
 - [spring-boot](https://github.com/chloneda/spring-anything/tree/spring-boot)：该分支集成[Spring Boot](https://github.com/spring-projects/spring-boot)各种简单快捷的、热门的及实用的技术系列，通过示例可以快速掌握 Spring Boot 各组件的使用。
 
 - [spring-cloud](https://github.com/chloneda/spring-anything/tree/spring-cloud)：Spring Cloud集成热门、实用技术系列。
+
+- [spring-security](https://github.com/chloneda/spring-anything/tree/spring-security)：Spring Security常用技术使用示例。
 
 - [spring-framework](https://github.com/chloneda/spring-anything/tree/spring-framework)：Spring框架集成热门、实用技术系列。
 
