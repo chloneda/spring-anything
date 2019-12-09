@@ -77,6 +77,12 @@ public class User extends Person {
         return Objects.hash(password, address, email, phone);
     }
 
+    /**
+     * 阿里规约: POJO 类必须写 toString 方法,
+     *      如果继承了另一个 POJO 类,注意在前面加一下 super.toString()
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return super.toString() + ", User{" +
