@@ -53,6 +53,8 @@
 
 - [spring-boot-with-kafka](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-kafka)：Spring Boot集成Kafka示例。
 
+- [spring-boot-with-logger](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-logger)：Spring Boot集成Logback示例。
+
 - [spring-boot-with-mongodb](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mongodb)：Spring Boot集成MongodDB示例。
 
 - [spring-boot-with-mybatis](https://github.com/chloneda/spring-anything/tree/spring-boot/spring-boot-with-mybatis)：Spring Boot集成Mybatis(配置文件的方式集成)示例。

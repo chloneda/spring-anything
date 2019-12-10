@@ -55,6 +55,7 @@
         <module>spring-boot-with-jwt</module>
         <module>spring-boot-with-echarts</module>
         <module>spring-boot-with-others</module>
+        <module>spring-boot-with-logger</module>
     </modules>
 
     <properties>
