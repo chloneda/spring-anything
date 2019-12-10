@@ -3,6 +3,9 @@ package com.chloneda.service;
 import com.chloneda.model.User;
 import com.chloneda.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByName(String username) {
-        return userRepository.findUserByNname(username);
+        return userRepository.findUserByName(username);
     }
 
     @Override
@@ -53,8 +56,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        List<User> userList=userRepository.findAll();
+        List<User> userList = userRepository.findAll();
         return userList;
+    }
+
+    @Override
+    public List<User> findUsersByGender(String gender, Sort sort) {
+        return userRepository.findUsersBySex(gender, sort);
+    }
+
+    @Override
+    public Page<User> findUsersByGender(String gender, Pageable pageable) {
+        return userRepository.findUsersBySex(gender, pageable);
     }
 
 }

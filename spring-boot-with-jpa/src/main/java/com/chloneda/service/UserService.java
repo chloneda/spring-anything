@@ -1,6 +1,9 @@
 package com.chloneda.service;
 
 import com.chloneda.model.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -19,5 +22,9 @@ public interface UserService {
     User update(User user);
 
     List<User> findAll();
+
+    List<User> findUsersByGender(String gender, Sort sort);
+
+    Page<User> findUsersByGender(String gender, Pageable pageable);
 
 }
