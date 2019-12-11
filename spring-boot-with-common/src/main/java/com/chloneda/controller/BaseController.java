@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +13,8 @@ import java.util.Date;
 
 /**
  * @author chloneda
- * @description: Controller接口的基类,并可以进行全局异常处理
- *
+ * @description: Controller接口的基类, 规范统一返回内容, 并可以进行全局异常处理
+ * <p>
  * ControllerAdvice注解用于拦截全局的Controller的异常,
  * 将作用在所有注解了@RequestMapping的控制器的方法上
  */
@@ -27,7 +28,7 @@ public class BaseController {
     }
 
     protected final <T> ResponseEntity<T> ok(T object, HttpHeaders headers) {
-        return new ResponseEntity<>(object,headers, HttpStatus.MULTI_STATUS.OK);
+        return new ResponseEntity<>(object, headers, HttpStatus.MULTI_STATUS.OK);
     }
 
     protected final ResponseEntity<Void> v() {
@@ -41,20 +42,39 @@ public class BaseController {
      * @param request
      * @param throwable
      * @return
+     * @ResponseBody 注解 表示抛出的异常以 Rest 的方式返回，这时就系统就不会指向到错误页面 error
      */
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(value = Throwable.class)
     @ResponseBody
-    protected final BaseErrorInfo globalExceptionHandler(HttpServletRequest request, Throwable throwable) {
-        logger.error("Controller error: {}", throwable);
-        return new BaseErrorInfo(
+    protected final ResponseEntity globalExceptionHandler(HttpServletRequest request, Throwable throwable) {
+        logger.error("Controller error: {}", throwable.getMessage());
+        return new ResponseEntity(new BaseErrorInfo(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 throwable.getClass().getName(),
                 throwable.getMessage(),
-                new Date());
+                new Date()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    private class BaseErrorInfo<T> {
+    /**
+     * 处理Controller层面的异常,返回指定error页面
+     *
+     * @param request
+     * @param throwable
+     * @param model
+     * @return
+     */
+    @ExceptionHandler(value = Throwable.class)
+    protected final String defaultExceptionHandler(HttpServletRequest request, Throwable throwable, Model model) {
+        logger.error("Controller error: {}", throwable.getMessage());
+        model.addAttribute("code", 404);
+        model.addAttribute("url", request.getRequestURL().toString());
+        model.addAttribute("message", throwable.getMessage());
+        model.addAttribute("date", new Date());
+        return "error";
+    }
+
+    private class BaseErrorInfo {
 
         /**
          * 返回码
