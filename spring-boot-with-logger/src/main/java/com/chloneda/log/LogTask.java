@@ -19,7 +19,7 @@ public class LogTask {
     /**
      * 定时任务，cron表达式参考：spring-boot-with-schedule
      */
-    @Scheduled(cron = "0/5 * * * * ?")
+    @Scheduled(cron = "0/10 * * * * ?")
     public void produceLogs() {
         /** 字符串拼接效率低 */
         logger.info("定时任务启动时间(字符串拼接效率低): " + Instant.now());

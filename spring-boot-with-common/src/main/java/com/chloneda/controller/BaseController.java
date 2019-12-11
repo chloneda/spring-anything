@@ -1,5 +1,6 @@
 package com.chloneda.controller;
 
+import com.chloneda.exception.SpringRuntimeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -64,7 +65,7 @@ public class BaseController {
      * @param model
      * @return
      */
-    @ExceptionHandler(value = Throwable.class)
+    @ExceptionHandler(value = Error.class)
     protected final String defaultExceptionHandler(HttpServletRequest request, Throwable throwable, Model model) {
         logger.error("Controller error: {}", throwable.getMessage());
         model.addAttribute("code", 404);

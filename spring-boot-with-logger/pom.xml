@@ -20,6 +20,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.chloneda</groupId>
+            <artifactId>spring-boot-with-common</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -24,10 +24,10 @@ public class LoggerApplication {
     public static void main(String[] args) {
         SpringApplication.run(LoggerApplication.class, args);
         /** 打印日志使用占位符{}，减少字符串拼接时间，日志底层使用StringBuilder */
-        logger.debug("{}启动完成...", "LoggerApplication");
-        logger.info("{}启动完成...", "LoggerApplication");
-        logger.warn("{}启动完成...", "LoggerApplication");
-        logger.error("{}启动完成...", "LoggerApplication");
+        logger.debug("{}启动完成...", LoggerApplication.class);
+        logger.info("{}启动完成...", LoggerApplication.class);
+        logger.warn("{}启动完成...", LoggerApplication.class);
+        logger.error("{}启动完成...", LoggerApplication.class);
     }
 
 }
