@@ -8,6 +8,7 @@
     <property scope="context" name="LOG_FILE" value="log_file"/>
     <!--<property scope="context" name="log_file" source="app_name"/>-->
 
+    <!-- 日志级别从低到高分为TRACE < DEBUG < INFO < WARN < ERROR < FATAL，如果设置为ERROR，则低于ERROR的信息都不会输出。-->
     <!-- 控制台输出 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
