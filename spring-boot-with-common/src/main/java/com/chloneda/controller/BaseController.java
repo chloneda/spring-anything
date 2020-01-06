@@ -66,7 +66,7 @@ public class BaseController {
      */
     @ExceptionHandler(value = Error.class)
     protected final String defaultExceptionHandler(HttpServletRequest request, Throwable throwable, Model model) {
-        logger.error("Controller error: {}", throwable.getMessage());
+        logger.error("{} error: {}",this.getClass().getSimpleName(), throwable.getMessage());
         model.addAttribute("code", 404);
         model.addAttribute("url", request.getRequestURL().toString());
         model.addAttribute("message", throwable.getMessage());
