@@ -24,15 +24,15 @@ public class BaseController {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     protected final <T> ResponseEntity<T> ok(T object) {
-        return new ResponseEntity<>(object, HttpStatus.MULTI_STATUS.OK);
+        return new ResponseEntity<>(object, HttpStatus.OK);
     }
 
     protected final <T> ResponseEntity<T> ok(T object, HttpHeaders headers) {
-        return new ResponseEntity<>(object, headers, HttpStatus.MULTI_STATUS.OK);
+        return new ResponseEntity<>(object, headers, HttpStatus.OK);
     }
 
     protected final ResponseEntity<Void> v() {
-        return new ResponseEntity<>(new HttpHeaders(), HttpStatus.MULTI_STATUS.OK);
+        return new ResponseEntity<>(new HttpHeaders(), HttpStatus.OK);
     }
 
     /**
