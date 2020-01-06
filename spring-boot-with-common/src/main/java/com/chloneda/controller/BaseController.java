@@ -1,6 +1,5 @@
 package com.chloneda.controller;
 
-import com.chloneda.exception.SpringRuntimeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -49,7 +48,7 @@ public class BaseController {
     @ExceptionHandler(value = Throwable.class)
     @ResponseBody
     protected final ResponseEntity globalExceptionHandler(HttpServletRequest request, Throwable throwable) {
-        logger.error("Controller error: {}", throwable.getMessage());
+        logger.error("{} exception: {}", this.getClass().getSimpleName(), throwable.getMessage());
         return new ResponseEntity(new BaseErrorInfo(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 throwable.getClass().getName(),
