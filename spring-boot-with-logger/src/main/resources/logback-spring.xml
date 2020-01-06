@@ -55,6 +55,11 @@
         </filter>
     </appender>
 
+    <!--
+    日志通常来说都以文件形式记录到磁盘，例如使用<RollingFileAppender>，这样写日志就会发生一次磁盘IO，
+    这是一种性能损耗，我们可以进行　异步写日志
+    -->
+
     <!-- 避免重复打印日志,浪费磁盘空间,务必在logback-spring.xml中设置additivity=false。-->
     <logger name="com.chloneda.controller.LoggerController" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE-WITH-COLOR"/>

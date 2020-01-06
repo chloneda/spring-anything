@@ -1,6 +1,6 @@
 # spring-boot分支简介
 
-[spring-anything](https://github.com/chloneda/spring-anything)项目的[spring boot](https://github.com/chloneda/spring-anything/tree/spring-boot)分支，使用Spring Boot框架，追求简单快捷、开箱即用的原则，并结合当前热门、实用的技术进行集成，即Spring Boot集成Druid数据库连接池，Spring Boot实现Druid的动态数据源切换，实现定时任务Schedule，并集成Mybatis、Hibernate等，如有错误，欢迎大家指正！
+[spring-anything](https://github.com/chloneda/spring-anything)项目的[spring-boot](https://github.com/chloneda/spring-anything/tree/spring-boot)分支，使用[Spring Boot](https://spring.io/projects/spring-boot)框架，追求简单快捷、开箱即用的原则，并结合当前热门、实用的技术进行集成，即Spring Boot集成Druid数据库连接池，Spring Boot实现Druid的动态数据源切换，实现定时任务Schedule，并集成Mybatis、Hibernate等，如有错误，欢迎大家指正！
 
 [Spring Boot示例代码](https://github.com/chloneda/spring-anything/tree/spring-boot) | [Spring Cloud示例代码](https://github.com/chloneda/spring-anything/tree/spring-cloud) | [Spring Security示例代码](https://github.com/chloneda/spring-anything/tree/spring-security) | [Spring Framework示例代码](https://github.com/chloneda/spring-anything/tree/spring-framework)  |  [项目资料](https://github.com/chloneda/spring-anything/tree/master)
 
