@@ -1,9 +1,7 @@
 package com.chloneda.controller;
 
+import com.chloneda.AopApplicationTest;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -23,9 +21,7 @@ import java.util.Map;
  * @author chloneda
  * @description: 面向切面Aop测试类
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class AopControllerTest {
+public class AopControllerTest extends AopApplicationTest {
 
     /**
      * 使用http请求aop接口
@@ -40,8 +36,8 @@ public class AopControllerTest {
         con.setRequestProperty("accept", "application/json, text/plain, */*");
         con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
         con.setRequestProperty("dataType", "jsonp");
-        Map<String, String> headders = fillHeaders();
-//        String principal=headders.get("principal");
+        Map<String, String> headers = fillHeaders();
+//        String principal=headers.get("principal");
 //        con.setRequestProperty("principal", principal);
 //        System.out.println("principal: " + principal);
 
@@ -61,7 +57,6 @@ public class AopControllerTest {
         con.disconnect();
         System.out.println(sb.toString());
     }
-
 
     protected static Map<String, String> fillHeaders() {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
