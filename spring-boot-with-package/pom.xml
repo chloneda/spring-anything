@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chloneda</groupId>
+    <artifactId>spring-boot-with-package</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>${profileActive}</packaging>
+
+    <description>Package for Spring Boot</description>
+    <name>spring-boot-with-package</name>
+
+    <properties>
+        <project.encoding>UTF-8</project.encoding>
+        <start-class>com.chloneda.PackageApplication</start-class>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <!-- jar包打包方式-->
+        <profile>
+            <id>jar</id>
+            <properties>
+                <profileActive>jar</profileActive>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/src/main/webapp</directory>
+                        <!--注意此次必须要放在此目录下才能被访问到-->
+                        <targetPath>META-INF/resources</targetPath>
+                        <includes>
+                            <include>**/**</include>
+                        </includes>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <!-- jar打包插件 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <excludes>
+                                <!--配置文件不要打包到jar包里；但是这里保留了banner.txt-->
+                                <exclude>/*.properties</exclude>
+                                <exclude>/*.xml</exclude>
+                            </excludes>
+                            <archive>
+                                <manifest>
+                                    <!--将classpath添加到依赖描述 -->
+                                    <addClasspath>true</addClasspath>
+                                    <!--设置依赖描述；依赖项应该位于 lib文件夹 -->
+                                    <classpathPrefix>lib/</classpathPrefix>
+                                    <!--设置依赖描述里的启动类-->
+                                    <mainClass>${start-class}</mainClass>
+                                    <!--依赖描述 不使用快照的版本 -->
+                                    <useUniqueVersions>false</useUniqueVersions>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </plugin>
+                    <!-- 打jar包的同时，将依赖copy到同级目录的lib下 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>copy-dependencies</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- assembly打包配置 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <configuration>
+                            <encoding>${project.encoding}</encoding>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <!--zip包名称；命名规则：服务名-c -->
+                            <finalName>package-c</finalName>
+                            <!--配置描述文件路径-->
+                            <descriptors>
+                                <descriptor>src/main/assembly/package.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                        <executions>
+                            <!-- 配置执行器 -->
+                            <execution>
+                                <id>make-assembly</id>
+                                <!-- 绑定到package生命周期阶段上 -->
+                                <phase>package</phase>
+                                <!-- 只运行一次 -->
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- war包打包方式-->
+        <profile>
+            <id>war</id>
+            <properties>
+                <profileActive>war</profileActive>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.apache.tomcat*</groupId>
+                            <artifactId>tomcat*</artifactId>
+                        </exclusion>
+                    </exclusions>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <useDefaultDelimiters>true</useDefaultDelimiters>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <configuration>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+                            <archive>
+                                <manifest>
+                                    <mainClass>${start-class}</mainClass>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <finalName>package-service</finalName>
+        <resources>
+            <!-- 指定 src/main/resources 下所有文件及文件夹为资源文件 -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <!--filtering>true</filtering-->
+            </resource>
+        </resources>
+        <plugins>
+            <!-- jar、war包公用编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.encoding}</encoding>
+                </configuration>
+            </plugin>
+            <!-- jar、war包公用源代码打包插件，继承父pom -->
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                        <!-- 防止jar包打包时assembly将jar包和source的jar同时打包进去，故这里将source的jar文件放到sources目录里 -->
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/sources</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

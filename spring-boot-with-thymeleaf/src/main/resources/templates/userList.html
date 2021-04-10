@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <title>用户列表</title>
+</head>
+
+<body>
+
+<div>
+
+
+    <table>
+        <legend>
+            <strong>用户列表</strong>
+        </legend>
+        <thead>
+        <tr>
+            <th>用户编号</th>
+            <th>用户名称</th>
+            <th>用户年龄</th>
+            <th>用户性别</th>
+            <th>用户地址</th>
+            <th>用户Email</th>
+            <th>用户电话</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${List}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.sex}"></td>
+            <td th:text="${user.address}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.phone}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

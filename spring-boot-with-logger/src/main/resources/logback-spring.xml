@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <contextName>spring-boot-with-logback</contextName>
+    <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>
+    <property name="pattern-with-color"
+              value="%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %highlight(%-5level) %green(%logger{50}) - %highlight(%msg) %n"/>
+    <property scope="context" name="LOG_HOME" value="logs"/>
+    <property scope="context" name="LOG_FILE" value="log_file"/>
+    <!--<property scope="context" name="log_file" source="app_name"/>-->
+
+    <!-- 日志级别从低到高分为TRACE < DEBUG < INFO < WARN < ERROR < FATAL，如果设置为ERROR，则低于ERROR的信息都不会输出。-->
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern}</pattern>
+            <!-- 控制台使用UTF-8，不要使用GBK，否则会中文乱码 -->
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <!-- 控制台带颜色输出 -->
+    <appender name="CONSOLE-WITH-COLOR" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern-with-color}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 文件输出 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 设置活动日志文件名，名字会根据fileNamePattern的值，每隔一段时间改变一次，%d是日期，%i是文件的序列号-->
+            <fileNamePattern>${LOG_HOME}/${LOG_FILE}.%d.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- 单个日志文件的大小 -->
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- 日志文件默认保留30天 -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!--
+    日志通常来说都以文件形式记录到磁盘，例如使用<RollingFileAppender>，这样写日志就会发生一次磁盘IO，
+    这是一种性能损耗，我们可以进行　异步写日志
+    -->
+
+    <!-- 避免重复打印日志,浪费磁盘空间,务必在logback-spring.xml中设置additivity=false。-->
+    <logger name="com.chloneda.controller.LoggerController" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE-WITH-COLOR"/>
+    </logger>
+    <logger name="com.chloneda.LoggerApplication" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE-WITH-COLOR"/>
+    </logger>
+
+    <!-- 根logger，且只有一个level属性 -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+    <!--
+        使用logback-spring.xml文件命名，logback默认的会从资源目录读取这个文件，
+        而且使用这个命名可以使用springProperty和springProfile标签。
+     -->
+    <!-- 开发环境日志级别为DEBUG -->
+    <springProfile name="dev">
+        <root level="DEBUG">
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <!-- 正式环境日志级别为INFO -->
+    <springProfile name="prod">
+        <root level="INFO">
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE-WITH-COLOR"/>
+        </root>
+    </springProfile>
+
+</configuration>
+
+<!--
+
+日志加载顺序：logback.xml -> application.properties -> logback-spring.xml
+
+A、遇见的问题:
+1、在springboot项目中使用logback记录日志，在logback.xml中配置日志存储位置时,
+ 读取application.properties中配置的路径，在 logback.xml中配置引用如下：
+    <property name="LOG_HOME" value="${log.path}"/>
+ 发现读取不到
+
+2、原因：因为logback.xml的加载顺序早于springboot的application.properties
+ 配置文件当然读不到application.properties文件中的值了
+
+3、解决方案：需要通过springProperty标签来引用：
+    <springProperty scope="context" name="LOG_HOME" source="log.path"/>
+ 这里的name和上面property标签一样不多说，source其实就是上面的value啦，只不过要注意：不要加${}
+ 如果还是读取不到，请把你的logback.xml配置文件名，改为：logback-spring.xml就可以了。
+
+
+B、日志说明：
+1、encoder表示输出格式，具体说明：
+    %d表示时间
+    %thread表示线程名
+    %-5level 表示日志级别，允许以五个字符长度输出
+    %logger{50}表示具体的日志输出者，比如类名，括号内表示长度
+    %msg表示具体的日志消息，就是logger.info("xxx")中的xxx
+    %n表示换行
+
+-->

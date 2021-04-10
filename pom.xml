@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chloneda</groupId>
+    <artifactId>spring-anything</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>spring 项目</description>
+    <name>spring-anything</name>
+    <url>https://github.com/chloneda/spring-anythig</url>
+
+    <modules>
+        <!-- Spring Framework 相关项目 -->
+        <module>spring</module>
+        <module>mybatis</module>
+        <module>hibernate</module>
+        <module>spring-with-jdbc</module>
+        <module>spring-with-mybatis</module>
+        <module>spring-with-hibernate</module>
+        <module>spring-with-hibernate2</module>
+        <!-- Spring Boot 相关项目 -->
+        <module>spring-boot-with-aop</module>
+        <module>spring-boot-with-hibernate</module>
+        <module>spring-boot-with-banner</module>
+        <module>spring-boot-with-common</module>
+        <module>spring-boot-with-async</module>
+        <module>spring-boot-with-batch</module>
+        <module>spring-boot-with-cache</module>
+        <module>spring-boot-with-druid</module>
+        <module>spring-boot-with-docker</module>
+        <module>spring-boot-with-dubbo</module>
+        <module>spring-boot-with-dubbo-plugin</module>
+        <module>spring-boot-with-dynamic-db</module>
+        <module>spring-boot-with-echarts</module>
+        <module>spring-boot-with-elasticsearch</module>
+        <module>spring-boot-with-freemarker</module>
+        <module>spring-boot-with-hello</module>
+        <module>spring-boot-with-jdbcTemplate</module>
+        <module>spring-boot-with-jpa</module>
+        <module>spring-boot-with-jwt</module>
+        <module>spring-boot-with-kafka</module>
+        <module>spring-boot-with-logger</module>
+        <module>spring-boot-with-mongodb</module>
+        <module>spring-boot-with-mybatis</module>
+        <module>spring-boot-with-mybatis-annotation</module>
+        <module>spring-boot-with-others</module>
+        <module>spring-boot-with-package</module>
+        <module>spring-boot-with-quickstart</module>
+        <module>spring-boot-with-rabbitmq</module>
+        <module>spring-boot-with-redis</module>
+        <module>spring-boot-with-restful</module>
+        <module>spring-boot-with-schedule</module>
+        <module>spring-boot-with-shiro</module>
+        <module>spring-boot-with-socketio</module>
+        <module>spring-boot-with-swagger</module>
+        <module>spring-boot-with-thymeleaf</module>
+        <module>spring-boot-with-transaction</module>
+        <module>spring-boot-with-websocket</module>
+        <!-- Spring Cloud 相关项目 -->
+        <module>spring-cloud-with-eureka</module>
+        <module>spring-cloud-with-hello</module>
+        <!-- Spring Security 相关项目 -->
+        <module>spring-security-with-hello</module>
+    </modules>
+
+    <!-- 项目开发者的信息 -->
+    <developers>
+        <developer>
+            <id>chloneda</id>
+            <name>chloneda</name>
+            <email>chloneda@gmail.com</email>
+            <url>https://github.com/chloneda/spring-anything</url>
+            <roles>
+                <role>Project Manager</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <!-- 项目的其他贡献者 -->
+    <contributors>
+    </contributors>
+
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
+</project>

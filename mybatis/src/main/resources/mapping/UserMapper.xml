@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这个namespace的值是自己定义的-->
+<mapper namespace="com.chloneda.dao.UserDao">
+    <!-- type指定的是对应的实体类 -->
+    <!--查询用户所购买的商品信息resultMap-->
+    <resultMap id="UserResultMap" type="com.chloneda.domain.User">
+        <!-- id用来配置表的主键与类的属性的映射关系 ,column指定的是表的字段名； property指定的是类的属性名-->
+        <id column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="address" property="address"/>
+        <result column="birthday" property="birthday"/>
+        <collection property="orderList" resultMap="OrdersResultMap"/>
+    </resultMap>
+    <resultMap id="OrdersResultMap" type="com.chloneda.domain.Orders">
+        <id column="id" property="id"/>
+        <result column="note" property="note"/>
+        <result column="dateTime" property="dateTime"/>
+        <result column="number" property="number"/>
+        <result column="user_id" property="userId"/>
+    </resultMap>
+
+    <!-- 通过命名空间+id方式被定位 -->
+    <select id="getResultMap" resultMap="UserResultMap">
+        select u.user_id,u.username,u.password,u.address,u.birthday,o.*
+          from m_orders o,m_user u where o.user_id=u.user_id
+    </select>
+
+    <select id="getUserAndOrders" resultMap="UserResultMap">
+        select u.user_id,u.username,u.password,u.address,u.birthday
+          from m_user u
+          where u.user_id=#{userId}
+    </select>
+
+    <insert id="create" useGeneratedKeys="true" parameterType="com.chloneda.domain.User">
+        insert into m_user(username,password,address,birthday)
+          VALUES(#{username},#{password},#{address},#{birthday})
+    </insert>
+
+    <delete id="deleteUserById" flushCache="true" parameterType="com.chloneda.domain.User">
+        delete from m_user where user_id=#{user_id}
+    </delete>
+
+    <update id="updateUserAndOrders" flushCache="true" parameterType="com.chloneda.domain.User">
+        update m_user
+          SET alexa='5000', country='USA'
+          WHERE user_id=#{user_id}
+    </update>
+
+</mapper>
