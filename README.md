@@ -1,28 +1,28 @@
-# spring-anything简介
+# 项目简介
 
 [spring-anything](https://github.com/chloneda/spring-anything)项目追求简单快捷、开箱即用的原则，致力于打造Spring全系列教程，并结合当前热门、实用的技术进行集成。如有错误，欢迎大家指正！
-
-[Spring Boot示例代码](https://github.com/chloneda/spring-anything/tree/spring-boot) | [Spring Cloud示例代码](https://github.com/chloneda/spring-anything/tree/spring-cloud) | [Spring Security示例代码](https://github.com/chloneda/spring-anything/tree/spring-security) | [Spring Framework示例代码](https://github.com/chloneda/spring-anything/tree/spring-framework) | [项目资料](https://github.com/chloneda/spring-anything/tree/master)
 
 [GitHub地址](https://github.com/chloneda/spring-anything) | [Gitee地址](https://gitee.com/chloneda/spring-anything) | [个人博客](https://chloneda.github.io/) | [维护者](https://github.com/chloneda/) 
 
 
-# 分支说明
+# 模块说明
 
-[spring-anything](https://github.com/chloneda/spring-anything)项目当前有以下分支，具体说明如下：
+本项目 master 分支模块说明：
 
-- [master](https://github.com/chloneda/spring-anything/tree/master)：该分支是[spring-anything](https://github.com/chloneda/spring-anything)项目用于存放所有分支资料、资源和文档教程！
+- spring-xxx：Spring 框架集成热门、实用技术系列。
 
-- [spring-boot](https://github.com/chloneda/spring-anything/tree/spring-boot)：该分支集成[Spring Boot](https://github.com/spring-projects/spring-boot)各种简单快捷的、热门的及实用的技术系列，通过示例可以快速掌握 Spring Boot 各组件的使用。
+- spring-boot-xxx：各种简单快捷的、热门的及实用的技术系列，通过示例可以快速掌握 Spring Boot 各组件的使用。
 
-- [spring-cloud](https://github.com/chloneda/spring-anything/tree/spring-cloud)：Spring Cloud集成热门、实用技术系列。
+- spring-cloud-xxx：Spring Cloud 集成热门、实用技术系列。
 
-- [spring-security](https://github.com/chloneda/spring-anything/tree/spring-security)：Spring Security常用技术使用示例。
-
-- [spring-framework](https://github.com/chloneda/spring-anything/tree/spring-framework)：Spring框架集成热门、实用技术系列。
+- spring-security-xxx：Spring Security 常用技术使用示例。
 
 
-# 下载
+# 专题文章
+
+相关专题文章持续更新中...
+
+# 代码下载
 
 下载[spring-anything](https://github.com/chloneda/spring-anything)项目。
 ```
@@ -36,11 +36,6 @@ git clone -b 分支名 仓库地址
 如下载 spring-boot 分支，使用如下命令：
 git clone -b spring-boot git@github.com:chloneda/spring-anything.git
 ```
-
-
-# 专题文章
-
-相关专题文章持续更新中...
 
 
 # 相关书籍
