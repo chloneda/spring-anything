@@ -1,6 +1,6 @@
 package com.chloneda.repository;
 
-import com.chloneda.model.Girl;
+import com.chloneda.domain.Girl;
 
 /**
  * @author chloneda

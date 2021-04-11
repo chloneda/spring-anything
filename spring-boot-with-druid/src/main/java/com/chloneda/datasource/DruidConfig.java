@@ -47,7 +47,7 @@ public class DruidConfig {
         druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(properties.getMaxPoolPreparedStatementPerConnectionSize());
         druidDataSource.setConnectionProperties(properties.getConnectionProperties());
         try {
-            druidDataSource.setFilters(properties.getFilters());
+            //druidDataSource.setFilters(properties.getFilters());
             druidDataSource.init();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,11 +59,11 @@ public class DruidConfig {
     @Bean
     @ConditionalOnMissingBean
     public ServletRegistrationBean druidServlet() {
-
-        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+        ServletRegistrationBean servletRegistrationBean =
+                new ServletRegistrationBean(
+                        new StatViewServlet(), "/druid/*");
 
         //添加初始化参数：initParams
-
         //白名单：
         //servletRegistrationBean.addInitParameter("allow","127.0.0.1");
         //IP黑名单 (存在共同时，deny优先于allow) : 如果满足deny的话提示:Sorry, you are not permitted to view this page.
@@ -74,7 +74,6 @@ public class DruidConfig {
         //是否能够重置数据.
         servletRegistrationBean.addInitParameter("resetEnable", "true");
         return servletRegistrationBean;
-
     }
 
     @Bean

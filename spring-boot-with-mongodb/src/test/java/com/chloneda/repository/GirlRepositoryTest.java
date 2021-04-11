@@ -1,6 +1,6 @@
 package com.chloneda.repository;
 
-import com.chloneda.model.Girl;
+import com.chloneda.domain.Girl;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

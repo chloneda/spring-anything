@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.Date;
 import java.util.List;
 
 public class TestMybatis {
@@ -25,32 +24,38 @@ public class TestMybatis {
 
     @Test
     public void queryForList() {
-        List<User> userList = userService.queryForList();
+        List<User> userList = userService.queryUsersList();
         Assert.assertNotNull(userList);
         System.out.println("======> userList: " + userList.toString());
     }
 
     @Test
-    public void getUserAndOrders() {
-        User user = userService.getUserAndOrders(1);
+    public void getUser() {
+        User user = userService.getUser("1");
         Assert.assertNotNull(user);
         //user.getOrderList()为何为空
-        System.out.println("======> user: " + user.toString() + " ======> " + user.getOrderList());
+        System.out.println("User info: " + user.toString());
     }
 
     @Test
     public void insert() {
         User user = new User();
-        user.setUsername("Hello");
+        user.setId("8");
+        user.setName("Jingjing");
+        user.setAge(18);
+        user.setSex("woman");
         user.setPassword("123456");
-        user.setAddress("NEW-YORK");
-        user.setBirthday(new Date());
+        user.setEmail("Jingjing@163.com");
+        user.setAddress("NEW YORK");
+        user.setPhone("16616695036");
         userService.create(user);
     }
 
     @Test
     public void deleteUserById() {
-        boolean tmp = userService.deleteUserById(124);
-        System.out.println(tmp);
+        String userId = "8";
+        User user = userService.getUser(userId);
+        userService.deleteUserById(userId);
+        System.out.println(user.getName()+ " 用户已删除");
     }
 }

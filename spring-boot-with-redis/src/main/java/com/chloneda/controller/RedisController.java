@@ -1,6 +1,6 @@
 package com.chloneda.controller;
 
-import com.chloneda.model.Girl;
+import com.chloneda.domain.Girl;
 import com.chloneda.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

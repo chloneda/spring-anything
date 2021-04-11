@@ -1,6 +1,6 @@
 package com.chloneda.repository;
 
-import com.chloneda.model.Customer;
+import com.chloneda.domain.Customer;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 

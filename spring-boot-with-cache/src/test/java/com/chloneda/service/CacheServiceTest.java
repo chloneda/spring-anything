@@ -1,6 +1,6 @@
 package com.chloneda.service;
 
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class CacheServiceTest {
     @Test
     public void testFindUserByName() {
         for (int i = 0; i < 10; i++) {
-            User user = cacheService.findUserByName("lili");
+            User user = cacheService.findUserByName("hegel");
             System.out.println("UserName: " + user.getName());
         }
     }

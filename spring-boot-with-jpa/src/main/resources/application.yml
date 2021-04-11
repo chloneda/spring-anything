@@ -1,0 +1,13 @@
+server:
+  port: 8056
+spring:
+  datasource:
+    driverClassName: @maven.db.driver@
+    url: @maven.db.url@
+    username: @maven.db.username@
+    password: @maven.db.password@
+  # 配置自动建表：update:没有表新建，有表更新操作,控制台显示建表语句
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

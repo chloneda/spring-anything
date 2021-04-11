@@ -1,6 +1,6 @@
 package com.chloneda.service.impl;
 
-import com.chloneda.dao.UserDao;
+import com.chloneda.dao.UserMapper;
 import com.chloneda.domain.User;
 import com.chloneda.service.UserService;
 import com.chloneda.utils.SqlSessionFactoryUtils;
@@ -10,41 +10,46 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    private SqlSessionFactoryUtils sqlSessionFactoryUtils;
-
-    public List<User> queryForList() {
-        SqlSession sqlSession = sqlSessionFactoryUtils.getSqlSession();
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
-        List<User> userList = userDao.getResultMap();
+    @Override
+    public List<User> queryUsersList() {
+        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<User> userList = userMapper.getUsersList();
         sqlSession.close();
         return userList;
     }
 
-    public User getUserAndOrders(int id) {
-        SqlSession sqlSession = sqlSessionFactoryUtils.getSqlSession();
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
-        User user = userDao.getUserAndOrders(id);
+    @Override
+    public User getUser(String id) {
+        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = userMapper.getUser(id);
         sqlSession.close();
         return user;
     }
 
-    public boolean updateUserAndOrders() {
-        return false;
+    @Override
+    public void updateUser(User user) {
+        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
+        UserMapper userMapper =sqlSession.getMapper(UserMapper.class);
+        userMapper.updateUser(user);
+        sqlSession.close();
     }
 
-    public boolean deleteUserById(int userId) {
-        SqlSession sqlSession = sqlSessionFactoryUtils.getSqlSession();
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
-        boolean result = userDao.deleteUserById(userId);
+    @Override
+    public void deleteUserById(String userId) {
+        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.deleteUser(userId);
         sqlSession.commit();
         sqlSession.close();
-        return result;
     }
 
+    @Override
     public void create(User user) {
-        SqlSession sqlSession = sqlSessionFactoryUtils.getSqlSession();
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
-        userDao.create(user);
+        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.create(user);
         sqlSession.commit();
         sqlSession.close();
     }

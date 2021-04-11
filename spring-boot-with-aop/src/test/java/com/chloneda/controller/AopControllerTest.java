@@ -25,6 +25,7 @@ public class AopControllerTest extends AopApplicationTest {
 
     /**
      * 使用http请求aop接口
+     *
      * @throws IOException
      */
     @Test

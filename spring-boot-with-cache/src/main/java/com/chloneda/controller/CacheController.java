@@ -1,10 +1,9 @@
 package com.chloneda.controller;
 
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 import com.chloneda.service.CacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 
 /**
  * @Created by chloneda

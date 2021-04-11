@@ -1,66 +1,94 @@
 package com.chloneda.domain;
 
-import java.util.Date;
-import java.util.List;
+import java.io.Serializable;
 
-/**
- * Created by chl
- * Description:用户
- */
-public class User {
-    private int id;
-    private String username;
-    private String password;
-    private String address;
-    private Date brithday;
-    private List<Orders> ordersList;//用户订单列表
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-    public int getId() {
-        return id;
-    }
+	private String id;
+	private String name;
+	private int age;
+	private String sex;
+	private String password;
+	private String address;
+	private String email;
+	private String phone;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public int getAge() {
+		return age;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public void setAge(int age) {
+		this.age = age;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public String getSex() {
+		return sex;
+	}
 
-    public Date getBrithday() {
-        return brithday;
-    }
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 
-    public void setBrithday(Date brithday) {
-        this.brithday = brithday;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public List<Orders> getOrdersList() {
-        return ordersList;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setOrdersList(List<Orders> ordersList) {
-        this.ordersList = ordersList;
-    }
+	public String getAddress() {
+		return address;
+	}
 
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id='" + id + '\'' +
+				", name='" + name + '\'' +
+				", age=" + age +
+				", sex='" + sex + '\'' +
+				", password='" + password + '\'' +
+				", address='" + address + '\'' +
+				", email='" + email + '\'' +
+				", phone='" + phone + '\'' +
+				'}';
+	}
 }

@@ -8,7 +8,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 import com.chloneda.repository.UserRepository;
 
 /**

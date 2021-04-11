@@ -1,6 +1,6 @@
 package com.chloneda.service;
 
-import com.chloneda.model.Customer;
+import com.chloneda.domain.Customer;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

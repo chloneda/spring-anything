@@ -2,8 +2,6 @@ package com.chloneda.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.hibernate.SessionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
@@ -25,8 +23,6 @@ import java.util.Properties;
 @EnableConfigurationProperties({DruidProperties.class, HibernateProperties.class})
 @ConditionalOnMissingClass
 public class AppConfiguration {
-
-    private static final Logger logger = LoggerFactory.getLogger(AppConfiguration.class);
 
     @Autowired
     private DruidProperties druidProperties;

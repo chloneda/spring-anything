@@ -1,7 +1,7 @@
 package com.chloneda.service;
 
 import com.chloneda.dao.UserDao;
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.chloneda.service;
 
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 
 /**
  * @Created by chloneda

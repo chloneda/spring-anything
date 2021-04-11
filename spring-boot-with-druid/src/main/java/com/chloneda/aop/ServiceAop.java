@@ -3,8 +3,6 @@ package com.chloneda.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -18,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 @Component
 public class ServiceAop {
-    private static final Logger logger = LoggerFactory.getLogger(ServiceAop.class);
 
     @Pointcut("execution(public * com.chloneda.service.*.*(..))")
     public void webLog() {

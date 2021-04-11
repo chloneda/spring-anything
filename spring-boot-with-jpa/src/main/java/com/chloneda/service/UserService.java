@@ -1,6 +1,6 @@
 package com.chloneda.service;
 
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

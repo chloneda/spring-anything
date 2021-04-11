@@ -19,7 +19,7 @@ public class SpringWithHibernateTest {
     @Test
     public void testSave() {
         User user = new User();
-        user.setId("005");
+        user.setId("5");
         user.setName("lili");
         user.setAge("18");
         user.setSex("woman");

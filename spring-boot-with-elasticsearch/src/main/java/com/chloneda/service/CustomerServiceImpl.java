@@ -1,6 +1,6 @@
 package com.chloneda.service;
 
-import com.chloneda.model.Customer;
+import com.chloneda.domain.Customer;
 import com.chloneda.repository.CustomerRepository;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;

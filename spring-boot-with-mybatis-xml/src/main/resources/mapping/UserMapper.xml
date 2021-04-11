@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.chloneda.mapper.UserMapper">
+    <resultMap id="UserResultMap" type="com.chloneda.domain.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+        <result column="password" property="password"/>
+        <result column="address" property="address"/>
+        <result column="email" property="email"/>
+        <result column="phone" property="phone"/>
+    </resultMap>
+
+    <sql id="SqlColumnList">
+        id, name, password, age, sex, password, address, email, phone
+    </sql>
+
+    <select id="getUsersList" resultMap="UserResultMap">
+        SELECT
+        <include refid="SqlColumnList"/>
+        FROM user
+    </select>
+
+    <select id="getUserById" resultMap="UserResultMap">
+        SELECT
+        <include refid="SqlColumnList"/>
+        FROM user u
+        WHERE u.id = #{u.id}
+    </select>
+
+    <insert id="create" useGeneratedKeys="true">
+        INSERT INTO user(id,name,age,sex,password,address,email,phone) VALUES
+            (#{id},#{name},#{age},#{sex},#{password},#{address},#{email},#{phone})
+    </insert>
+
+    <delete id="delete" flushCache="true" parameterType="com.chloneda.domain.User">
+        DELETE FROM user WHERE id=#{id}
+    </delete>
+
+    <update id="update" flushCache="true" parameterType="com.chloneda.domain.User">
+        UPDATE
+            user
+        SET
+            id = #{id},
+            <if test="name != null">name = #{name},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="phone != null">phone = #{phone} </if>
+        WHERE
+            id =#{id}
+    </update>
+
+</mapper>

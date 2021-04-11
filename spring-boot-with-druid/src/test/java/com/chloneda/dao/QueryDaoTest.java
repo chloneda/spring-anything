@@ -19,7 +19,8 @@ public class QueryDaoTest {
 
     @Test
     public void testQuery() {
-        System.out.println(queryDao.query("select * from user"));
+        System.out.println(
+                "用户信息列表：" + queryDao.query("select * from user"));
     }
 
 }

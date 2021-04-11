@@ -1,34 +1,49 @@
 package com.chloneda.domain;
 
-import java.util.Date;
-import java.util.List;
+import java.io.Serializable;
 
-public class User {
-	private int userId;
-	private String username;
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	private String id;
+	private String name;
+	private int age;
+	private String sex;
 	private String password;
 	private String address;
-	private Date birthday;
-	private List<Orders> orderList;
+	private String email;
+	private String phone;
 
-	public User() {
-		super();
+	public String getId() {
+		return id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public String getName() {
+		return name;
 	}
 
-	public String getUsername() {
-		return username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public String getPassword() {
@@ -47,32 +62,33 @@ public class User {
 		this.address = address;
 	}
 
-	public Date getBirthday() {
-		return birthday;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public List<Orders> getOrderList() {
-		return orderList;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setOrderList(List<Orders> orderList) {
-		this.orderList = orderList;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	@Override
 	public String toString() {
 		return "User{" +
-				"userId=" + userId +
-				", username='" + username + '\'' +
+				"id='" + id + '\'' +
+				", name='" + name + '\'' +
+				", age=" + age +
+				", sex='" + sex + '\'' +
 				", password='" + password + '\'' +
 				", address='" + address + '\'' +
-				", birthday=" + birthday +
-				", orderList=" + orderList +
+				", email='" + email + '\'' +
+				", phone='" + phone + '\'' +
 				'}';
 	}
-
 }

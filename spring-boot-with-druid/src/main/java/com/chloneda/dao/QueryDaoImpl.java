@@ -11,7 +11,7 @@ import java.util.Map;
  * @Created by chloneda
  * @Description:
  */
-@Repository("dataProcDAO")
+@Repository("processData")
 public class QueryDaoImpl implements QueryDao {
 
     @Autowired

@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * @author chloneda
- * @description: 人物类
+ * @description:
  */
 @Entity
 @Table(name = "USER")
@@ -50,6 +50,7 @@ public class User extends Person {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
     public String getPassword() {
         return password;
     }
@@ -71,10 +72,23 @@ public class User extends Person {
 
     @Override
     public int hashCode() {
-        return Objects.hash(password,address, email, phone);
+        return Objects.hash(password, address, email, phone);
     }
 
-
+    /**
+     * 阿里规约: POJO 类必须写 toString 方法,
+     *      如果继承了另一个 POJO 类,注意在前面加一下 super.toString()
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return super.toString() + ", User{" +
+                "password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 
 }
-

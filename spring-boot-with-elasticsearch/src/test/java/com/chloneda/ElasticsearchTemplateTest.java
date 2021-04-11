@@ -1,6 +1,6 @@
 package com.chloneda;
 
-import com.chloneda.model.Customer;
+import com.chloneda.domain.Customer;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,6 @@
 package com.chloneda.service;
 
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

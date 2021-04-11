@@ -5,7 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,7 +44,7 @@ public class JwtUtils {
                 .withHeader(map)// 添加头部
                 //可以将基本信息放到claims中
                 .withClaim("id", user.getId())//userId
-                .withClaim("username", user.getName())//userName
+                .withClaim("name", user.getName())//userName
                 .withClaim("password", user.getPassword())//Password
                 .withExpiresAt(expireDate) //超时设置,设置过期的日期
                 .withIssuedAt(new Date()) //签发时间

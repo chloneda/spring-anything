@@ -15,7 +15,7 @@ public class DockerApplicationTest {
 
     @Test
     public void runApplication() {
-        System.out.println("My Docker!");
+        System.out.println("Test My Docker!");
     }
 
 }

@@ -9,11 +9,11 @@
 
 本项目 master 分支模块说明：
 
-- spring-xxx：Spring 框架集成热门、实用技术系列。
+- spring-xxx：Spring 框架通过 XML 或 注解的方式集成 Hibernate、Mybatis 等常用技术，快速入门。
 
-- spring-boot-xxx：各种简单快捷的、热门的及实用的技术系列，通过示例可以快速掌握 Spring Boot 各组件的使用。
+- spring-boot-xxx：结合当下热门实用技术，通过示例可以快速掌握 Spring Boot 各组件的使用。
 
-- spring-cloud-xxx：Spring Cloud 集成热门、实用技术系列。
+- spring-cloud-xxx：微服务 Spring Cloud 各个组件（服务注册、服务发现、配置中心、消息总线、负载均衡、断路器、数据监控等）快速入门示例，并且可以利用 Spring Boot 的开发风格做到一键启动和部署，巧妙地简化了分布式系统基础设施的开发。在这里你可以快速入门。
 
 - spring-security-xxx：Spring Security 常用技术使用示例。
 

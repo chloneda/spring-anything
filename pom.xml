@@ -45,7 +45,7 @@
         <module>spring-boot-with-kafka</module>
         <module>spring-boot-with-logger</module>
         <module>spring-boot-with-mongodb</module>
-        <module>spring-boot-with-mybatis</module>
+        <module>spring-boot-with-mybatis-xml</module>
         <module>spring-boot-with-mybatis-annotation</module>
         <module>spring-boot-with-others</module>
         <module>spring-boot-with-package</module>
@@ -65,6 +65,7 @@
         <module>spring-cloud-with-hello</module>
         <!-- Spring Security 相关项目 -->
         <module>spring-security-with-hello</module>
+        <module>spring-boot-with-mybatis-plus</module>
     </modules>
 
     <!-- 项目开发者的信息 -->

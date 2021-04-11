@@ -1,6 +1,5 @@
 package com.chloneda.persistence;
 
-import com.chloneda.persistence.BasePerson;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
@@ -21,7 +20,7 @@ import java.io.Serializable;
  * 3.标注为@MappedSuperclass的类不能再标注@Entity或@Table注解，也无需实现序列化接口。
  */
 @MappedSuperclass
-public class Person implements BasePerson, Serializable {
+public class Person implements IPerson, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,27 +28,27 @@ public class Person implements BasePerson, Serializable {
     @GeneratedValue(generator = "system_uuid")
     @GenericGenerator(name = "system_uuid", strategy = "uuid")
     @Column(
-            name = "P_ID",
+            name = "ID",
             nullable = false,
             length = 64
     )
     private String id;
 
     @Column(
-            name = "P_NAME",
+            name = "NAME",
             nullable = false,
             length = 128
     )
     private String name;
 
     @Column(
-            name = "P_AGE",
+            name = "AGE",
             length = 54
     )
     private String age;
 
     @Column(
-            name = "P_SEX",
+            name = "SEX",
             length = 54
     )
     private String sex;
@@ -92,6 +91,11 @@ public class Person implements BasePerson, Serializable {
     @Override
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    @Override
+    public boolean isNew() {
+        return false;
     }
 
     @Override

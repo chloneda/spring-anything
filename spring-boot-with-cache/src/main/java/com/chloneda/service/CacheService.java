@@ -1,8 +1,6 @@
 package com.chloneda.service;
 
-import com.chloneda.model.User;
-
-import java.util.List;
+import com.chloneda.domain.User;
 
 /**
  * @Created by chloneda

@@ -1,10 +1,9 @@
 package com.chloneda.controller;
 
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 import com.chloneda.service.UserService;
 import com.chloneda.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

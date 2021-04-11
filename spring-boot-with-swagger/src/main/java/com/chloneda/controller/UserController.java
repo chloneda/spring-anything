@@ -1,6 +1,6 @@
 package com.chloneda.controller;
 
-import com.chloneda.model.User;
+import com.chloneda.domain.User;
 import com.chloneda.service.UserService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;

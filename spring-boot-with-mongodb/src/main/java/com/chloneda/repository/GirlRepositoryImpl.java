@@ -1,6 +1,6 @@
 package com.chloneda.repository;
 
-import com.chloneda.model.Girl;
+import com.chloneda.domain.Girl;
 import com.mongodb.client.result.UpdateResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
