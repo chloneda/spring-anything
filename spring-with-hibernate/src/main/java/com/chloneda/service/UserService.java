@@ -17,7 +17,6 @@ public interface UserService {
      */
     List<User> getUserById(String userId);
 
-
     /**
      *
      * @param userId

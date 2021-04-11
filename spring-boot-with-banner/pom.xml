@@ -11,6 +11,7 @@
 
     <groupId>com.chloneda</groupId>
     <artifactId>spring-boot-with-banner</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
     <description>Banner for Spring Boot</description>
     <name>spring-boot-with-banner</name>

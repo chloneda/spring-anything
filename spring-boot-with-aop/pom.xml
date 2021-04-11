@@ -11,6 +11,7 @@
 
     <groupId>com.chloneda</groupId>
     <artifactId>spring-boot-with-aop</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
     <description>Aop for Spring Boot</description>
     <name>spring-boot-with-aop</name>
@@ -20,7 +21,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <!-- 引入Aop支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

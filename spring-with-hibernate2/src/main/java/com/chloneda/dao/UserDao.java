@@ -1,6 +1,5 @@
 package com.chloneda.dao;
 
-
 import com.chloneda.domain.User;
 
 import java.util.List;

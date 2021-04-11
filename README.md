@@ -7,6 +7,8 @@
 
 # 模块说明
 
+**注意：大部分 module 均依赖 [spring-anything-common](https://github.com/chloneda/spring-anything/tree/master/spring-anything-common)，是 [master](https://github.com/chloneda/spring-anything/tree/master) 分支的公共基础类，包含实体类、DTO等，请先看该 module。**
+
 本项目 master 分支模块说明：
 
 - spring-xxx：Spring 框架通过 XML 或 注解的方式集成 Hibernate、Mybatis 等常用技术，快速入门。
