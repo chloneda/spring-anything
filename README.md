@@ -11,7 +11,7 @@
 
 本项目 master 分支模块说明：
 
-- spring-xxx：Spring 框架通过 XML 或 注解的方式集成 Hibernate、Mybatis 等常用技术，快速入门。
+- spring-xxx：Spring Framework 框架通过 XML 或 注解的方式集成 Hibernate、Mybatis 等常用技术，快速入门。
 
 - spring-boot-xxx：结合当下热门实用技术，通过示例可以快速掌握 Spring Boot 各组件的使用。
 

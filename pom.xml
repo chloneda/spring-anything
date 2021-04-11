@@ -14,6 +14,8 @@
     <url>https://github.com/chloneda/spring-anythig</url>
 
     <modules>
+        <!-- 项目公共模块 -->
+        <module>spring-anything-common</module>
         <!-- Spring Framework 相关项目 -->
         <module>spring</module>
         <module>mybatis</module>
@@ -26,7 +28,6 @@
         <module>spring-boot-with-aop</module>
         <module>spring-boot-with-hibernate</module>
         <module>spring-boot-with-banner</module>
-        <module>spring-boot-with-common</module>
         <module>spring-boot-with-async</module>
         <module>spring-boot-with-batch</module>
         <module>spring-boot-with-cache</module>
@@ -66,6 +67,15 @@
         <!-- Spring Security 相关项目 -->
         <module>spring-security-with-hello</module>
         <module>spring-boot-with-mybatis-plus</module>
+        <module>spring-cloud-with-ribbon</module>
+        <module>spring-cloud-with-feign</module>
+        <module>spring-cloud-with-zuul</module>
+        <module>spring-cloud-with-hystrix</module>
+        <module>spring-cloud-with-config</module>
+        <module>spring-cloud-with-sleuth</module>
+        <module>spring-cloud-with-gateway</module>
+        <module>spring-cloud-with-consul</module>
+        <module>spring-cloud-with-bus</module>
     </modules>
 
     <!-- 项目开发者的信息 -->
