@@ -17,7 +17,7 @@
     <name>spring-boot-with-banner</name>
 
     <properties>
-        <springframework.version>5.1.6.RELEASE</springframework.version>
+        <springframework.version>5.3.19</springframework.version>
         <hibernate.version>5.4.7.Final</hibernate.version>
         <mysql.version>5.1.48</mysql.version>
         <druid.version>1.1.20</druid.version>
